@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+
+  <Affliction name="" identifier="dnadamage" description="" causeofdeathdescription="DNA damage caused total vital failure." selfcauseofdeathdescription="" limbspecific="false" indicatorlimb="Torso" maxstrength="100" treatmentthreshold="0" showiconthreshold="50" showinhealthscannerthreshold="15">
+    <Effect minstrength="0" maxstrength="60" minvitalitydecrease="0" maxvitalitydecrease="0" minchromaticaberration="0.0" maxchromaticaberration="2.5">
+      <StatusEffect target="Character"></StatusEffect>
+    </Effect>
+    <Effect minstrength="60" maxstrength="80" minvitalitydecrease="0" maxvitalitydecrease="100" minchromaticaberration="2.5" maxchromaticaberration="5">
+      <StatusEffect target="Character" targetlimb="Torso" delay="0.5" stackable="false" >
+        <Conditional dnadamage="gte 60" />
+        <Affliction identifier="bloodvomit" amount="5" />
+        <Affliction identifier="internaldamage" amount="3" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="80" maxstrength="100" minvitalitydecrease="60" maxvitalitydecrease="0" minchromaticaberration="5" maxchromaticaberration="5">
+      <StatusEffect target="Character" delay="10">
+        <Conditional dnadamage="100" />
+        <Affliction identifier="organdamage" amount="50" />
+        <Affliction identifier="internaldamage" amount="50" />
+      </StatusEffect>
+      <StatusEffect target="Character">
+        <Conditional dnadamage="100" />
+        <Affliction identifier="deathpuke" amount="100" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Content/Items/Medical/DNAdamage.png" sourcerect="0,0,130,128" color="139,60,42,255" origin="0,0" />
+  </Affliction>
+  <Override>
+  
+    <Affliction name="" identifier="radiationsickness" description="" type="poison" causeofdeathdescription="" selfcauseofdeathdescription="You have died of radiation exposure" limbspecific="false" indicatorlimb="Torso" showiconthreshold="101" showinhealthscannerthreshold="101" karmachangeonapplied="-1" treatmentthreshold="1" maxstrength="100">
+      <!-- Cause nausea, burns & organ damage DNA damage depending on strength + geiger counter sound effect -->
+      <Effect minstrength="5" maxstrength="25" strengthchange="-0.05" minchromaticaberration="0.0" maxchromaticaberration="0">
+      </Effect>
+      <Effect minstrength="25" maxstrength="50" strengthchange="-0.05" >
+        <StatusEffect target="Character" delay="1" stackable="false" >
+          <Affliction identifier="dnadamage" amount="0.1" />
+        </StatusEffect>
+        <StatusEffect target="Character" comparison="And">
+          <Conditional IsPlayer="True" />
+          <Conditional lethalradiation="lt 61" />
+          <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
+        </StatusEffect>
+      </Effect>
+      <Effect minstrength="50" maxstrength="75" strengthchange="-0.05" MinScreenBlur="0" MaxScreenBlur="0.25">
+        <StatusEffect target="Character" delay="1" stackable="false">
+          <Affliction identifier="nausea" amount="25" />
+          <Affliction identifier="dnadamage" amount="0.24" />
+          <Conditional lethalradiation="lt 60" />
+        </StatusEffect>
+        <StatusEffect target="Character" comparison="And">
+          <Conditional IsPlayer="True" />
+          <Conditional lethalradiation="lt 61" />
+          <sound file="%ModDir%/Content/Items/Reactor/mediumradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
+        </StatusEffect>
+      </Effect>
+      <Effect minstrength="75" maxstrength="90" strengthchange="-0.05" minchromaticaberration="1" maxchromaticaberration="3" mingrainstrength="0.0" maxgrainstrength="1" MinScreenBlur="0.25" MaxScreenBlur="0.6">
+        <StatusEffect target="Character" delay="1" stackable="false" >
+          <Affliction identifier="nausea" amount="25" />
+          <Affliction identifier="burn" amount="0.6" />
+          <Affliction identifier="dnadamage" amount="0.4" />
+          <Conditional lethalradiation="lt 60" />
+        </StatusEffect>
+        <StatusEffect target="Character" comparison="And">
+          <Conditional IsPlayer="True" />
+          <Conditional lethalradiation="lt 61" />
+          <sound file="%ModDir%/Content/Items/Reactor/highradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
+        </StatusEffect>
+      </Effect>
+      <Effect minstrength="90" maxstrength="100" strengthchange="-0.05" minchromaticaberration="3" maxchromaticaberration="5" mingrainstrength="1" maxgrainstrength="2" MinScreenBlur="0.6" MaxScreenBlur="0.75" >
+        <StatusEffect target="Character" delay="1" stackable="false" >
+          <Affliction identifier="burn" amount="1" />
+          <Affliction identifier="organdamage" amount="1" />
+          <Affliction identifier="internaldamage" amount="1" />
+          <Affliction identifier="dnadamage" amount="0.4" />
+          <Affliction identifier="bloodvomit" amount="25" />
+          <Affliction identifier="lethalradiation" amount="25" />
+          <Conditional lethalradiation="lt 60" />
+        </StatusEffect>
+        <StatusEffect target="Character" comparison="And">
+          <Conditional IsPlayer="True" />
+          <Conditional lethalradiation="lt 61" />
+          <sound file="%ModDir%/Content/Items/Reactor/highradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
+        </StatusEffect>
+      </Effect>
+      <icon texture="%ModDir%/Content/Items/Medical/DNAdamage.png" sourcerect="0,0,130,130" color="139,60,42,255" origin="0,0" />
+    </Affliction>
+  </Override>
+  
+  
+  <Affliction name="" identifier="radiationresistance" description="" type="resistance" isbuff="true" limbspecific="false" maxstrength="600" iconcolors="10,193,114,255;10,193,114,255;10,193,114,255;10,193,114,255">
+    <Effect minstrength="0" maxstrength="600" strengthchange="-0.5" resistancefor="radiationsickness" minresistance="0.8" maxresistance="0.95" >
+     <Conditional lethalradiation="lt 60" />
+      </Effect>
+    <Effect minstrength="0" maxstrength="600" strengthchange="-0.5" resistancefor="contamination" minresistance="1" maxresistance="1" >
+     <Conditional lethalradiation="lt 60" />
+      </Effect>
+    <icon texture="%ModDir%/Content/Items/Medical/radiation immunity.png" sourcerect="0,0,121,126" origin="0,0" />
+  </Affliction>
+  
+  
+  <Affliction name="" identifier="contamination" description="" limbspecific="false" indicatorlimb="Torso" showiconthreshold="50" showinhealthscannerthreshold="45" karmachangeonapplied="-1" treatmentthreshold="0" maxstrength="100" grainburst="3">
+    <Effect minstrength="5" maxstrength="25">
+      <StatusEffect target="Character" delay="0.5" stackable="false">
+        <Affliction identifier="radiationsickness" amount="20" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="25" maxstrength="50">
+      <StatusEffect target="Character" delay="0.5" stackable="false">
+        <Affliction identifier="radiationsickness" amount="30" />
+        <Affliction identifier="dnadamage" amount="0.25" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="50" maxstrength="75">
+      <StatusEffect target="Character" delay="0.5" stackable="false">
+        <Affliction identifier="radiationsickness" amount="40" />
+        <Affliction identifier="dnadamage" amount="0.5" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="75" maxstrength="95">
+      <StatusEffect target="Character" delay="0.5" stackable="false" >
+        <Affliction identifier="radiationsickness" amount="50" />
+        <Affliction identifier="dnadamage" amount="0.75" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="95" maxstrength="100">
+      <StatusEffect target="Character" delay="0.5" stackable="false" >
+        <Affliction identifier="radiationsickness" amount="60" />
+        <Affliction identifier="lethalradiation" amount="5" />
+        <Affliction identifier="dnadamage" amount="1.0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Content/Items/Medical/Contaminationv1.png" sourcerect="0,0,130,128" origin="0,0" color="10,193,114,255" />
+  </Affliction>
+  <Affliction name="burn emitter" identifier="burn_emitter" description="cause burn damage" limbspecific="false" indicatorlimb="Torso" showiconthreshold="110" showinhealthscannerthreshold="110" karmachangeonapplied="-1" treatmentthreshold="0" maxstrength="100" grainburst="3">
+    <Effect minstrength="0" maxstrength="100" strengthchange="-200">
+      <StatusEffect target="Character" delay="0.5" stackable="false" >
+        <Affliction identifier="burn" amount="1" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="768,640,128,128" color="195,104,60,255" origin="0,0" />
+  </Affliction>
+  
+  
+  <Affliction name="burn emitter" identifier="burn_emitter_rod" description="cause burn damage" limbspecific="false" indicatorlimb="Torso" showiconthreshold="110" showinhealthscannerthreshold="110" karmachangeonapplied="-1" treatmentthreshold="0" maxstrength="100" grainburst="3">
+    <Effect minstrength="0" maxstrength="100" strengthchange="-200">
+      <StatusEffect target="Character" delay="0.5" stackable="false">
+        <Affliction identifier="burn" amount="0.6" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="768,640,128,128" color="195,104,60,255" origin="0,0" />
+  </Affliction>
+  
+  
+  <Affliction name="burn emitter" identifier="criticalrod_burn_emitter" description="cause burn damage" limbspecific="false" indicatorlimb="Torso" showiconthreshold="110" showinhealthscannerthreshold="110" karmachangeonapplied="-1" treatmentthreshold="0" maxstrength="100" grainburst="3">
+    <Effect minstrength="0" maxstrength="100" strengthchange="-100">
+      <StatusEffect target="Character" delay="0.5" stackable="false">
+        <Affliction identifier="burn" amount="4" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="768,640,128,128" color="195,104,60,255" origin="0,0" />
+  </Affliction>
+  
+  
+  <Affliction name="" identifier="burningrod" description="" showiconthreshold="0" causeofdeathdescription="" selfcauseofdeathdescription="" showinhealthscannerthreshold="110" karmachangeonapplied="-1" treatmentthreshold="0" maxstrength="100">
+    <Effect minstrength="0" maxstrength="100" strengthchange="-200">
+      <StatusEffect target="Character" targetlimbs="LeftHand,RightHand">
+        <Affliction identifier="burn" amount="2.5" />
+        <sound file="%ModDir%/Content/Items/Medical/fleshburn.ogg" type="OnUse" range="500.0" loop="true" volume="1" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Content/Items/Medical/Hot_rod.png" sourcerect="0,0,130,128" origin="0,0" color="195,104,60,255" />
+  </Affliction>
+  
+  
+  <Override>
+    <Affliction name="Nausea" identifier="nausea" description="The skin is clammy and the patient is vomiting periodically." type="nausea" causeofdeathdescription="Choked on vomit." selfcauseofdeathdescription="You have choked on your own vomit." limbspecific="false" maxstrength="100" treatmentthreshold="1000" karmachangeonapplied="-0.1" damageoverlayalpha="101" showiconthreshold="101" showinhealthscannerthreshold="0">
+      <Effect minstrength="0" maxstrength="100" strengthchange="-1.0" minfacetint="255,255,255,0" maxfacetint="255,255,255,100">
+        <StatusEffect target="Character" SpeedMultiplier="0.6" setvalue="true" />
+        <StatusEffect type="Always" target="Character">
+          <Conditional bloodvomit="neq 0" />
+          <Reduceaffliction identifier="nausea" strength="100" />
+        </StatusEffect>
+      </Effect>
+      <PeriodicEffect mininterval="20" maxinterval="20">
+        <StatusEffect target="Character" SpeedMultiplier="0.0" setvalue="true" duration="1.7" />
+        <StatusEffect target="Character" comparison="and">
+          <Conditional ishuman="true" />
+          <Conditional ismale="true" />
+          <Sound file="Content/Sounds/HUMAN_chokeMale1.ogg" selectionmode="Random" />
+          <Sound file="Content/Sounds/HUMAN_chokeMale2.ogg" />
+          <Sound file="Content/Sounds/HUMAN_chokeMale3.ogg" />
+        </StatusEffect>
+        <StatusEffect target="Character" comparison="and">
+          <Conditional ishuman="true" />
+          <Conditional isfemale="true" />
+          <Sound file="Content/Sounds/HUMAN_chokeFemale1.ogg" selectionmode="Random" />
+          <Sound file="Content/Sounds/HUMAN_chokeFemale2.ogg" />
+          <Sound file="Content/Sounds/HUMAN_chokeFemale3.ogg" />
+        </StatusEffect>
+        <StatusEffect target="Character">
+          <Affliction identifier="stun" strength="0.1" />
+          <Affliction identifier="organdamage" strength="0.5" />
+        </StatusEffect>
+        <StatusEffect target="Character" targetlimbs="Head" duration="1">
+          <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="50" velocitymin="50" velocitymax="200" scalemin="0.1" scalemax="0.2" />
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="vomitsplatter" decalsize="1.25" shockwave="false" underwaterbubble="false" />
+          <Conditional HideFace="eq False" />
+        </StatusEffect>
+      </PeriodicEffect>
+      <icon texture="Content/UI/CommandUIAtlas.png" sourcerect="896,896,128,128" origin="0,0" />
+    </Affliction>
+  </Override>
+  
+  <Affliction name="Total vital failure" identifier="deathpuke" description="Patient vomited part of its organs and most of its blood, dying in the process." type="nausea" causeofdeathdescription="Vomited most organs." selfcauseofdeathdescription="You puked most of your organs and blood out." limbspecific="false" maxstrength="100" treatmentthreshold="1000" karmachangeonapplied="-0.1" damageoverlayalpha="1" showiconthreshold="101" showinhealthscannerthreshold="101">
+    <PeriodicEffect mininterval="1" maxinterval="1">
+      <StatusEffect target="Character" SpeedMultiplier="0.0" setvalue="true" duration="1.0" />
+      <StatusEffect target="Character" comparison="and">
+        <Conditional ishuman="true" />
+        <Conditional ismale="true" />
+        <Sound file="%ModDir%/Content/Items/Medical/HUMAN_chokeMale1.ogg" selectionmode="Random" />
+        <Sound file="%ModDir%/Content/Items/Medical/HUMAN_chokeMale2.ogg" />
+        <Sound file="%ModDir%/Content/Items/Medical/HUMAN_chokeMale3.ogg" />
+      </StatusEffect>
+      <StatusEffect target="Character" comparison="and">
+        <Conditional ishuman="true" />
+        <Conditional isfemale="true" />
+        <Sound file="%ModDir%/Content/Items/Medical/HUMAN_chokeFemale1.ogg" selectionmode="Random" />
+        <Sound file="%ModDir%/Content/Items/Medical/HUMAN_chokeFemale2.ogg" />
+        <Sound file="%ModDir%/Content/Items/Medical/HUMAN_chokeFemale3.ogg" />
+      </StatusEffect>
+      <StatusEffect target="Character">
+        <Affliction identifier="stun" strength="3" />
+        <Affliction identifier="organdamage" strength="0.5" />
+        <Affliction identifier="bloodloss" strength="1" />
+      </StatusEffect>
+      <StatusEffect target="Character" targetlimbs="Head" duration="1">
+        <ParticleEmitter particle="bloodvomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="50" velocitymin="50" velocitymax="200" scalemin="0.1" scalemax="0.2" />
+        <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="bloodvomitsplatter" decalsize="1.25" shockwave="false" underwaterbubble="false" />
+        <Conditional HideFace="eq False" />
+      </StatusEffect>
+    </PeriodicEffect>
+    <icon texture="Content/UI/CommandUIAtlas.png" sourcerect="896,896,128,128" origin="0,0" />
+  </Affliction>
+  
+  <Affliction name="Blood vomit" identifier="bloodvomit" description="Patient is vomiting blood." type="" causeofdeathdescription="Vomited most organs." selfcauseofdeathdescription="You puked most of your blood out." limbspecific="false" maxstrength="100" treatmentthreshold="1000" karmachangeonapplied="-0.1" damageoverlayalpha="1" showiconthreshold="101" showinhealthscannerthreshold="101">
+    <Effect minstrength="0" maxstrength="100" strengthchange="-1.0" />
+    <PeriodicEffect mininterval="20" maxinterval="25">
+      <StatusEffect target="Character" SpeedMultiplier="0.0" setvalue="true" duration="1.0" />
+      <StatusEffect target="Character" comparison="and">
+        <Conditional ishuman="true" />
+        <Conditional ismale="true" />
+        <Sound file="%ModDir%/Content/Items/Medical/HUMAN_chokeMale1.ogg" selectionmode="Random" />
+        <Sound file="%ModDir%/Content/Items/Medical/HUMAN_chokeMale2.ogg" />
+        <Sound file="%ModDir%/Content/Items/Medical/HUMAN_chokeMale3.ogg" />
+      </StatusEffect>
+      <StatusEffect target="Character" comparison="and">
+        <Conditional ishuman="true" />
+        <Conditional isfemale="true" />
+        <Sound file="%ModDir%/Content/Items/Medical/HUMAN_chokeFemale1.ogg" selectionmode="Random" />
+        <Sound file="%ModDir%/Content/Items/Medical/HUMAN_chokeFemale2.ogg" />
+        <Sound file="%ModDir%/Content/Items/Medical/HUMAN_chokeFemale3.ogg" />
+      </StatusEffect>
+      <StatusEffect target="Character">
+        <Affliction identifier="stun" strength="0.1" />
+        <Affliction identifier="organdamage" strength="0.5" />
+        <Affliction identifier="bloodloss" strength="3" />
+      </StatusEffect>
+      <StatusEffect target="Character">
+        <Reduceaffliction identifier="bloodvomit" ammount="10" />
+      </StatusEffect>
+      <StatusEffect target="Character" targetlimbs="Head" duration="1">
+        <ParticleEmitter particle="bloodvomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="50" velocitymin="50" velocitymax="200" scalemin="0.1" scalemax="0.2" />
+        <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="bloodvomitsplatter" decalsize="1.25" shockwave="false" underwaterbubble="false" />
+        <Conditional HideFace="eq False" />
+      </StatusEffect>
+    </PeriodicEffect>
+    <icon texture="Content/UI/CommandUIAtlas.png" sourcerect="896,896,128,128" origin="0,0" />
+  </Affliction>
+  
+  
+  <Affliction name="" identifier="hazardexposure" description="" type="hazardexposure" isbuff="true" limbspecific="false" maxstrength="10" treatmentthreshold="1000" showiconthreshold="1" showinhealthscannerthreshold="110" iconcolors="255,142,0;255,142,0;255,142,0;255,142,0">
+    <Effect minstrength="0" maxstrength="10" strengthchange="-4" />
+    <Icon texture="%ModDir%/Content/Items/Medical/hazardexposure.png" color="10,193,114,255" sourcerect="0,0,130,128" origin="0,0" />
+  </Affliction>
+  
+  <Affliction name="" identifier="radiationexposure" description="" type="hazardexposure" isbuff="true" limbspecific="false" maxstrength="10" treatmentthreshold="1000" showiconthreshold="1" showinhealthscannerthreshold="110" iconcolors="255,142,0;255,142,0;255,142,0;255,142,0">
+    <Effect minstrength="0" maxstrength="10" strengthchange="-4" />
+    <Icon texture="%ModDir%/Content/Items/Medical/hazardexposure.png" color="10,193,114,255" sourcerect="0,0,130,128" origin="0,0" />
+  </Affliction>
+  
+  <Affliction name="" identifier="dnaregeneration" description="" isbuff="true" limbspecific="false" indicatorlimb="Torso" showiconthreshold="0" showinhealthscannerthreshold="0" karmachangeonapplied="-1" treatmentthreshold="0" minstrength="0" maxstrength="375" iconcolors="10,193,114,255;10,193,114,255;10,193,114,255;10,193,114,255" > 
+    <Effect minstrength="0" maxstrength="375" strengthchange="-1" />
+    <Icon texture="%ModDir%/Content/Items/Medical/DNAregeneration.png" sourcerect="0,0,130,128" origin="0,0" />
+  </Affliction>
+	
+  <Affliction name="" identifier="antiradeffect" description="" isbuff="true" limbspecific="false" indicatorlimb="Torso" showiconthreshold="0" showinhealthscannerthreshold="0" karmachangeonapplied="-1" treatmentthreshold="0" minstrength="0" maxstrength="60" iconcolors="10,193,114,255;10,193,114,255;10,193,114,255;10,193,114,255" >
+    <Effect minstrength="0" maxstrength="60" strengthchange="-1" />
+    <Icon texture="%ModDir%/Content/Items/Medical/antiradeffect.png" sourcerect="0,0,130,128" origin="0,0" />
+  </Affliction>
+  
+  
+  <Affliction name="" identifier="lethalradiation" description="" type="poison" causeofdeathdescription="" selfcauseofdeathdescription="" limbspecific="false" indicatorlimb="Torso" showiconthreshold="60" showinhealthscannerthreshold="60" karmachangeonapplied="-1" treatmentthreshold="0" minstrength="0" maxstrength="300">
+    <Effect minstrength="0" maxstrength="60" strenghtchange="-0.2" />
+	
+    <Effect minstrength="60" maxstrength="120" minchromaticaberration="2" maxchromaticaberration="2" mingrainstrength="2" maxgrainstrength="2" MinScreenBlur="0" MaxScreenBlur="0.5">
+      <StatusEffect target="Character" delay="1" stackable="false" >
+        <Affliction identifier="burn" amount="1" />
+        <Affliction identifier="internaldamage" amount="0.5" />
+        <Affliction identifier="bloodvomit" amount="50" />
+        <Affliction identifier="dnadamage" amount="5" />
+        <Affliction identifier="lethalradiation" amount="80" />
+        <Affliction identifier="organdamage" strength="0.5" />
+        <ReduceAffliction identifier="antiradeffect" amount="9000" />
+        <ReduceAffliction identifier="radiationsickness" amount="9000" />
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="0.3" setvalue="true" />
+      <StatusEffect target="Character">
+        <Conditional IsPlayer="True" />
+        <sound file="%ModDir%/Content/Items/Reactor/highradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="120" maxstrength="240" minchromaticaberration="2" maxchromaticaberration="2" mingrainstrength="2" maxgrainstrength="0.5" MinScreenBlur="2" MaxScreenBlur="0.75">
+      <StatusEffect target="Character" delay="1" stackable="false" >
+        <Affliction identifier="burn" amount="2" />
+        <Affliction identifier="internaldamage" amount="1" />
+        <Affliction identifier="bloodvomit" amount="50" />
+        <Affliction identifier="dnadamage" amount="8" />
+        <Affliction identifier="lethalradiation" amount="80" />
+        <Affliction identifier="organdamage" strength="1" /> 
+        <ReduceAffliction identifier="radiationsickness" amount="9000" />
+        <ReduceAffliction identifier="antiradeffect" amount="9000" />
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="0.3" setvalue="true" />
+      <StatusEffect target="Character">
+        <Conditional IsPlayer="True" />
+        <sound file="%ModDir%/Content/Items/Reactor/highradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="240" maxstrength="300" minchromaticaberration="2" maxchromaticaberration="2" mingrainstrength="2" maxgrainstrength="2" MinScreenBlur="0.75" MaxScreenBlur="1">
+      <StatusEffect target="Character" delay="1" stackable="false" >
+        <Affliction identifier="burn" amount="2" />
+        <Affliction identifier="internaldamage" amount="1" />
+        <Affliction identifier="bloodvomit" amount="50" />
+        <Affliction identifier="dnadamage" amount="10" />
+        <Affliction identifier="organdamage" strength="1" />
+        <Affliction identifier="lethalradiation" amount="80" />
+        <ReduceAffliction identifier="radiationsickness" amount="9000" />
+        <ReduceAffliction identifier="antiradeffect" amount="9000" />
+      </StatusEffect>
+      <StatusEffect target="character" setvalue="true" delay="0.5" stackable="false">
+        <Affliction identifier="stun" amount="40" />
+      </StatusEffect>
+      <StatusEffect target="Character">
+        <Conditional IsPlayer="True" />
+        <sound file="%ModDir%/Content/Items/Reactor/highradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,768,128,128" color="195,136,60,255" origin="0,0" />
+  </Affliction>
+</Afflictions>
