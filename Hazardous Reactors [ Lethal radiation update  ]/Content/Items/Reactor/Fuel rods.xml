@@ -6,7 +6,7 @@
     <!-- STANDART FUEL RODS -->
 	
 	
-    <Item name="" category="fuel" identifier="fuelrod" Tags="reactorfuel,smallitem" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" health="100" impactsoundtag="impact_metal_light" description="">
+    <Item name="" category="fuel" identifier="fuelrod" Tags="reactorfuel" maxstacksize="8" scale="0.5" health="100" impactsoundtag="impact_metal_light" description="">
       <!-- Spawn location and pricing -->
       <PreferredContainer primary="reactorcab" minamount="2" maxamount="5" spawnprobability="1" />
       <PreferredContainer secondary="wreckreactorcab,abandonedstoragecab" minamount="1" maxamount="3" spawnprobability="1" />
@@ -126,7 +126,7 @@
   
   
   <Override>
-    <Item name="" category="fuel" identifier="thoriumfuelrod" Tags="reactorfuel,smallitem" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" health="300" impactsoundtag="impact_metal_light" description="">
+    <Item name="" category="fuel" identifier="thoriumfuelrod" Tags="reactorfuel" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" health="300" impactsoundtag="impact_metal_light" description="">
       <!-- Spawn location and pricing -->
       <PreferredContainer primary="reactorcab" minamount="1" maxamount="2" spawnprobability="0.05" />
       <PreferredContainer primary="wreckreactorcab,abandonedstoragecab" minamount="0" maxamount="2" spawnprobability="0.25" />
@@ -247,7 +247,7 @@
   
   
   <Override>
-    <Item name="" category="fuel" identifier="fulguriumfuelrod" Tags="reactorfuel,smallitem" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" health="1500" impactsoundtag="impact_metal_light" description="">
+    <Item name="" category="fuel" identifier="fulguriumfuelrod" Tags="reactorfuel" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" health="1500" impactsoundtag="impact_metal_light" description="">
       <!-- Spawn location and pricing -->
       <PreferredContainer primary="reactorcab,storagecab" />
       <PreferredContainer primary="wreckreactorcab" minamount="0" maxamount="1" spawnprobability="0.25" />
@@ -333,14 +333,7 @@
         <StatusEffect type="OnNotContained" target="NearbyItems" range="6000.0" targettags="junctionbox" stackable="false" delay="0.5" condition="-20">
           <ParticleEmitter particle="ElectricShock" distancemax="6" particlespersecond="2.0" particleamount="2" emitinterval="2.1" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.2" />
         </StatusEffect>
-		
-        <StatusEffect type="OnContained" target="NearbyItems" range="6000.0" targettags="junctionbox" stackable="false" delay="0.5" condition="-20" comparaison="Or">
-		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
-		  <Conditional hastag="eq human" targetcontainer="true" />
-          <ParticleEmitter particle="ElectricShock" distancemax="6" particlespersecond="2.0" particleamount="2" emitinterval="2.1" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.2" />
-        </StatusEffect>
-		
-		
+	
         <!-- Fancy electrical spark + sound effect -->
 		
 		
@@ -376,7 +369,7 @@
   
   
   <Override>
-    <Item name="" identifier="fulguriumfuelrodvolatile" category="fuel,smallitem" Tags="reactorfuel" maxstacksize="8" impacttolerance="3" description="" cargocontaineridentifier="metalcrate" health="750" scale="0.5">
+    <Item name="" identifier="fulguriumfuelrodvolatile" category="fuel" Tags="reactorfuel" maxstacksize="8" impacttolerance="3" description="" cargocontaineridentifier="metalcrate" health="750" scale="0.5">
       <!-- Pricing -->
       <Price baseprice="400" soldeverywhere="false">
         <Price locationtype="outpost" multiplier="0" sold="false" />
@@ -485,12 +478,7 @@
         <StatusEffect type="OnNotContained" target="NearbyItems" range="6000.0" targettags="junctionbox" stackable="false" delay="0.5" condition="-20">
           <ParticleEmitter particle="ElectricShock" distancemax="6" particlespersecond="2.0" particleamount="2" emitinterval="2.1" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.2" />
         </StatusEffect>
-		
-        <StatusEffect type="OnContained" target="NearbyItems" range="6000.0" targettags="junctionbox" stackable="false" delay="0.5" condition="-20" comparaison="Or">
-		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
-		  <Conditional hastag="eq human" targetcontainer="true" />
-          <ParticleEmitter particle="ElectricShock" distancemax="6" particlespersecond="2.0" particleamount="2" emitinterval="2.1" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.2" />
-        </StatusEffect>
+
 		
 		
         <!-- Fancy electrical spark + sound effect -->
@@ -556,7 +544,7 @@
   
   
   <Override>
-    <Item name="" category="fuel" identifier="ekutility_incendiumfuelrod" Tags="reactorfuel,smallitem" maxstacksize="8" cargocontaineridentifier="explosivecrate" scale="0.5" health="60" impacttolerance="3" impactsoundtag="impact_metal_light" description="">
+    <Item name="" category="fuel" identifier="ekutility_incendiumfuelrod" Tags="reactorfuel" maxstacksize="8" cargocontaineridentifier="explosivecrate" scale="0.5" health="60" impacttolerance="3" impactsoundtag="impact_metal_light" description="">
       <!-- Pricing -->
       <Price baseprice="200" soldeverywhere="false">
         <Price locationtype="outpost" multiplier="1" sold="false" />

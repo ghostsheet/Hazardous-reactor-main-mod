@@ -180,7 +180,7 @@ Donc suivez la procédure suivante pour les réparations :
 
 
 ATTENTION Effectuer des réparations sur un réacteur en marche à de fortes chances de causer une explosion de vapeur irradié, endommageant davantage le réacteur, blessant grièvement la personne et irradie la salle et toute personne présente.
-ATTENTION le recalage du réacteur par du personnel qui n'en possède pas les compétences requises risquent une électrocution fatale.
+ATTENTION le recablage du réacteur par du personnel qui n'en possède pas les compétences requises risquent une électrocution fatale.
   
   
 ____________________________________________III. Gestion de crise du réacteur______________________________________
@@ -219,12 +219,14 @@ Toute réparation du réacteur suivant sa destruction doit suivre la procédure 
 
 __________________________________________IV. Dangers des barre de combustible_______________________________________________
 
+Une information importante avant de traité cette section, les materiaux fissile utilisés dans la fabrication de barre a combustible doivent être entroposer dans une casse sécurisé ou dans une salle isolé de l'équipage.
+Bien que leurs émissions sont faibles, une large quantité de ces matériaux stocker au même endroit peux être aussi dangereux qu'une fuite de radiation sur un réacteur.
 
 Les barres de combustibles ont plusieurs couches de dangers mortels et leur maniement par du personnel mal entraîné peut entrainer la mort de plus d'un membre d'équipage voit la perte du sous-marin. Une barre de combustible est considérée comme dangereux quand partiellement ou totalement usée elle émettra une lumière caractéristique à ce point.
 À moins d'être placé dans le réacteur, les barres de combustibles sont *presque* complètement sûres à manipuler.
 Une fois activé par le réacteur, toute barre de combustible doit être manipulée avec de grandes précautions et uniquement entreposer dans les conteneurs suivants :
 
--Caisse de stockage de barre de combustible
+-Caisse de stockage de materiaux radioactifs
 -Chariot de manipulation à barre de combustible
 -Transporteur à barre de combustible
 -Le réacteur

@@ -74,26 +74,26 @@
     </LevelResource>
     <Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" >
 	  
-        <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false"  comparaison="Or">
+        <StatusEffect type="OnContained" target="This" stackable="false"  comparaison="Or">
 		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
 		  <Conditional hastag="eq human" targetcontainer="true" />
           <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="Always" range="500.0" loop="true" volume="0.5" />
         </StatusEffect>
   
-        <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="Or">
+        <StatusEffect type="OnContained" target="This" stackable="false" delay="1" comparison="Or">
 		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
 		  <Conditional hastag="eq human" targetcontainer="true" />
-          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" delay="1" sparks="false" underwaterbubble="false" camerashake="0.0" stackable="false" flash="false" flashRange="0" ignorecover="false">
+          <Explosion range="1000" stun="0" force="0" smoke="false" flames="false" shockwave="false" delay="1" sparks="false" underwaterbubble="false" camerashake="0.0" stackable="false" flash="false" flashRange="0" ignorecover="false">
             <Affliction identifier="radiationsickness" strength="0.2" />
           </Explosion>
         </StatusEffect>
 		
-        <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" >
+        <StatusEffect type="OnNotContained" target="This" stackable="false" >
           <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="Always" range="500.0" loop="true" volume="0.5" />
         </StatusEffect>
 		
-        <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="1" >
-          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" delay="1" stackable="false" flash="false" flashRange="0" ignorecover="false">
+        <StatusEffect type="OnNotContained" target="This" stackable="false" delay="1" >
+          <Explosion range="1000" stun="0" force="0" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" delay="1" stackable="false" flash="false" flashRange="0" ignorecover="false">
             <Affliction identifier="radiationsickness" strength="0.2" />
           </Explosion>
         </StatusEffect> 
@@ -116,6 +116,8 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="898,192,61,63" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Materials/CraftingElements1.png" sourcerect="4,130,49,41" depth="0.55" origin="0.5,0.5" />
     <Body width="45" height="32" density="50" />
+    <LightComponent lightcolor="160,175,187,225" range="0" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true" />
+
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
@@ -128,21 +130,21 @@
           <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="Always" range="500.0" loop="true" volume="0.5" />
         </StatusEffect>
   
-        <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="Or">
+        <StatusEffect type="OnContained" target="This" stackable="false" delay="1" comparison="Or">
 		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
 		  <Conditional hastag="eq human" targetcontainer="true" />
-          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" delay="1" sparks="false" underwaterbubble="false" camerashake="0.0" stackable="false" flash="false" flashRange="0" ignorecover="false">
-            <Affliction identifier="radiationsickness" strength="0.025" />
+          <Explosion range="1000" stun="0" force="0" smoke="false" flames="false" shockwave="false" delay="1" sparks="false" underwaterbubble="false" camerashake="0.0" stackable="false" flash="false" flashRange="0" ignorecover="false">
+            <Affliction identifier="radiationsickness" strength="0.05" />
           </Explosion>
         </StatusEffect>
 		
-        <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" >
+        <StatusEffect type="OnNotContained" target="This" stackable="false" >
           <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="Always" range="500.0" loop="true" volume="0.5" />
         </StatusEffect>
 		
-        <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="1" >
-          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" delay="1" stackable="false" flash="false" flashRange="0" ignorecover="false">
-            <Affliction identifier="radiationsickness" strength="0.025" />
+        <StatusEffect type="OnNotContained" target="This" stackable="false" delay="1" >
+          <Explosion range="1000" stun="0" force="0" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" delay="1" stackable="false" flash="false" flashRange="0" ignorecover="false">
+            <Affliction identifier="radiationsickness" strength="0.05" />
           </Explosion>
         </StatusEffect>
 	</Holdable>
@@ -189,26 +191,26 @@
     </LevelResource>
     <Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" >
 	
-        <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false"  comparaison="Or">
+        <StatusEffect type="OnContained" target="This" stackable="false"  comparaison="Or">
 		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
 		  <Conditional hastag="eq human" targetcontainer="true" />
           <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="Always" range="500.0" loop="true" volume="0.5" />
         </StatusEffect>
   
-        <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="Or">
+        <StatusEffect type="OnContained" target="This" stackable="false" delay="1" comparison="Or">
 		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
 		  <Conditional hastag="eq human" targetcontainer="true" />
-          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" delay="1" sparks="false" underwaterbubble="false" camerashake="0.0" stackable="false" flash="false" flashRange="0" ignorecover="false">
+          <Explosion range="1000" stun="0" force="0" smoke="false" flames="false" shockwave="false" delay="1" sparks="false" underwaterbubble="false" camerashake="0.0" stackable="false" flash="false" flashRange="0" ignorecover="false">
             <Affliction identifier="radiationsickness" strength="0.2" />
           </Explosion>
         </StatusEffect>
 		
-        <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" >
+        <StatusEffect type="OnNotContained" target="This" stackable="false" >
           <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="Always" range="500.0" loop="true" volume="0.5" />
         </StatusEffect>
 		
-        <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="1" >
-          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" delay="1" stackable="false" flash="false" flashRange="0" ignorecover="false">
+        <StatusEffect type="OnNotContained" target="This" stackable="false" delay="1" >
+          <Explosion range="1000" stun="0" force="0" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" delay="1" stackable="false" flash="false" flashRange="0" ignorecover="false">
             <Affliction identifier="radiationsickness" strength="0.2" />
           </Explosion>
         </StatusEffect>
@@ -230,6 +232,8 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,192,64,64" />
     <Sprite texture="Content/Items/Materials/CraftingElements1.png" sourcerect="54,131,46,39" depth="0.55" origin="0.5,0.5" />
     <Body width="45" height="30" density="50" />
+    <LightComponent lightcolor="160,175,187,225" range="0" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true" />
+    
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
@@ -245,8 +249,8 @@
         <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="Or">
 		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
 		  <Conditional hastag="eq human" targetcontainer="true" />
-          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" delay="1" sparks="false" underwaterbubble="false" camerashake="0.0" stackable="false" flash="false" flashRange="0" ignorecover="false">
-            <Affliction identifier="radiationsickness" strength="0.025" />
+          <Explosion range="1000" stun="0" force="0" smoke="false" flames="false" shockwave="false" delay="1" sparks="false" underwaterbubble="false" camerashake="0.0" stackable="false" flash="false" flashRange="0" ignorecover="false">
+            <Affliction identifier="radiationsickness" strength="0.05" />
           </Explosion>
         </StatusEffect>
 		
@@ -255,8 +259,8 @@
         </StatusEffect>
 		
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="1" >
-          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" delay="1" stackable="false" flash="false" flashRange="0" ignorecover="false">
-            <Affliction identifier="radiationsickness" strength="0.025" />
+          <Explosion range="1000" stun="0" force="0" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" delay="1" stackable="false" flash="false" flashRange="0" ignorecover="false">
+            <Affliction identifier="radiationsickness" strength="0.05" />
           </Explosion>
         </StatusEffect>
 	</Holdable>
