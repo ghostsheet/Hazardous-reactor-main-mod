@@ -194,7 +194,7 @@
 			
   </Item> -->
   <Override>
-    <Item name="" identifier="ekutility_handtruck_reactorfuel" category="Equipment" Tags="ekutility_compatiblefuelstorage" pickdistance="75" scale="0.6" description="">
+    <Item name="" identifier="ekutility_handtruck_reactorfuel" category="Equipment" Tags="ekutility_compatiblefuelstorage,hazardcontainement" pickdistance="75" scale="0.6" description="">
       <Price baseprice="300">
       <Price storeidentifier="merchantoutpost" sold="false" />
       <Price storeidentifier="merchantcity" minavailable="1" />
