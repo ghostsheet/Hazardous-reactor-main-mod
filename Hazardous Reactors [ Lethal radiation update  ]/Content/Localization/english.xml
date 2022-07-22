@@ -86,7 +86,7 @@
 <entitydescription.supercritical_fulgurium>This fuel rod has reached a supercritical state during the meltdown and is at risk of unleashing all its energy at once at the slightest impact, its realeased energy is enough to damage the hull around it but also seem to drain it quickly. However the fulgurium amalgam make it burn much longer</entitydescription.supercritical_fulgurium>
 
 <entityname.molten_rods>Corium</entityname.molten_rods>
-<entitydescription.molten_rods>Cooled radioactive magma, emits an extreme ammounts of radiation</entitydescription.molten_rods>
+<entitydescription.molten_rods>Cooled radioactive magma, emits an extreme amount of radiation</entitydescription.molten_rods>
 
 			<!-- Explosive weapon items -->
 
