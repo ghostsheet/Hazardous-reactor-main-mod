@@ -300,7 +300,7 @@
   
   
   <Affliction name="" identifier="lethalradiation" description="" type="poison" causeofdeathdescription="" selfcauseofdeathdescription="" limbspecific="false" indicatorlimb="Torso" showiconthreshold="60" showinhealthscannerthreshold="60" karmachangeonapplied="-1" treatmentthreshold="0" minstrength="0" maxstrength="300">
-    <Effect minstrength="0" maxstrength="60" strenghtchange="-0.2" />
+    <Effect minstrength="0" maxstrength="60" strengthchange="-0.2" />
 	
     <Effect minstrength="60" maxstrength="120" minchromaticaberration="2" maxchromaticaberration="2" mingrainstrength="2" maxgrainstrength="2" MinScreenBlur="0" MaxScreenBlur="0.5">
       <StatusEffect target="Character" delay="1" stackable="false" >
