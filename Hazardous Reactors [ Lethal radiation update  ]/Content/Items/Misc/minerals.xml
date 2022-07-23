@@ -39,17 +39,13 @@
   <Item name="deconstruction contamination emitter" identifier="deconcontaminationemitter" hideinmenus="true">
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
     <ItemComponent>
-      <StatusEffect type="OnSpawn" target="This">
-        <Conditional InWater="false" />
+      <!-- No contamination on deconstruction-->
+      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" delay="0.1">
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="600" />
         <Explosion range="500" ignorecover="false" smoke="true" showeffects="false">
           <Affliction identifier="contamination" strength="20" />
+          <Affliction identifier="radiationsickness" strength="5" />
         </Explosion>
-        <Remove />
-      </StatusEffect>
-      <!-- No Radiation in water-->
-      <StatusEffect type="OnSpawn" target="This">
-        <Conditional InWater="true" />
-        <ParticleEmitter particle="risingbubbles" anglemin="0" anglemax="360" particleamount="20" velocitymin="20" velocitymax="60" scalemin="0.5" scalemax="1" />
         <Remove />
       </StatusEffect>
     </ItemComponent>
@@ -93,7 +89,7 @@
     <LightComponent lightcolor="0,0,0,0" range="0" ison="true" drawbehindsubs="true" castshadows="false">
       <StatusEffect type="OnActive" target="NearbyCharacters" range="400" interval="3" disabledeltatime="true" comparison="Or">
         <Affliction identifier="radiationsickness" strength="0.1" />
-        <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" range="450.0" loop="true" volume="0.3" />
+        <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="Always" range="500.0" loop="true" volume="0.5" />
       </StatusEffect>
     </LightComponent>
   </Item>
@@ -134,7 +130,7 @@
     <LightComponent lightcolor="0,0,0,0" range="0" ison="true" drawbehindsubs="true" castshadows="false">
       <StatusEffect type="OnActive" target="NearbyCharacters" range="400" interval="3" disabledeltatime="true" comparison="Or">
         <Affliction identifier="radiationsickness" strength="0.05" />
-        <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" range="450.0" loop="true" volume="0.3" />
+        <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="Always" range="500.0" loop="true" volume="0.5" />
       </StatusEffect>
     </LightComponent>
   </Item>
