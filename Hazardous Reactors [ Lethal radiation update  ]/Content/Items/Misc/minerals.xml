@@ -87,9 +87,9 @@
 
     <!-- LETHAL LIGHT -->
     <LightComponent lightcolor="0,0,0,0" range="0" ison="true" drawbehindsubs="true" castshadows="false">
+      <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="OnActive" range="500.0" loop="true" volume="0.5" />
       <StatusEffect type="OnActive" target="NearbyCharacters" range="400" interval="3" disabledeltatime="true" comparison="Or">
         <Affliction identifier="radiationsickness" strength="0.1" />
-        <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="OnActive" range="500.0" loop="true" volume="0.5" />
       </StatusEffect>
     </LightComponent>
   </Item>
@@ -128,9 +128,9 @@
 
     <!-- LETHAL LIGHT -->
     <LightComponent lightcolor="0,0,0,0" range="0" ison="true" drawbehindsubs="true" castshadows="false">
+      <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="OnActive" range="500.0" loop="true" volume="0.5" />
       <StatusEffect type="OnActive" target="NearbyCharacters" range="400" interval="3" disabledeltatime="true" comparison="Or">
         <Affliction identifier="radiationsickness" strength="0.05" />
-        <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="OnActive" range="500.0" loop="true" volume="0.5" />
       </StatusEffect>
     </LightComponent>
   </Item>
