@@ -42,9 +42,9 @@
       <!-- No contamination on deconstruction-->
       <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" delay="0.1">
         <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="600" />
-        <Explosion range="500" ignorecover="false" smoke="true" showeffects="false">
+        <Explosion range="600" ignorecover="false" smoke="true" showeffects="false">
           <Affliction identifier="contamination" strength="20" />
-          <Affliction identifier="radiationsickness" strength="5" />
+          <Affliction identifier="radiationsickness" strength="10" />
         </Explosion>
         <Remove />
       </StatusEffect>
