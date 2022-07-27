@@ -36,16 +36,20 @@
     <Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
   </Item>
 
-  <Item name="deconstruction contamination emitter" identifier="deconcontaminationemitter" hideinmenus="true">
+  <Item identifier="deconcontaminationemitter" hideinmenus="true">
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
     <ItemComponent>
-      <!-- No contamination on deconstruction-->
-      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" delay="0.1">
-        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="600" />
+      <!-- Contamination on Deconstruction-->
+      <StatusEffect type="OnSpawn" target="This" delay="0.1">
+        <sound file="%ModDir%/Content/Items/Misc/rock.ogg" range="600" volume="0.8" />
         <Explosion range="500" ignorecover="false" smoke="true" showeffects="false">
-          <Affliction identifier="contamination" strength="15" />
+          <Affliction identifier="contamination" strength="10" />
+          <Affliction identifier="radiationgeiger" strength="0.5" />
           <Affliction identifier="burn" strength="0.1" />
         </Explosion>
+      </StatusEffect>
+      <!-- delete after explosion-->
+      <StatusEffect type="OnSpawn" target="This" delay="0.2">
         <Remove />
       </StatusEffect>
     </ItemComponent>
@@ -87,9 +91,13 @@
 
     <!-- LETHAL LIGHT -->
     <LightComponent lightcolor="0,0,0,0" range="0" ison="true" drawbehindsubs="true" castshadows="false">
-      <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="OnActive" range="500.0" loop="true" volume="0.3" />
-      <StatusEffect type="OnActive" target="NearbyCharacters" range="400" interval="3" disabledeltatime="true" comparison="Or">
+      <StatusEffect type="OnActive" target="NearbyCharacters" range="160" interval="1" disabledeltatime="true">
         <Affliction identifier="radiationsickness" strength="0.1" />
+        <Affliction identifier="radiationgeiger" strength="0.1" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="NearbyCharacters" range="450" interval="1" disabledeltatime="true">
+        <Affliction identifier="radiationsickness" strength="0.002" />
+        <Affliction identifier="radiationgeiger" strength="0.002" />
       </StatusEffect>
     </LightComponent>
   </Item>
@@ -128,9 +136,13 @@
 
     <!-- LETHAL LIGHT -->
     <LightComponent lightcolor="0,0,0,0" range="0" ison="true" drawbehindsubs="true" castshadows="false">
-      <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="OnActive" range="500.0" loop="true" volume="0.5" />
-      <StatusEffect type="OnActive" target="NearbyCharacters" range="400" interval="3" disabledeltatime="true" comparison="Or">
+      <StatusEffect type="OnActive" target="NearbyCharacters" range="120" interval="1" disabledeltatime="true">
         <Affliction identifier="radiationsickness" strength="0.05" />
+        <Affliction identifier="radiationgeiger" strength="0.05" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="NearbyCharacters" range="350" interval="1" disabledeltatime="true">
+        <Affliction identifier="radiationsickness" strength="0.001" />
+        <Affliction identifier="radiationgeiger" strength="0.001" />
       </StatusEffect>
     </LightComponent>
   </Item>
