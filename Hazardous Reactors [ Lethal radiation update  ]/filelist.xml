@@ -22,6 +22,7 @@
   <Item file="%ModDir%/Content/Items/Misc/Item market restriction.xml" />
   <Item file="%ModDir%/Content/Items/Reactor/wreckedreactor.xml" />
   <Item file="%ModDir%/Content/Items/Weapons/Weapons.xml" />
+  <Item file="%ModDir%/Content/Items/Weapons/GeigerCounter.xml" />
   <Text file="%ModDir%/Content/Localization/english.xml" />
   <Text file="%ModDir%/Content/Localization/french.xml" />
   <Text file="%ModDir%/Content/Localization/brazilianportuguese.xml" />

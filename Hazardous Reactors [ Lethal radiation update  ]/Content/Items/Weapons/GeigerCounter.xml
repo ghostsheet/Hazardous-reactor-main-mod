@@ -1,0 +1,39 @@
+<Items>
+  <Item name="Geiger Counter" identifier="geigercounter" category="Equipment" Tags="smallitem,sonar,provocative" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,320,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="473,1,29,65" depth="0.55" origin="0.5,0.5" />
+    <Body width="27" height="60" density="12" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="0,-15" msg="ItemMsgPickUpSelect">
+      <!-- LUA Geiger Counter-->
+      <StatusEffect type="Always" target="Character" interval="1">
+        <LuaHook name="geigercount" />
+      </StatusEffect>
+
+      <!-- Condition Based Sounds-->
+      <!-- Low Rad 1-20 -->
+      <StatusEffect type="Always" target="This" comparison="And">
+        <Conditional Condition="neq 100" />
+        <Conditional Condition="gte 80" />
+        <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" range="500.0" loop="true" volume="0.5" />
+      </StatusEffect>
+      <!-- Med Rad 21-50 -->
+      <StatusEffect type="Always" target="This" comparison="And">
+        <Conditional Condition="lt 80" />
+        <Conditional Condition="gte 50" />
+        <sound file="%ModDir%/Content/Items/Reactor/mediumradiation.ogg" range="500.0" loop="true" volume="0.5" />
+      </StatusEffect>
+      <!-- High Rad 51-80 -->
+      <StatusEffect type="Always" target="This" comparison="And">
+        <Conditional Condition="lt 50" />
+        <Conditional Condition="gte 20" />
+        <sound file="%ModDir%/Content/Items/Reactor/highradiation.ogg" range="500.0" loop="true" volume="0.5" />
+      </StatusEffect>
+      <!-- Lethal Rad 80+ -->
+      <StatusEffect type="Always" target="This" comparison="And">
+        <Conditional Condition="lt 20" />
+        <sound file="%ModDir%/Content/Items/Reactor/extremeradiation.ogg" range="500.0" loop="true" volume="0.5" />
+      </StatusEffect>
+
+    </Holdable>
+  </Item>
+</Items>
