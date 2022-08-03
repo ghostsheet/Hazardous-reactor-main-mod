@@ -4,120 +4,123 @@
 			<!-- Afflictions -->
 
 <afflictionname.dnadamage>Dommage à l'ADN</afflictionname.dnadamage>
-<afflictiondescription.dnadamage>L'ADN du patient devient trop endommagé pour maintenir les fonctions vitales du corps</afflictiondescription.dnadamage>
+<afflictiondescription.dnadamage>L'ADN du patient devient trop endommagé pour maintenir les fonctions vitales du corps.</afflictiondescription.dnadamage>
 <afflictioncauseofdeath.dnadamage>ADN endommagé au-delà du seuil de viabilité</afflictioncauseofdeath.dnadamage>
-<afflictioncauseofdeathself.dnadamage>Votre ADN n'est plus capable de supporter la vie.</afflictioncauseofdeathself.dnadamage>
+<afflictioncauseofdeathself.dnadamage>Votre ADN n'est plus capable de maintenir les fonctions vitales du corps.</afflictioncauseofdeathself.dnadamage>
 
 <afflictionname.radiationresistance>Radioprotecteur</afflictionname.radiationresistance>
-<afflictiondescription.radiationresistance>Empêche la contamination et protège contre l'irradiation</afflictiondescription.radiationresistance>
+<afflictiondescription.radiationresistance>Empêche la contamination et protège contre l'irradiation.</afflictiondescription.radiationresistance>
 
 <afflictionname.contamination>Contamination aux matériaux radioactif</afflictionname.contamination>
-<afflictiondescription.contamination>Le patient a été contaminé par des éléments radioactifs provoquant une irradiation chronique et dégrade l'ADN</afflictiondescription.contamination>
+<afflictiondescription.contamination>Le patient a été contaminé par des éléments radioactifs provoquant une irradiation chronique et dégrade son ADN.</afflictiondescription.contamination>
 
 <afflictionname.lethalradiation>Syndrome d'irradiation aiguë</afflictionname.lethalradiation>
-<afflictiondescription.lethalradiation>Le patient a été lourdement irradié trop longtemps ou a reçu une dose de radiation fatale et mourra dans peu de temps sans traitement d'urgence</afflictiondescription.lethalradiation>
-<afflictioncauseofdeath.lethalradiation>Irradiation létale</afflictioncauseofdeath.lethalradiation>
+<afflictiondescription.lethalradiation>Le patient a été lourdement irradié trop longtemps ou a reçu une dose de radiation fatale et mourra dans peu de temps sans traitement d'urgence.</afflictiondescription.lethalradiation>
+<afflictioncauseofdeath.lethalradiation>Irradiation létale.</afflictioncauseofdeath.lethalradiation>
 <afflictioncauseofdeathself.lethalradiation>Vous êtes mort d'une irradiation létale.</afflictioncauseofdeathself.lethalradiation>
 
 			<!-- QoL Afflictions -->
 			
 <afflictionname.burningrod>Combustible surchauffé</afflictionname.burningrod>
 <afflictiondescription.burningrod>Vous tenez une barre de combustible surchauffé à 2800°C sans protection!</afflictiondescription.burningrod>
-<afflictioncauseofdeath.burningrod>Brulé à mort en tenant une barre de combustible surchauffée</afflictioncauseofdeath.burningrod>
+<afflictioncauseofdeath.burningrod>Brulé à mort en tenant une barre de combustible surchauffée.</afflictioncauseofdeath.burningrod>
 
 <afflictionname.hazardexposure>Exposition dangereuse aux barres de combustible</afflictionname.hazardexposure>
-<afflictiondescription.hazardexposure>Vous êtes à portée des effets néfastes d'une barre de combustible, équipez-vous de protections appropriées</afflictiondescription.hazardexposure>
+<afflictiondescription.hazardexposure>Vous êtes à portée des effets néfastes d'une barre de combustible, équipez-vous de protections appropriées.</afflictiondescription.hazardexposure>
 
 <afflictionname.dnaregeneration>Régénération d'ADN</afflictionname.dnaregeneration>
-<afflictiondescription.dnaregeneration>L'ADN du patient se régénère lentement</afflictiondescription.dnaregeneration>
+<afflictiondescription.dnaregeneration>L'ADN du patient se régénère lentement.</afflictiondescription.dnaregeneration>
 
 <afflictionname.antiradeffect>Effet de drogue antiradiation</afflictionname.antiradeffect>
-<afflictiondescription.antiradeffect>Le corps du patient est lentement purgé des radiations ainsi que des contaminants radioactifs</afflictiondescription.antiradeffect>
+<afflictiondescription.antiradeffect>Le corps du patient est lentement purgé des radiations ainsi que des contaminants radioactifs.</afflictiondescription.antiradeffect>
 
 			<!-- Medical items -->
 
 <entityname.DTPA>DTPA</entityname.DTPA>
-<entitydescription.DTPA>Une alternative a l'anti-rad qui est beaucoup plus accessible mais aussi beaucoup plus lent à agir, inutile contre le syndrome d'irradiation aiguë</entitydescription.DTPA>
+<entitydescription.DTPA>Une alternative a l'anti-rad qui est beaucoup plus accessible mais aussi beaucoup plus lent à agir, inutile contre le syndrome d'irradiation aiguë.</entitydescription.DTPA>
 
 <entityname.Potassiumiodide>Iode de potassium</entityname.Potassiumiodide>
-<entitydescription.Potassiumiodide>Protège contre la contamination et les radiations. Doit être pris régulièrement pour maintenir ses effets protecteurs</entitydescription.Potassiumiodide>
+<entitydescription.Potassiumiodide>Protège contre la contamination et les radiations. Doit être pris régulièrement pour maintenir ses effets protecteurs.</entitydescription.Potassiumiodide>
 
 <entityname.DNAstabiliser>Stabilisateur d'ADN</entityname.DNAstabiliser>
-<entitydescription.DNAstabiliser>Un composé rare et complexe capable de restaurer lentement l'ADN endommagé sur une longue durée, dangereux si injecté pour du personnel sans aptitude médicale</entitydescription.DNAstabiliser>
+<entitydescription.DNAstabiliser>Un composé rare et complexe capable de restaurer lentement l'ADN endommagé sur une longue durée, dangereux si injecté pour du personnel sans aptitude médicale.</entitydescription.DNAstabiliser>
 
 <entityname.antirad>Anti-Rad</entityname.antirad>
-<entitydescription.antirad>Un médicament puissant capable de purger en quelques secondes le corps de toutes radiations et contaminant radioactif, il est préférable de le garder pour les urgences médicales</entitydescription.antirad>
+<entitydescription.antirad>Un médicament puissant capable de purger en quelques secondes le corps de toutes radiations et contaminant radioactif, il est préférable de le garder pour les urgences médicales.</entitydescription.antirad>
 
 <entityname.radiotoxin>Radiotoxine</entityname.radiotoxin>
-<entitydescription.radiotoxin>Un élément extrêmement radioactif capable de causer le syndrome d'irradiation aiguë</entitydescription.radiotoxin>
+<entitydescription.radiotoxin>Un élément extrêmement radioactif capable de causer le syndrome d'irradiation aiguë.</entitydescription.radiotoxin>
 
 			<!-- Containers -->
 
 <entityname.fuelcrate>Caisse de stockage de materiaux radioactifs</entityname.fuelcrate>
-<entitydescription.fuelcrate>Une caisse lourdement renforcé pour transporter des barres de combustible ainsi que des minerais radioactifs</entitydescription.fuelcrate>
+<entitydescription.fuelcrate>Une caisse lourdement renforcé pour transporter des barres de combustible ainsi que des minerais radioactifs.</entitydescription.fuelcrate>
 
 <entityname.fueltransportcylinder>Transporteur de barre à combustible</entityname.fueltransportcylinder>
-<entitydescription.fueltransportcylinder>Capable de transporter une seule barre de combustible, il est moins encombrant que son homologue à haute capacité. Suffisamment sécurisé pour le ranger dans la plupart des placards</entitydescription.fueltransportcylinder>
+<entitydescription.fueltransportcylinder>Capable de transporter une seule barre de combustible, il est moins encombrant que son homologue à haute capacité. Suffisamment sécurisé pour le ranger dans la plupart des placards.</entitydescription.fueltransportcylinder>
 
 <entityname.ekutility_handtruck_reactorfuel>Chariot de manipulation à barre de combustible</entityname.ekutility_handtruck_reactorfuel>
-<entitydescription.ekutility_handtruck_reactorfuel>Un chariot à main avec un conteneur sécurisé pour le transport de barres à combustible</entitydescription.ekutility_handtruck_reactorfuel>
+<entitydescription.ekutility_handtruck_reactorfuel>Un chariot à main avec un conteneur sécurisé pour le transport de barres à combustible.</entitydescription.ekutility_handtruck_reactorfuel>
 
 			<!-- Reactor items -->
 
 <entityname.fuelrod>Barre de combustible en uranium</entityname.fuelrod>
-<entitydescription.fuelrod>Combustible standard pour réacteur nucléaire</entitydescription.fuelrod>
+<entitydescription.fuelrod>Combustible standard pour réacteur nucléaire.</entitydescription.fuelrod>
 
 <entityname.thoriumfuelrod>Barre de combustible en thorium</entityname.thoriumfuelrod>
-<entitydescription.thoriumfuelrod>Les barres de combustible en thorium peuvent durée jusqu'à trois fois plus longtemps que celui en uranium</entitydescription.thoriumfuelrod>
+<entitydescription.thoriumfuelrod>Les barres de combustible en thorium peuvent durée jusqu'à trois fois plus longtemps que celui en uranium.</entitydescription.thoriumfuelrod>
 
 <entityname.fulguriumfuelrod>Barre de combustible en fulgurium</entityname.fulguriumfuelrod>
-<entitydescription.fulguriumfuelrod>Les barres de combustible en fulgurium ne génère pas autant de chaleur que les autres combustibles mais compense avec son extrême longévité</entitydescription.fulguriumfuelrod>
+<entitydescription.fulguriumfuelrod>Les barres de combustible en fulgurium ne génère pas autant de chaleur que les autres combustibles mais compense avec son extrême longévité.</entitydescription.fulguriumfuelrod>
 
 <entityname.fulguriumfuelrodvolatile>Barre de combustible en fulgurium volatile</entityname.fulguriumfuelrodvolatile>
-<entitydescription.fulguriumfuelrodvolatile>Un amalgame de fulgurium et d'incendium, s'il ne possède ni la longévité du fulgurium ou la production de chaleur de l'incendium il se situe entre les deux cependant possède la quasi-totalité de leurs points négatifs respectif</entitydescription.fulguriumfuelrodvolatile>
+<entitydescription.fulguriumfuelrodvolatile>Un amalgame de fulgurium et d'incendium, s'il ne possède ni la longévité du fulgurium ou la production de chaleur de l'incendium il se situe entre les deux cependant possède la quasi-totalité de leurs points négatifs respectif.</entitydescription.fulguriumfuelrodvolatile>
 
 <entityname.ekutility_incendiumfuelrod>Barre de combustible en incendium</entityname.ekutility_incendiumfuelrod>
-<entitydescription.ekutility_incendiumfuelrod>Les barres de combustible en incendium ont un potentiel d'énergie extrêmement élevé mais son instable est hautement inflammable. Sensible aux impacts même dans des conteneurs sécurisé</entitydescription.ekutility_incendiumfuelrod>
+<entitydescription.ekutility_incendiumfuelrod>Les barres de combustible en incendium ont un potentiel d'énergie extrêmement élevé mais son instable est hautement inflammable. Sensible aux impacts même dans des conteneurs sécurisé.</entitydescription.ekutility_incendiumfuelrod>
 
 <entityname.supercritical_incendium>Barre de combustible d'incendium super critique</entityname.supercritical_incendium>
-<entitydescription.supercritical_incendium>Cette barre de combustible a atteint un état super-critique durant la fusion du coeur et risque de libérer toute son énergie dans une violente explosion au moindre impact, l'énergie ambiante libérée est suffisante pour faire fondre la coque du sous-marin mais semble s'épuiser rapidement</entitydescription.supercritical_incendium>
+<entitydescription.supercritical_incendium>Cette barre de combustible a atteint un état super-critique durant la fusion du coeur et risque de libérer toute son énergie dans une violente explosion au moindre impact, l'énergie ambiante libérée est suffisante pour faire fondre la coque du sous-marin mais semble s'épuiser rapidement.</entitydescription.supercritical_incendium>
 
 <entityname.supercritical_fulgurium>Barre de combustible en fulgurium volatile super critique</entityname.supercritical_fulgurium>
-<entitydescription.supercritical_fulgurium>Cette barre de combustible a atteint un état super-critique durant la fusion du coeur et risque de libérer toute son énergie dans une violente explosion au moindre impact, l'énergie ambiante libérée est suffisante pour faire fondre la coque du sous-marin mais semble s'épuiser rapidement. Cependant l'amalgame en fulgurant le fait bruler bien plus longtemps</entitydescription.supercritical_fulgurium>
+<entitydescription.supercritical_fulgurium>Cette barre de combustible a atteint un état super-critique durant la fusion du coeur et risque de libérer toute son énergie dans une violente explosion au moindre impact, l'énergie ambiante libérée est suffisante pour faire fondre la coque du sous-marin mais semble s'épuiser rapidement. Cependant l'amalgame en fulgurium le fait bruler bien plus longtemps.</entitydescription.supercritical_fulgurium>
 
 <entityname.molten_rods>Corium</entityname.molten_rods>
-<entitydescription.molten_rods>Magma radioactif refroidie, émet une quantité extrême de radiation</entitydescription.molten_rods>
+<entitydescription.molten_rods>Magma radioactif solidifié, émet une quantité extrême de radiation.</entitydescription.molten_rods>
 
 			<!-- Explosive weapon items -->
 
 <entityname.nukerod>Ogive "Crisis"</entityname.nukerod>
-<entitydescription.nukerod>Explosif sensible aux impacts crée à partir de combustible alien dans un état super-critique. Capable de dégâts cataclysmiques en maximisant la surface de la cible</entitydescription.nukerod>
+<entitydescription.nukerod>Explosif sensible aux impacts crée à partir de combustible alien dans un état super-critique. Capable de dégâts cataclysmiques en maximisant la surface de la cible.</entitydescription.nukerod>
 
 <entityname.nukerodenhanced>Ogive "Crisis" amélioré</entityname.nukerodenhanced>
-<entitydescription.nukerodenhanced>Ogive "Crisis" amélioré avec des matériaux fissibles. Capable de dégâts cataclysmiques en maximisant la surface de la cible</entitydescription.nukerodenhanced>
+<entitydescription.nukerodenhanced>Ogive "Crisis" amélioré avec des matériaux fissibles. Capable de dégâts cataclysmiques en maximisant la surface de la cible.</entitydescription.nukerodenhanced>
 
 			<!-- Misc/material items -->
+			
+<entityname.geigercounter>Compteur Geiger</entityname.geigercounter>
+<entitydescription.geigercounter>Petit appareil traduisant les niveaux de radiations à proximité en signaux audio et visuels. Vérifie également passivement son porteur en cas d'irradiation.</entitydescription.geigercounter>
 
 <entityname.iodine>Iodine</entityname.iodine>
 
 
 <entityname.du_p_alloy>Alliage uranium appauvri - physicorium</entityname.du_p_alloy>
-<entitydescription.du_p_alloy>Un alliage extrêmement résistant et lourd</entitydescription.du_p_alloy>
+<entitydescription.du_p_alloy>Un alliage extrêmement résistant et lourd.</entitydescription.du_p_alloy>
 
 <entityname.AI_microchip>Contrôleur IA</entityname.AI_microchip>
-<entitydescription.AI_microchip>Un contrôleur avec IA pour émetteur de stase</entitydescription.AI_microchip>
+<entitydescription.AI_microchip>Un contrôleur avec IA pour émetteur de stase.</entitydescription.AI_microchip>
 
 <entityname.stasisemitter>Générateur de stase</entityname.stasisemitter>
-<entitydescription.stasisemitter>Une série d'émetteurs de stases pour transporteur à barre de combustible renforcé</entitydescription.stasisemitter>
+<entitydescription.stasisemitter>Une série d'émetteurs de stases pour transporteur à barre de combustible renforcé.</entitydescription.stasisemitter>
 
 <entityname.fueltrasnportcylinderreinforced>Transporteur à barre de combustible renforcé</entityname.fueltrasnportcylinderreinforced>
-<entitydescription.fueltrasnportcylinderreinforced>Un transporteur équipé de générateur de stase capable de contenir des combustibles en état super-critique. Uniquement utilisable avec un fabricateur</entitydescription.fueltrasnportcylinderreinforced>
+<entitydescription.fueltrasnportcylinderreinforced>Un transporteur équipé de générateur de stase capable de contenir des combustibles en état super-critique. Uniquement utilisable avec un fabricateur.</entitydescription.fueltrasnportcylinderreinforced>
 
 <entityname.iodinecrystal>Cristaux de d'iodine</entityname.iodinecrystal>
-<entitydescription.iodinecrystal>Cristaux fait exclusivement d'iode</entitydescription.iodinecrystal>
+<entitydescription.iodinecrystal>Cristaux fait exclusivement d'iode.</entitydescription.iodinecrystal>
 
 <entityname.manual>Guide d'opération du réacteur</entityname.manual>
-<entitydescription.manual>Contient toutes les informations importantes en relation du réacteur nucléaire et ses dangers</entitydescription.manual>
+<entitydescription.manual>Contient toutes les informations importantes en relation du réacteur nucléaire et ses dangers.</entitydescription.manual>
 <terminalwelcomemsg.manual>
 
 _______________________________Manuel d'Europe pour opération de réacteur nucléaire v2.6_____________________________
@@ -311,9 +314,13 @@ Bien que l'Anti-Rad traites les deux, sa disponibilité et son prix en fait plus
 
 Le DTPA est beaucoup plus facile à obtenir et moins chère bien que beaucoup plus lent à agir.
 
-L'utilisation de radioprotecteur, ou iode de potassium, est utile à la prévention d'irradiation ainsi que de la contamination mais n'a aucun effet curatif.
+L'utilisation de radioprotecteur, couramment appelé iode de potassium, est utile à la prévention d'irradiation ainsi que de la contamination mais n'a aucun effet curatif ni protecteur en cas de source de radiation létale.
 
-Pour limiter le nombre de morts lié à la radiation, tout membre d'équipage possède un compteur Geiger intégré dont la fréquence du bruit informe du niveau de radiation comme pour le réacteur. Si vous l'entendez vous devriez alors vous faire soigner.
+Pour limiter le nombre de morts lié à la radiation, tout sous-marin sont mis en service avec un compteur Geiger à disposition dans le cabinet du réacteur. Cet appareil capte du niveau de radiation à proximité et avertit son porteur avec des indicateurs audio et visuels de leurs intensités.
+
+Il s'agit aussi du seule moyen de vérifier si un membre d'équipage est irradié sans avoir de symptôme évidents.
+
+Note importante : la déconstruction de matériaux radioactifs nécessite une protection adéquate car expose tout personnel proche à des poussières radioactives qui les contaminera.
 
 Une exposition prolongée à de hautes doses de radiation une courte exposition à une dose extrême mène au syndrome d'irradiation aiguë (SIA), il s'agit d'une urgence médicale car le patient mourra en quelques minutes.
 

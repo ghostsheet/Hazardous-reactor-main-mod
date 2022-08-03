@@ -29,8 +29,8 @@
       <Item identifier="elastin" copycondition="true" mincondition="0.1" />
     </Deconstruct>
     <SuitableTreatment identifier="radiationsickness,contamination" suitability="100" />
-    <InventoryIcon texture="DTPA.png" sourcerect="0,0,24,46" origin="0.5,0.5" />
-    <Sprite texture="DTPA.png" sourcerect="0,0,24,46" origin="0.5,0.5" depth="0.6" />
+    <Sprite texture="%ModDir%/Content/Items/Medical/radmedicines.png" sourcerect="0,0,24,47" origin="0.5,0.5" depth="0.6" />
+    <InventoryIcon texture="%ModDir%/Content/Items/Medical/radmedicinesiconatlas.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
     <Body width="35" height="65" density="20" />
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnFailure" target="This" Condition="-50.0" disabledeltatime="true" />
@@ -82,8 +82,8 @@
       <Price storeidentifier="merchantmine"  sold="false" />
       <Price storeidentifier="merchantengineering" sold="false" minavailable="2" />
     </Price>
-    <InventoryIcon texture="potassiumiodide.png" sourcerect="0,0,35,60" origin="0.5,0.5" />
-    <Sprite texture="potassiumiodide.png" sourcerect="0,0,35,60" origin="0.5,0.5" depth="0.6" />
+    <Sprite texture="%ModDir%/Content/Items/Medical/radmedicines.png" sourcerect="24,0,32,58" origin="0.5,0.5" depth="0.6" />
+    <InventoryIcon texture="%ModDir%/Content/Items/Medical/radmedicinesiconatlas.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
     <Body width="35" height="70" density="20" />
     <SuitableTreatment identifier="radiationsickness" suitability="30" />
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="30">
@@ -142,8 +142,8 @@
       <Item identifier="elastin" copycondition="true" mincondition="0.1" />
       <Item identifier="ethanol" copycondition="true" mincondition="0.1" />
     </Deconstruct>
-    <InventoryIcon texture="DNA stabiliser.png" sourcerect="0,0,37,69" origin="0.50278735,0.503689" />
-    <Sprite texture="DNA stabiliser.png" sourcerect="0,0,37,69" origin="0.50278735,0.503689" depth="0.6" />
+    <Sprite texture="%ModDir%/Content/Items/Medical/radmedicines.png" sourcerect="56,0,39,69" origin="0.5,0.5" depth="0.6" />
+    <InventoryIcon texture="%ModDir%/Content/Items/Medical/radmedicinesiconatlas.png" sourcerect="0,64,64,64" origin="0.5,0.5" />
     <Body width="35" height="65" density="20" />
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
       <RequiredSkill identifier="medical" level="70" />

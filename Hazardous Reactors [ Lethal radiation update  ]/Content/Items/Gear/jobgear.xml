@@ -11,16 +11,19 @@
         <Affliction identifier="radiationsickness" strength="6" />
         <Affliction identifier="contamination" strength="6" />
         <Affliction identifier="lethalradiation" strength="15" />
+        <Affliction identifier="radiationgeiger" strength="0.002" />
       </StatusEffect>
       <StatusEffect type="Always" target="NearbyCharacters" range="1200">
         <Affliction identifier="radiationsickness" strength="16" />
         <Affliction identifier="contamination" strength="16" />
         <Affliction identifier="lethalradiation" strength="21" />
+        <Affliction identifier="radiationgeiger" strength="0.002" />
       </StatusEffect>
       <StatusEffect type="Always" target="NearbyCharacters" range="800">
         <Affliction identifier="radiationsickness" strength="24" />
         <Affliction identifier="contamination" strength="24" />
         <Affliction identifier="lethalradiation" strength="24" />
+        <Affliction identifier="radiationgeiger" strength="0.002" />
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
         <Remove />

@@ -64,10 +64,15 @@
           <Conditional IsFullCondition="false" />
         </StatusEffect>
 		
+        <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="1" stackable="false">
+          <Conditional IsFullCondition="false" />
+            <Affliction identifier="radiationsickness" strength="4" />
+		  <Affliction identifier="radiationgeiger" strength="4" />
+        </StatusEffect>
+		
         <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="0.5" stackable="false">
           <Conditional IsFullCondition="false" />
           <Affliction identifier="burningrod" strength="100" />
-          <Affliction identifier="radiationsickness" strength="3.5" />
         </StatusEffect>
 		
         <StatusEffect type="InWater" target="This" comparison="And" CheckConditionalAlways="true" >
@@ -76,22 +81,24 @@
           <Conditional IsFullCondition="false" />
         </StatusEffect>
 		
-        <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="0.5" comparison="And">
+        <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="And">
           <Conditional IsFullCondition="false" />
           <Conditional InWater="false" />
-          <Explosion range="1000" stun="0" force="0.01" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
+          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
             <Affliction identifier="radiationsickness" strength="2.5" />
             <Affliction identifier="hazardexposure" strength="10" />
+		    <Affliction identifier="radiationgeiger" strength="5" />
           </Explosion>
         </StatusEffect>
 		
-        <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="0.5" comparison="And">
+        <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="And">
           <Conditional IsFullCondition="false" />
           <Conditional InWater="false" />
 		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
-          <Explosion range="1000" stun="0" force="0.01" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
-            <Affliction identifier="radiationsickness" strength="2.5" />
+          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
+            <Affliction identifier="radiationsickness" strength="0.625" />
             <Affliction identifier="hazardexposure" strength="10" />
+		    <Affliction identifier="radiationgeiger" strength="4" />
           </Explosion>
         </StatusEffect>
 		
@@ -181,35 +188,37 @@
           <Conditional IsFullCondition="false" />
         </StatusEffect>
 		
-        <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="0.5" stackable="false">
-          <Conditional hastag="radioactive" />          
-		  <Conditional IsFullCondition="false" />          
-		  <Affliction identifier="burningrod" strength="100" />
-          <Affliction identifier="radiationsickness" strength="1.75" />
+        <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="1" stackable="false">
+          <Conditional IsFullCondition="false" />
+          <Affliction identifier="burningrod" strength="100" />
+            <Affliction identifier="radiationsickness" strength="4" />
+		  <Affliction identifier="radiationgeiger" strength="10" />
         </StatusEffect>
 		
-        <StatusEffect type="InWater" target="This" comparison="And" >
+        <StatusEffect type="InWater" target="This" comparison="And" CheckConditionalAlways="true" >
           <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="1" scalemax="1" />
           <ParticleEmitter particle="extinguisher" anglemin="0" anglemax="360" velocitymin="5.0" velocitymax="50.0" particlespersecond="40" />
           <Conditional IsFullCondition="false" />
         </StatusEffect>
 		
-        <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="0.5" comparison="And">
+        <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="And">
           <Conditional IsFullCondition="false" />
           <Conditional InWater="false" />
-          <Explosion range="1000" stun="0" force="0.01" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
-            <Affliction identifier="radiationsickness" strength="1.7" />
+          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
+            <Affliction identifier="radiationsickness" strength="2.5" />
             <Affliction identifier="hazardexposure" strength="10" />
+		    <Affliction identifier="radiationgeiger" strength="5" />
           </Explosion>
         </StatusEffect>
 		
-        <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="0.5" comparison="And">
+        <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="And">
           <Conditional IsFullCondition="false" />
           <Conditional InWater="false" />
 		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
-          <Explosion range="1000" stun="0" force="0.01" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
-            <Affliction identifier="radiationsickness" strength="1.7" />
+          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
+            <Affliction identifier="radiationsickness" strength="0.625" />
             <Affliction identifier="hazardexposure" strength="10" />
+		    <Affliction identifier="radiationgeiger" strength="5" />
           </Explosion>
         </StatusEffect>
 		
@@ -763,6 +772,8 @@
     <Sprite texture="%ModDir%/Content/Items/Reactor/volatile rod critical 1.png" sourcerect="0,0,22,73" origin="0.5,0.5" depth="0.55" />
     <Body height="64.799995" width="19.8" density="30" />
   </Item>
+  
+  
   <Item name="" identifier="molten_rods" Tags="crisis,reactorfuel" maxstacksize="1" cargocontaineridentifier="fuelcrate" scale="0.25" health="1500" impactsoundtag="impact_metal_light" description="">
     <PreferredContainer primary="reactor1wrecked" minamount="0" maxamount="1" spawnprobability="0.5" />
     <Deconstruct time="60">
@@ -788,29 +799,28 @@
 	
     <Holdable handle1="0,0" slots="RightHand+LeftHand" msg="ItemMsgPickUpSelect">
       <StatusEffect type="Always" target="This" stackable="false" delay="1">
-        <Explosion range="1000" stun="0" force="0.01" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
-          <Affliction identifier="radiationsickness" strength="20" />
-          <Affliction identifier="lethalradiation" strength="3" />
+        <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
+          <Affliction identifier="radiationsickness" strength="10" />
+          <Affliction identifier="lethalradiation" strength="15" />
+		  <Affliction identifier="radiationgeiger" strength="10" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="Always" target="This" stackable="false" delay="0.1">
-        <Explosion range="1000" stun="0" force="0.01" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
-          <Affliction identifier="hazardexposure" strength="10" />
+        <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
+          <Affliction identifier="hazardexposure" strength="1000" />
         </Explosion>
       </StatusEffect>
-      <StatusEffect type="Always" target="This" stackable="false">
-        <sound file="%ModDir%/Content/Items/Reactor/extremeradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
-      </StatusEffect>
       <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0.3">
-        <Explosion range="150" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="true" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" stackable="false" />
+        <Explosion range="150" structuredamage="0" force="0" flames="false" sparks="false" shockwave="true" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" stackable="false" />
       </StatusEffect>
       <StatusEffect type="OnContained" target="This" stackable="false" delay="0.3">
         <Conditional targetcontainer="true" hastag="neq reactor" />
-        <Explosion range="150" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="true" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" stackable="false" />
+        <Explosion range="150" structuredamage="0" force="0" flames="false" sparks="false" shockwave="true" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" stackable="false" />
       </StatusEffect>
       <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="0.5" stackable="false" comparison="And">
         <Affliction identifier="burningrod" strength="100" />
         <Affliction identifier="radiationsickness" strength="100" />
+		<Affliction identifier="radiationgeiger" strength="1" />
       </StatusEffect>
       <StatusEffect type="InWater" target="This">
         <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="1" scalemax="1" />
@@ -819,6 +829,7 @@
     </Holdable>
     <Throwable characterusable="false" slots="Any,RightHand,LeftHand" throwforce="1.0" holdpos="0,-50" handle1="-10,0" handle2="10,0" msg="ItemMsgPickUpSelect" />
   </Item>
+  
   <Item name="" category="weapon" identifier="nukerod" Tags="smallitem" impacttolerance="3" maxstacksize="8" scale="0.5" health="1" impactsoundtag="impact_metal_heavy" description="">
     <Fabricate suitablefabricators="fabricator" requiredtime="15">
       <RequiredItem identifier="supercritical_fulgurium" mincondition="0.5" usecondition="false" />
@@ -833,8 +844,8 @@
     <!-- Texture and light -->
 	
 	
-    <InventoryIcon texture="%ModDir%/Content/Items/Misc/rodstoragecylinderbombinv.png" sourcerect="5,5,108,102" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Content/Items/Misc/rodstoragecylinderbomb.png" depth="0.55" sourcerect="10,4,120,36" origin="0.5357464,0.5933804" />
+	<Sprite texture="%ModDir%/Content/Items/Misc/RodCylinderSpritesheet.png" depth="0.55" sourcerect="0,64,122,37" origin="0.5,0.5" />
+	<InventoryIcon texture="%ModDir%/Content/Items/Misc/RodCylinderInvSpritesheet.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
     <Body width="215" height="30" density="30" />
 	
 	
@@ -877,8 +888,8 @@
     <!-- Texture and light -->
 	
 	
-    <InventoryIcon texture="%ModDir%/Content/Items/Misc/rodstoragecylinderbombinv.png" sourcerect="5,5,108,102" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Content/Items/Misc/rodstoragecylinderbomb.png" depth="0.55" sourcerect="10,4,120,36" origin="0.5357464,0.5933804" />
+	<Sprite texture="%ModDir%/Content/Items/Misc/RodCylinderSpritesheet.png" depth="0.55" sourcerect="0,64,122,37" origin="0.5,0.5" />
+	<InventoryIcon texture="%ModDir%/Content/Items/Misc/RodCylinderInvSpritesheet.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
     <Body width="215" height="30" density="30" />
 	
 	

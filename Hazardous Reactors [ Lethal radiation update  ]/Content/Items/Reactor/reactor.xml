@@ -161,6 +161,7 @@
         <Conditional targetitemcomponent="Reactor" temperature="gt 2" />
         <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" delay="1" stackable="false">
           <Affliction identifier="radiationsickness" strength="0.5" />
+          <Affliction identifier="radiationgeiger" strength="0.5" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="OnActive" target="This" delay="0.5" disabledeltatime="true" stackable="false" comparison="And">
@@ -169,6 +170,7 @@
         <Conditional targetitemcomponent="Reactor" temperature="gt 2" />
         <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" delay="1" stackable="false">
           <Affliction identifier="radiationsickness" strength="1" />
+          <Affliction identifier="radiationgeiger" strength="1.5" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="Always" target="This" delay="0.5" disabledeltatime="true" stackable="false" comparison="And">
@@ -178,6 +180,7 @@
         <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" delay="1" stackable="false">
           <Affliction identifier="radiationsickness" strength="2.0" />
           <Affliction identifier="contamination" strength="2" />
+           <Affliction identifier="radiationgeiger" strength="3" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="Always" target="This" delay="1" disabledeltatime="true" stackable="false" comparison="And">
@@ -186,6 +189,7 @@
         <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false">
           <Affliction identifier="radiationsickness" strength="5" />
           <Affliction identifier="contamination" strength="4" />
+          <Affliction identifier="radiationgeiger" strength="8" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="Always" target="This" disabledeltatime="true" stackable="false" comparison="And">
@@ -206,6 +210,7 @@
         <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false">
           <Affliction identifier="radiationsickness" strength="20" />
           <Affliction identifier="contamination" strength="10" />
+          <Affliction identifier="radiationgeiger" strength="10" />
         </Explosion>
       </StatusEffect>
       <!-- CRITICAL INTEGRITY EFFECTS AND ALARMS-->
@@ -225,29 +230,6 @@
         <Conditional condition="gt 0" />
         <Fire size="1" />
         <RequiredItem items="fuelrod,fulguriumfuelrod,thoriumfuelrod,ekutility_incendiumfuelrod,fulguriumfuelrodvolatile" type="Contained" />
-      </StatusEffect>
-      <!-- GEIGER COUNTER SOUND EFFECT -->
-      <StatusEffect type="OnActive" target="This" delay="0" disabledeltatime="true" stackable="false" comparison="And">
-        <Conditional condition="lte 90" />
-        <Conditional condition="gte 75" />
-        <Conditional targetitemcomponent="Reactor" temperature="gt 2" />
-        <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
-      </StatusEffect>
-      <StatusEffect type="OnActive" target="This" delay="0" disabledeltatime="true" stackable="false" comparison="And">
-        <Conditional condition="lte 75" />
-        <Conditional condition="gte 50" />
-        <Conditional targetitemcomponent="Reactor" temperature="gt 2" />
-        <sound file="%ModDir%/Content/Items/Reactor/mediumradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
-      </StatusEffect>
-      <StatusEffect type="Always" target="This" delay="0" disabledeltatime="true" stackable="false" comparison="And">
-        <Conditional condition="lte 50" />
-        <Conditional condition="gt 25" />
-        <sound file="%ModDir%/Content/Items/Reactor/highradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
-      </StatusEffect>
-      <StatusEffect type="Always" target="This" delay="0" disabledeltatime="true" stackable="false" comparison="And">
-        <Conditional condition="lte 25" />
-        <Conditional condition="0" />
-        <sound file="%ModDir%/Content/Items/Reactor/extremeradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
       </StatusEffect>
       <!-- STEAM VISUAL + SOUND EFFECTS -->
       <StatusEffect type="Always" target="This" comparison="And">

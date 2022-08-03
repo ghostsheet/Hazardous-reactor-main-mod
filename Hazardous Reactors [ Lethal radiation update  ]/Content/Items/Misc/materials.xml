@@ -11,8 +11,8 @@
       <Price locationtype="military" multiplier="1.1" sold="false" />
       <Price locationtype="mine" multiplier="0.8" sold="true" minavailable="20" />
     </Price>
-    <InventoryIcon texture="Iodine material.png" sourcerect="0,0,57,49" origin="0.5,0.5" />
-    <Sprite texture="Iodine material.png" sourcerect="0,0,57,49" origin="0.5,0.5" depth="0.55" />
+  <InventoryIcon texture="%ModDir%/Content/Items/Misc/IodineMatIcon.png" sourcerect="0,0,64,64" />
+  <Sprite texture="%ModDir%/Content/Items/Misc/Iodine material.png" depth="0.55" sourcerect="0,0,45,37" origin="0.5,0.5" /> 
     <Body width="45" height="30" density="25" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
@@ -199,8 +199,8 @@
       <RequiredItem identifier="du_p_alloy" />
       <RequiredItem identifier="du_p_alloy" />
     </Fabricate>
-    <Sprite texture="%ModDir%/Content/Items/Misc/rodstoragecylinder.png" depth="0.54" sourcerect="10,9,117,31" origin="0.5,0.5" />
-    <InventoryIcon texture="%ModDir%/Content/Items/Misc/rodstorage cylinderinv.png" sourcerect="0,0,106,101" origin="0.5,0.5" />
+  <Sprite texture="%ModDir%/Content/Items/Misc/RodCylinderSpritesheet.png" depth="0.55" sourcerect="0,32,116,32" origin="0.5,0.5" />
+  <InventoryIcon texture="%ModDir%/Content/Items/Misc/RodCylinderInvSpritesheet.png" sourcerect="0,0,64,64" origin="0.5,0.5" /> 
     <Body width="215" height="30" density="30" />
     <Holdable slots="RightHand,LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use">
       <StatusEffect type="OnContained" target="Character" SpeedMultiplier="0.5" setvalue="true" />
