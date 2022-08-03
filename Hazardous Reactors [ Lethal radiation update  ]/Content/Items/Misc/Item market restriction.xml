@@ -106,7 +106,7 @@
       <RequiredItem identifier="incendium" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="256,901,62,60" origin="0.5,0.5" />
-    <Sprite texture="tools.png" sourcerect="460,71,24,66" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="460,71,24,66" depth="0.55" origin="0.5,0.5" />
     <Body width="22" height="65" density="5" />
     <Holdable canbecombined="true" slots="Any,RightHand,LeftHand" holdpos="30,-15" handle1="0,5" handle2="0,-5" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnFire" target="This" Condition="-10.0" tags="onfire" duration="1" stackable="false" />
@@ -146,7 +146,7 @@
       <RequiredItem identifier="incendium" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="68,320,56,64" origin="0.5,0.5" />
-    <Sprite texture="weapons_new.png" sourcerect="188,312,26,54" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="188,312,26,54" depth="0.55" origin="0.5,0.5" />
     <Body width="24" height="52" density="30" />
     <ItemComponent characterusable="false">
       <!-- statuseffect that explodes the grenade when used by something else than a character (e.g. a detonator) -->

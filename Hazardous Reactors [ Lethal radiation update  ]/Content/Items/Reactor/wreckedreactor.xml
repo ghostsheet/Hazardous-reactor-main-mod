@@ -2,7 +2,7 @@
 <Override>
   <Item name="" identifier="reactor1wrecked" nameidentifier="reactor1" tags="reactor" type="Reactor" category="Wrecked">
     <!--<trigger />-->
-    <Sprite texture="WreckedItems.png" sourcerect="3,625,321,192" depth="0.8" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Shipwrecks/WreckedItems.png" sourcerect="3,625,321,192" depth="0.8" origin="0.5,0.5" />
     <ItemContainer capacity="6" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.15,0.25" anchor="Center" style="ItemUI" />
       <Containable items="smallitem,mediumitem" />
