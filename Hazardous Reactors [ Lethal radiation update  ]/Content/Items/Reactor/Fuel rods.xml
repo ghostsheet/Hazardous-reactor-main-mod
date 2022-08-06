@@ -1,11 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
   <Override>
-  
-  
-    <!-- STANDART FUEL RODS -->
-	
-	
+
+    <!-- STANDARD FUEL RODS -->
+
     <Item name="" category="fuel" identifier="fuelrod" Tags="reactorfuel" maxstacksize="8" scale="0.5" health="100" impactsoundtag="impact_metal_light" description="">
       <!-- Spawn location and pricing -->
       <PreferredContainer primary="reactorcab" minamount="2" maxamount="5" spawnprobability="1" />
@@ -18,10 +16,10 @@
       <Price storeidentifier="merchantmine" />
       <Price storeidentifier="merchantengineering" multiplier="0.9" minavailable="2" />
     </Price>
-	  
+    
       <!-- Crafting -->
-	  
-	  
+    
+    
       <Deconstruct time="10">
         <Item identifier="steel" />
         <Item identifier="lead" />
@@ -33,20 +31,20 @@
         <RequiredItem identifier="steel" />
         <RequiredItem identifier="lead" />
       </Fabricate>
-	  
-	  
+    
+    
       <!-- Recycle option currently cause problem, disabled until the devs fix it
-		
-		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="10">
-			<RequiredSkill identifier="mechanical" level="15" />
-			<RequiredItem identifier="uranium" />
-			<RequiredItem identifier="fuelrod" mincondition="0.0" usecondition="false"/>
-		</Fabricate> -->
-		
-		
+    
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="10">
+      <RequiredSkill identifier="mechanical" level="15" />
+      <RequiredItem identifier="uranium" />
+      <RequiredItem identifier="fuelrod" mincondition="0.0" usecondition="false"/>
+    </Fabricate> -->
+    
+    
       <!-- Texture and light -->
-	  
-	  
+    
+    
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,64,64,64" origin="0.5,0.5" />
       <Sprite texture="Content/Items/Tools/tools.png" depth="0.55" sourcerect="410,1,19,68" />
       <Body radius="6" height="55" density="20" />
@@ -54,68 +52,68 @@
         <Sprite texture="Content/Items/Tools/tools.png" sourcerect="410,1,19,68" depth="0.56" />
           <Conditional IsFullCondition="false" />
       </LightComponent>
-	  
-	  
+    
+    
       <!-- Active effect and other SE -->
-	  
-	  
+    
+    
       <Holdable handle1="0,0" slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect">
         <StatusEffect type="Always" target="This" stackable="false" voltage="2">
           <Conditional IsFullCondition="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="1" stackable="false">
           <Conditional IsFullCondition="false" />
             <Affliction identifier="radiationsickness" strength="4" />
-		  <Affliction identifier="radiationgeiger" strength="4" />
+            <Affliction identifier="radiationgeiger" strength="4" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="0.5" stackable="false">
           <Conditional IsFullCondition="false" />
           <Affliction identifier="burningrod" strength="100" />
         </StatusEffect>
-		
+    
         <StatusEffect type="InWater" target="This" comparison="And" CheckConditionalAlways="true" >
           <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="1" scalemax="1" />
           <ParticleEmitter particle="extinguisher" anglemin="0" anglemax="360" velocitymin="5.0" velocitymax="50.0" particlespersecond="40" />
           <Conditional IsFullCondition="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="And">
           <Conditional IsFullCondition="false" />
           <Conditional InWater="false" />
           <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
             <Affliction identifier="radiationsickness" strength="2.5" />
+            <Affliction identifier="radiationgeiger" strength="2.5" />
             <Affliction identifier="hazardexposure" strength="10" />
-		    <Affliction identifier="radiationgeiger" strength="5" />
           </Explosion>
         </StatusEffect>
-		
+    
         <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="And">
           <Conditional IsFullCondition="false" />
           <Conditional InWater="false" />
-		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
+          <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
           <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
             <Affliction identifier="radiationsickness" strength="0.625" />
+            <Affliction identifier="radiationgeiger" strength="0.625" />
             <Affliction identifier="hazardexposure" strength="10" />
-		    <Affliction identifier="radiationgeiger" strength="4" />
           </Explosion>
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="4">
           <Conditional IsFullCondition="false" />
           <Fire />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true" delay="0.5" stackable="false" setvalue="true" condition="0.05">
           <Conditional condition="lte 0.01" />
         </StatusEffect>
       </Holdable>
-	  
-	  
+    
+    
       <!-- Allow rod to be used with fission accelerator -->
-	  
-	  
+    
+    
       <ItemContainer hideitems="true" capacity="1" itemrotation="90" drawinventory="false" canbeselected="false" SpawnWithId="nucleargunbolt" removecontaineditemsondeconstruct="true" showcontainedstateindicator="false">
         <Containable items="nucleargunbolt" />
         <StatusEffect type="OnUse" target="This" condition="-10" disabledeltatime="true">
@@ -127,7 +125,7 @@
     <Quality>
       <QualityStat stattype="Condition" value="0.1"/>
     </Quality>
-	
+  
     </Item>
   </Override>
   
@@ -157,20 +155,20 @@
         <RequiredItem identifier="steel" />
         <RequiredItem identifier="lead" />
       </Fabricate>
-	  
-	  
+    
+    
       <!-- Recycle option currently cause problem, disabled until the devs fix it
-		
-		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="10">
-			<RequiredSkill identifier="mechanical" level="15" />
-			<RequiredItem identifier="thorium" />
-			<RequiredItem identifier="thoriumfuelrod" mincondition="0.0" usecondition="false"/>
-		</Fabricate> -->
-		
-		
+    
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="10">
+      <RequiredSkill identifier="mechanical" level="15" />
+      <RequiredItem identifier="thorium" />
+      <RequiredItem identifier="thoriumfuelrod" mincondition="0.0" usecondition="false"/>
+    </Fabricate> -->
+    
+    
       <!-- Texture and light -->
-	  
-	  
+    
+    
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="384,64,64,64" origin="0.5,0.5" />
       <Sprite texture="Content/Items/Tools/tools.png" depth="0.56" sourcerect="452,1,19,68" />
       <Body radius="6" height="55" density="20" />
@@ -178,50 +176,50 @@
         <Sprite texture="Content/Items/Tools/tools.png" sourcerect="452,1,19,68" depth="0.56" />
           <Conditional IsFullCondition="false" />
       </LightComponent>
-	  
-	  
+    
+    
       <!-- Active effect and other SE -->
-	  
-	  
+    
+    
       <Holdable handle1="0,0" slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect">
         <StatusEffect type="Always" target="This" stackable="false" voltage="2">
           <Conditional IsFullCondition="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="1" stackable="false">
           <Conditional IsFullCondition="false" />
           <Affliction identifier="burningrod" strength="100" />
-            <Affliction identifier="radiationsickness" strength="4" />
-		  <Affliction identifier="radiationgeiger" strength="10" />
+          <Affliction identifier="radiationsickness" strength="4" />
+          <Affliction identifier="radiationgeiger" strength="4" />
         </StatusEffect>
-		
+    
         <StatusEffect type="InWater" target="This" comparison="And" CheckConditionalAlways="true" >
           <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="1" scalemax="1" />
           <ParticleEmitter particle="extinguisher" anglemin="0" anglemax="360" velocitymin="5.0" velocitymax="50.0" particlespersecond="40" />
           <Conditional IsFullCondition="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="And">
           <Conditional IsFullCondition="false" />
           <Conditional InWater="false" />
           <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
             <Affliction identifier="radiationsickness" strength="2.5" />
+            <Affliction identifier="radiationgeiger" strength="2.5" />
             <Affliction identifier="hazardexposure" strength="10" />
-		    <Affliction identifier="radiationgeiger" strength="5" />
           </Explosion>
         </StatusEffect>
-		
+    
         <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="And">
           <Conditional IsFullCondition="false" />
           <Conditional InWater="false" />
-		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
+          <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
           <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
             <Affliction identifier="radiationsickness" strength="0.625" />
+            <Affliction identifier="radiationgeiger" strength="0.625" />
             <Affliction identifier="hazardexposure" strength="10" />
-		    <Affliction identifier="radiationgeiger" strength="5" />
           </Explosion>
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="4">
           <Conditional IsFullCondition="false" />
           <Fire />
@@ -231,11 +229,11 @@
           <Conditional condition="lte 0.01" />
         </StatusEffect>
       </Holdable>
-	  
-	  
+    
+    
       <!-- Allow rod to be used with fission accelerator -->
-	  
-	  
+    
+    
       <ItemContainer hideitems="true" capacity="1" itemrotation="90" drawinventory="false" canbeselected="false" SpawnWithId="nucleargunbolt" removecontaineditemsondeconstruct="true" showcontainedstateindicator="false">
         <Containable items="nucleargunbolt" />
         <StatusEffect type="OnUse" target="This" condition="-10.0" disabledeltatime="true">
@@ -267,11 +265,11 @@
         <Price locationtype="military" multiplier="1.25" maxavailable="1" />
         <Price locationtype="mine" multiplier="1.1" sold="false" />
       </Price>
-	  
-	  
+    
+    
       <!-- Crafting -->
-	  
-	  
+    
+    
       <Deconstruct time="10">
         <Item identifier="titaniumaluminiumalloy" />
         <Item identifier="titaniumaluminiumalloy" />
@@ -285,67 +283,67 @@
         <RequiredItem identifier="titaniumaluminiumalloy" />
         <RequiredItem identifier="lead" />
       </Fabricate>
-	  
-	  
+    
+    
       <!-- Recycle option currently cause problem, disabled until the devs fix it
-		
-		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="10">
-			<RequiredSkill identifier="mechanical" level="15" />
-			<RequiredItem identifier="fulgurium" />
-			<RequiredItem identifier="fulguriumfuelrod" mincondition="0.0" usecondition="false"/>
-		</Fabricate> -->
-		
-		
+    
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="10">
+      <RequiredSkill identifier="mechanical" level="15" />
+      <RequiredItem identifier="fulgurium" />
+      <RequiredItem identifier="fulguriumfuelrod" mincondition="0.0" usecondition="false"/>
+    </Fabricate> -->
+    
+    
       <!-- Texture and light -->
-	  
-	  
+    
+    
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,64,64,64" origin="0.5,0.5" />
       <Sprite texture="Content/Items/Tools/tools.png" depth="0.55" sourcerect="431,1,19,68" />
       <Body radius="6" height="55" density="20" />
       <LightComponent range="350.0" lightcolor="255,255,0,125" powerconsumption="3" MinVoltage="0.99" IsOn="true" castshadows="true" allowingameediting="false">
         <Sprite texture="Content/Items/Tools/tools.png" sourcerect="431,1,19,68" depth="0.56" />
       </LightComponent>
-	  
-	  
+    
+    
       <!-- Active effect and other SE -->
-	  
-	  
+    
+    
       <Holdable handle1="0,0" slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect">
         <StatusEffect type="Always" target="This" stackable="false" voltage="2">
           <Conditional IsFullCondition="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="0.5" stackable="false" comparison="And">
           <Conditional IsFullCondition="false" />
           <Affliction identifier="burningrod" strength="100" />
         </StatusEffect>
-		
+    
         <StatusEffect type="InWater" target="This" comparison="And" >
           <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="1" scalemax="1" />
           <ParticleEmitter particle="extinguisher" anglemin="0" anglemax="360" velocitymin="5.0" velocitymax="50.0" particlespersecond="40" />
           <Conditional IsFullCondition="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="4">
           <Conditional IsFullCondition="false" />
           <Fire />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true" delay="0.5" stackable="false" setvalue="true" condition="0.05">
           <Conditional condition="lte 0.01" />
         </StatusEffect>
-		
-		
+    
+    
         <!-- Rapidely damage junction box overtime-->
-		
-		
+    
+    
         <StatusEffect type="OnNotContained" target="NearbyItems" range="6000.0" targettags="junctionbox" stackable="false" delay="0.5" condition="-20">
           <ParticleEmitter particle="ElectricShock" distancemax="6" particlespersecond="2.0" particleamount="2" emitinterval="2.1" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.2" />
         </StatusEffect>
-	
+  
         <!-- Fancy electrical spark + sound effect -->
-		
-		
+    
+    
         <StatusEffect type="OnNotContained" target="This">
           <ParticleEmitter particle="ElectricShock" distancemax="1" particlespersecond="2.0" particleamount="2" emitinterval="2.1" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.2" />
         </StatusEffect>
@@ -356,11 +354,11 @@
           <sound file="%ModDir%/Content/Items/Reactor/shock4.ogg" />
         </StatusEffect>
       </Holdable>
-	  
-	  
+    
+    
       <!-- Allow rod to be used with fission accelerator -->
-	  
-	  
+    
+    
       <ItemContainer hideitems="true" capacity="1" itemrotation="90" drawinventory="false" canbeselected="false" SpawnWithId="fulguriumgunbolt" removecontaineditemsondeconstruct="true" showcontainedstateindicator="false">
         <Containable items="fulguriumgunbolt" />
         <StatusEffect type="OnUse" target="This" condition="-25.0" disabledeltatime="true">
@@ -369,10 +367,10 @@
       </ItemContainer>
       <Throwable characterusable="false" slots="Any,RightHand,LeftHand" throwforce="4.0" holdpos="0,0" handle1="0,0" msg="ItemMsgPickUpSelect" />
  
-	<Quality>
+  <Quality>
       <QualityStat stattype="Condition" value="0.1"/>
     </Quality>
-	
+  
     </Item>
   </Override>
   
@@ -403,46 +401,46 @@
         <RequiredItem identifier="fulgurium" />
         <RequiredItem identifier="incendium" />
       </Fabricate>
-	  
-	  
+    
+    
       <!-- Recycle option currently cause problem, disabled until the devs fix it
-	
+  
     <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="10" requiresrecipe="true">
       <RequiredSkill identifier="mechanical" level="50" />
       <RequiredItem identifier="fulgurium" />
       <RequiredItem identifier="incendium" />
       <RequiredItem identifier="fulguriumfuelrodvolatile" mincondition="0.0" usecondition="false" />
     </Fabricate> -->
-	
-	
+  
+  
       <!-- Texture and light -->
-	  
-	  
+    
+    
       <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="67,176,62,61" origin="0.5,0.5" />
       <Sprite texture="Content/Items/JobGear/TalentGear.png" depth="0.55" sourcerect="190,60,20,71" origin="0.5,0.5" />
       <Body radius="6" height="55" density="20" />
       <LightComponent range="350.0" lightcolor="60,200,150,150" powerconsumption="3" MinVoltage="0.99" IsOn="true" castshadows="true" allowingameediting="false" />
-	  
-	  
+    
+    
       <!-- Active effect and other SE -->
-	  
-	  
+    
+    
       <Holdable handle1="0,0" slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect">
         <StatusEffect type="Always" target="This" stackable="false" voltage="2">
           <Conditional IsFullCondition="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="0.5" stackable="false">
           <Conditional IsFullCondition="false" />
           <Affliction identifier="burningrod" strength="100" />
         </StatusEffect>
-		
+    
         <StatusEffect type="InWater" target="This" comparison="And" >
           <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="1" scalemax="1" />
           <ParticleEmitter particle="extinguisher" anglemin="0" anglemax="360" velocitymin="5.0" velocitymax="50.0" particlespersecond="40" />
           <Conditional IsFullCondition="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="1">
           <Conditional IsFullCondition="false" />
           <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" delay="1" stackable="false">
@@ -450,27 +448,27 @@
             <Affliction identifier="hazardexposure" strength="10" />
           </Explosion>
         </StatusEffect>
-		
+    
         <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparaison="And">
           <Conditional IsFullCondition="false" />
-		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
+      <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
           <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" delay="1" stackable="false">
             <Affliction identifier="burn_emitter" strength="100" />
             <Affliction identifier="hazardexposure" strength="10" />
           </Explosion>
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="2" >
           <Conditional IsFullCondition="false" />
           <Explosion range="100" structuredamage="25" force="0.01" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" stackable="false" delay="3" underwaterbubble="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="2" comparaison="And">
           <Conditional IsFullCondition="false" />
-		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
+      <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
           <Explosion range="100" structuredamage="25" force="0.01" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" stackable="false" delay="3" underwaterbubble="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="4">
           <Conditional IsFullCondition="false" />
           <Fire />
@@ -479,60 +477,60 @@
         <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true" delay="0.5" stackable="false" setvalue="true" condition="0.05">
           <Conditional condition="lte 0.01" />
         </StatusEffect>
-		
-		
+    
+    
         <!-- Rapidely damage junction box overtime-->
-		
-		
+    
+    
         <StatusEffect type="OnNotContained" target="NearbyItems" range="6000.0" targettags="junctionbox" stackable="false" delay="0.5" condition="-20">
           <ParticleEmitter particle="ElectricShock" distancemax="6" particlespersecond="2.0" particleamount="2" emitinterval="2.1" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.2" />
         </StatusEffect>
 
-		
-		
+    
+    
         <!-- Fancy electrical spark + sound effect -->
-		
-		
+    
+    
         <StatusEffect type="OnNotContained" target="This">
           <ParticleEmitter particle="ElectricShock" distancemax="1" particlespersecond="2.0" particleamount="2" emitinterval="2.1" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.2" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" target="This" delay="5" disabledeltatime="true" stackable="false" dontmuffle="false">
           <sound file="%ModDir%/Content/Items/Reactor/shock1.ogg" selectionmode="Random" />
           <sound file="%ModDir%/Content/Items/Reactor/shock2.ogg" />
           <sound file="%ModDir%/Content/Items/Reactor/shock3.ogg" />
           <sound file="%ModDir%/Content/Items/Reactor/shock4.ogg" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnContained" target="This">
-		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
+      <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
           <ParticleEmitter particle="ElectricShock" distancemax="1" particlespersecond="2.0" particleamount="2" emitinterval="2.1" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.2" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnContained" target="This" delay="5" disabledeltatime="true" stackable="false" dontmuffle="false">
-		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
+      <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
           <sound file="%ModDir%/Content/Items/Reactor/shock1.ogg" selectionmode="Random" />
           <sound file="%ModDir%/Content/Items/Reactor/shock2.ogg" />
           <sound file="%ModDir%/Content/Items/Reactor/shock3.ogg" />
           <sound file="%ModDir%/Content/Items/Reactor/shock4.ogg" />
         </StatusEffect>
       </Holdable>
-	  
-	  
+    
+    
       <!-- Allow rod to be used with fission accelerator -->
-	  
-	  
+    
+    
       <ItemContainer hideitems="true" capacity="1" itemrotation="90" drawinventory="false" canbeselected="false" SpawnWithId="volatilefulguriumgunbolt" removecontaineditemsondeconstruct="true" showcontainedstateindicator="false">
         <Containable items="volatilefulguriumgunbolt" />
         <StatusEffect type="OnUse" target="This" condition="-25.0" disabledeltatime="true">
           <SpawnItem identifiers="volatilefulguriumgunbolt" spawnposition="ThisInventory" />
         </StatusEffect>
       </ItemContainer>
-	  
-	  
+    
+    
       <!-- Impact sensivity -->
-	  
-	  
+    
+    
       <Throwable characterusable="false" slots="Any,RightHand,LeftHand" throwforce="4.0" holdpos="0,0" handle1="0,0" msg="ItemMsgPickUpSelect">
         <StatusEffect type="OnImpact" target="This" disabledeltatime="true" stackable="false" condition="-20">
           <Conditional condition="gte 1" />
@@ -547,7 +545,7 @@
     <Quality>
       <QualityStat stattype="Condition" value="0.1"/>
     </Quality>
-	
+  
     </Item>
   </Override>
   
@@ -576,20 +574,20 @@
         <RequiredItem identifier="titaniumaluminiumalloy" />
         <RequiredItem identifier="lead" />
       </Fabricate>
-	  
-	  
+    
+    
       <!-- Recycle option currently cause problem, disabled until the devs fix it
-		
-		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="10">
-			<RequiredSkill identifier="mechanical" level="15" />
-			<RequiredItem identifier="incendium" />
-			<RequiredItem identifier="ekutility_incendiumfuelrod" mincondition="0.0" usecondition="false"/>
-		</Fabricate> -->
-		
-		
+    
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="10">
+      <RequiredSkill identifier="mechanical" level="15" />
+      <RequiredItem identifier="incendium" />
+      <RequiredItem identifier="ekutility_incendiumfuelrod" mincondition="0.0" usecondition="false"/>
+    </Fabricate> -->
+    
+    
       <!-- Texture and light -->
-	  
-	  
+    
+    
       <InventoryIcon texture="%ModDir%/Content/Items/Reactor/ekutility_tools.png" sourcerect="768,64,64,64" origin="0.5,0.5" />
       <Sprite texture="%ModDir%/Content/Items/Reactor/ekutility_tools.png" depth="0.55" sourcerect="704,368,32,80" />
       <Body radius="6" height="55" density="60" />
@@ -597,27 +595,27 @@
         <Sprite texture="%ModDir%/Content/Items/Reactor/ekutility_tools.png" sourcerect="704,368,32,80" depth="0.56" />
         <Conditional hastag="radioactive" />
       </LightComponent>
-	  
-	  
+    
+    
       <!-- Active effect and other SE -->
-	  
-	  
+    
+    
       <Holdable handle1="0,0" slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect">
         <StatusEffect type="Always" target="This" stackable="false" voltage="2">
           <Conditional IsFullCondition="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="0.5" stackable="false">
           <Conditional IsFullCondition="false" />
           <Affliction identifier="burningrod" strength="100" />
         </StatusEffect>
-		
+    
         <StatusEffect type="InWater" target="This" comparison="And" >
           <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="1" scalemax="1" />
           <ParticleEmitter particle="extinguisher" anglemin="0" anglemax="360" velocitymin="5.0" velocitymax="50.0" particlespersecond="40" />
           <Conditional IsFullCondition="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="1">
           <Conditional IsFullCondition="false" />
           <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" delay="1" stackable="false">
@@ -625,18 +623,18 @@
             <Affliction identifier="hazardexposure" strength="10" />
           </Explosion>
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="2">
           <Conditional IsFullCondition="false" />
           <Explosion range="100" structuredamage="25" force="1" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" stackable="false" delay="3" underwaterbubble="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="2" comparaison="And">
           <Conditional IsFullCondition="false" />
-		  <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
+      <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
           <Explosion range="100" structuredamage="25" force="1" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" stackable="false" delay="3" underwaterbubble="false" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="4">
           <Conditional IsFullCondition="false" />
           <Fire />
@@ -645,29 +643,29 @@
         <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true" delay="0.5" stackable="false" setvalue="true" condition="0.05">
           <Conditional condition="lte 0.01" />
         </StatusEffect>
-		
+    
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false">
           <Conditional IsFullCondition="false" />
           <sound file="Content/Items/Tools/FlareLoop.ogg" range="800.0" loop="true" />
         </StatusEffect>
-		
+    
       </Holdable>
-	  
-	  
+    
+    
       <!-- Allow rod to be used with fission accelerator -->
-	  
-	  
+    
+    
       <ItemContainer hideitems="true" capacity="1" itemrotation="90" drawinventory="false" canbeselected="false" SpawnWithId="incendiumgunbolt" removecontaineditemsondeconstruct="true" showcontainedstateindicator="false">
         <Containable items="incendiumgunbolt" />
         <StatusEffect type="OnUse" target="This" condition="-10.0" disabledeltatime="true">
           <SpawnItem identifiers="incendiumgunbolt" spawnposition="ThisInventory" />
         </StatusEffect>
       </ItemContainer>
-	  
-	  
+    
+    
       <!-- Impact sensivity -->
-	  
-	  
+    
+    
       <Throwable characterusable="false" slots="Any,RightHand,LeftHand" throwforce="4.0" holdpos="0,0" handle1="0,0" msg="ItemMsgPickUpSelect">
         <StatusEffect type="OnImpact" target="This" disabledeltatime="true" stackable="false" condition="-5">
           <Conditional condition="gte 1" />
@@ -682,7 +680,7 @@
     <Quality>
       <QualityStat stattype="Condition" value="0.1"/>
     </Quality>
-	
+  
     </Item>
   </Override>
   
@@ -698,11 +696,11 @@
       <Conditional condition="gt 1" />
     </LightComponent>
     <Holdable handle1="0,0" slots="RightHand,LeftHand" msg="ItemMsgPickUpSelect">
-	
-	
+  
+  
       <!-- Applies flare effect -->
-	  
-	  
+    
+    
       <StatusEffect type="Always" disabledeltatime="true" stackable="false" target="This" comparaison="And">
         <Conditional condition="gt 1" />
         <sound file="Content/Items/Tools/FlareLoop.ogg" range="800.0" loop="true" />
@@ -710,11 +708,11 @@
         <ParticleEmitter particle="ekthermiteflare1" emitinterval="2.1" particleamount="10" particlespersecond="25" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" scalemin="0.7" scalemax="0.7" />
         <ParticleEmitter particle="FlareBubbles" particlespersecond="40" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" scalemin="0.8" scalemax="1.2" />
       </StatusEffect>
-	  
-	  
+    
+    
       <!-- Intended AOE effect -->
-	  
-	  
+    
+    
       <StatusEffect type="Always" disabledeltatime="true" stackable="false" delay="1" target="This" comparison="And">
         <Conditional condition="gt 1" />
         <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" delay="1" stackable="false">
@@ -736,18 +734,18 @@
         <Affliction identifier="burn" strength="5" />
         <Affliction identifier="burningrod" strength="100" />
       </StatusEffect>
-	  
-	  
+    
+    
       <!-- Burnout timer using item condition as countdown -->
-	  
-	  
+    
+    
       <StatusEffect type="Always" target="This" condition="-2.5" delay="1" stackable="false" disabledeltatime="true" />
     </Holdable>
-	
-	
+  
+  
     <!-- Powerfull explosion if impacting anything -->
-	
-	
+  
+  
     <Throwable characterusable="false" slots="Any,RightHand,LeftHand" throwforce="4.0" holdpos="0,0" handle1="0,0" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnImpact" target="This" disabledeltatime="true" stackable="false">
         <Conditional condition="gt 1" />
@@ -781,28 +779,28 @@
       <Item identifier="radiotoxin" />
       <Item identifier="radiotoxin" />
     </Deconstruct>
-	
-	
+  
+  
     <!-- Texture and light -->
-	
-	
+  
+  
     <InventoryIcon texture="%ModDir%/Content/Items/Reactor/moltenrods.png" sourcerect="5,6,114,105" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Content/Items/Reactor/moltenrods.png" sourcerect="5,6,114,105" origin="0.5,0.5" depth="0.55" scale="*0.5" />
     <Body height="94.49999" width="102.59999" />
     <LightComponent lightcolor="255, 170, 0,225" range="100" powerconsumption="0" ison="true" flickerspeed="0.5" pulsefrequency="0.4">
       <LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
     </LightComponent>
-	
-	
+  
+  
     <!-- Active effect and other SE -->
-	
-	
+  
+  
     <Holdable handle1="0,0" slots="RightHand+LeftHand" msg="ItemMsgPickUpSelect">
       <StatusEffect type="Always" target="This" stackable="false" delay="1">
         <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
           <Affliction identifier="radiationsickness" strength="10" />
+          <Affliction identifier="radiationgeiger" strength="10" />
           <Affliction identifier="lethalradiation" strength="15" />
-		  <Affliction identifier="radiationgeiger" strength="10" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="Always" target="This" stackable="false" delay="0.1">
@@ -820,7 +818,7 @@
       <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="0.5" stackable="false" comparison="And">
         <Affliction identifier="burningrod" strength="100" />
         <Affliction identifier="radiationsickness" strength="100" />
-		<Affliction identifier="radiationgeiger" strength="1" />
+        <Affliction identifier="radiationgeiger" strength="100" />
       </StatusEffect>
       <StatusEffect type="InWater" target="This">
         <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="1" scalemax="1" />
@@ -839,19 +837,19 @@
       <RequiredItem identifier="supercritical_incendium" mincondition="0.5" usecondition="false" />
       <RequiredItem identifier="fueltrasnportcylinderreinforced" />
     </Fabricate>
-	
-	
+  
+  
     <!-- Texture and light -->
-	
-	
-	<Sprite texture="%ModDir%/Content/Items/Misc/RodCylinderSpritesheet.png" depth="0.55" sourcerect="0,64,122,37" origin="0.5,0.5" />
-	<InventoryIcon texture="%ModDir%/Content/Items/Misc/RodCylinderInvSpritesheet.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+  
+  
+  <Sprite texture="%ModDir%/Content/Items/Misc/RodCylinderSpritesheet.png" depth="0.55" sourcerect="0,64,122,37" origin="0.5,0.5" />
+  <InventoryIcon texture="%ModDir%/Content/Items/Misc/RodCylinderInvSpritesheet.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
     <Body width="215" height="30" density="30" />
-	
-	
+  
+  
     <!-- Active effect and other SE -->
-	
-	
+  
+  
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use">
       <StatusEffect type="OnContained" target="Character" SpeedMultiplier="0.5" setvalue="true" />
     </Holdable>
@@ -883,19 +881,19 @@
       <RequiredItem identifier="uranium" />
       <RequiredItem identifier="c4block" />
     </Fabricate>
-	
-	
+  
+  
     <!-- Texture and light -->
-	
-	
-	<Sprite texture="%ModDir%/Content/Items/Misc/RodCylinderSpritesheet.png" depth="0.55" sourcerect="0,64,122,37" origin="0.5,0.5" />
-	<InventoryIcon texture="%ModDir%/Content/Items/Misc/RodCylinderInvSpritesheet.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+  
+  
+  <Sprite texture="%ModDir%/Content/Items/Misc/RodCylinderSpritesheet.png" depth="0.55" sourcerect="0,64,122,37" origin="0.5,0.5" />
+  <InventoryIcon texture="%ModDir%/Content/Items/Misc/RodCylinderInvSpritesheet.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
     <Body width="215" height="30" density="30" />
-	
-	
+  
+  
     <!-- Active effect and other SE -->
-	
-	
+  
+  
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use">
       <StatusEffect type="OnContained" target="Character" SpeedMultiplier="0.5" setvalue="true" />
     </Holdable>

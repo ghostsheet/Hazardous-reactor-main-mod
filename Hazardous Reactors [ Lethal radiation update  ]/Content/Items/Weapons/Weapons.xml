@@ -34,6 +34,7 @@
           <Explosion range="1000.0" structuredamage="1000" ballastfloradamage="1000" force="50.0" severlimbsprobability="1.5" decal="explosion" decalsize="1.0" camerashake="500" camerashakerange="50000" flashrange="10000" flashduration="5.0" screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="3.0">
             <Affliction identifier="burn" strength="300" />
             <Affliction identifier="radiationsickness" strength="100" />
+            <Affliction identifier="radiationgeiger" strength="100" />
             <Affliction identifier="lethalradiation" strength="50" />
             <Affliction identifier="explosiondamage" strength="400" />
             <Affliction identifier="stun" strength="20" />
@@ -89,6 +90,7 @@
           <Explosion range="1000.0" structuredamage="1000" itemdamage="1000" ballastfloradamage="1000" force="50.0" severlimbsprobability="2" decal="explosion" decalsize="1.0" camerashake="500" camerashakerange="50000" flashrange="10000" flashduration="5.0" screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="5.0">
             <Affliction identifier="burn" strength="300" />
             <Affliction identifier="radiationsickness" strength="100" />
+            <Affliction identifier="radiationgeiger" strength="100" />
             <Affliction identifier="lethalradiation" strength="50" />
             <Affliction identifier="explosiondamage" strength="600" />
             <Affliction identifier="stun" strength="20" />
@@ -159,6 +161,7 @@
         <Attack structuredamage="20" targetforce="5" itemdamage="100" severlimbsprobability="0.5">
           <Affliction identifier="burn" strength="45" />
           <Affliction identifier="radiationsickness" strength="25" />
+          <Affliction identifier="radiationgeiger" strength="25" />
           <Affliction identifier="lethalradiation" strength="10" />
           <Affliction identifier="stun" strength="0.7" />
         </Attack>
@@ -176,6 +179,7 @@
           <Explosion range="125.0" structuredamage="15" itemdamage="20" force="10.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" flashcolor="255,0,0,255">
             <Affliction identifier="burn" strength="45" />
             <Affliction identifier="radiationsickness" strength="65" />
+            <Affliction identifier="radiationgeiger" strength="65" />
             <Affliction identifier="lethalradiation" strength="30" />
           </Explosion>
         </StatusEffect>

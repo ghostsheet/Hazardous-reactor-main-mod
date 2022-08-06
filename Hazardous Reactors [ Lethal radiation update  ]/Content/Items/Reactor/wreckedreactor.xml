@@ -18,6 +18,7 @@
         <Conditional condition="e 0" />
         <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false">
           <Affliction identifier="radiationsickness" strength="20" />
+          <Affliction identifier="radiationgeiger" strength="20" />
           <Affliction identifier="contamination" strength="10" />
         </Explosion>
       </StatusEffect>
