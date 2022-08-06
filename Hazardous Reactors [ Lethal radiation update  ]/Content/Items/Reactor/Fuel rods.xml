@@ -1,84 +1,173 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
-  <Override>
 
-    <!-- STANDARD FUEL RODS -->
+<Override>
+  <!-- STANDARD FUEL RODS -->
 
-    <Item name="" category="fuel" identifier="fuelrod" Tags="reactorfuel" maxstacksize="8" scale="0.5" health="100" impactsoundtag="impact_metal_light" description="">
-      <!-- Spawn location and pricing -->
-      <PreferredContainer primary="reactorcab" minamount="2" maxamount="5" spawnprobability="1" />
-      <PreferredContainer secondary="wreckreactorcab,abandonedstoragecab" minamount="1" maxamount="3" spawnprobability="1" />
-    <Price baseprice="150" displaynonempty="true" minavailable="2" maxavailable="4">
+  <!-- Fuel rods are now two different items -->
+  <!--
+    One Inactive item
+    One Active (Hazard)item
+
+    Inactive item will be switched for active item when:
+    Inside Items that uses them (Reactor or RFA)
+    Upon taking damage
+
+  -->
+
+  <Item name="" category="fuel" identifier="fuelrod" Tags="reactorfuel" maxstacksize="4" scale="0.5" health="90" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="reactorcab"/>
+    <PreferredContainer secondary="nucleargun" minamount="1" maxamount="1" spawnprobability="1"/>
+    <PreferredContainer secondary="wreckreactorcab,abandonedreactorcab" minamount="1" maxamount="2" spawnprobability="0.5"/>
+    <PreferredContainer secondary="beaconengcab" amount="1" spawnprobability="0.2"/>
+    <PreferredContainer secondary="abandonedengcab,wreckengcab" amount="1" spawnprobability="0.05"/>
+    <Price baseprice="100" displaynonempty="true" minavailable="1" maxavailable="5">
       <Price storeidentifier="merchantoutpost" />
-      <Price storeidentifier="merchantcity" minavailable="1" />
+      <Price storeidentifier="merchantcity" minavailable="3" />
       <Price storeidentifier="merchantresearch" />
       <Price storeidentifier="merchantmilitary" />
       <Price storeidentifier="merchantmine" />
-      <Price storeidentifier="merchantengineering" multiplier="0.9" minavailable="2" />
+      <Price storeidentifier="merchantengineering" multiplier="0.9" minavailable="3" />
     </Price>
-    
-      <!-- Crafting -->
-    
-    
-      <Deconstruct time="10">
-        <Item identifier="steel" />
-        <Item identifier="lead" />
-        <Item identifier="uranium" copycondition="true" />
-      </Deconstruct>
-      <Fabricate suitablefabricators="fabricator" requiredtime="15">
-        <RequiredSkill identifier="mechanical" level="25" />
-        <RequiredItem identifier="uranium" />
-        <RequiredItem identifier="steel" />
-        <RequiredItem identifier="lead" />
-      </Fabricate>
-    
-    
-      <!-- Recycle option currently cause problem, disabled until the devs fix it
-    
-    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="10">
-      <RequiredSkill identifier="mechanical" level="15" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" depth="0.55" sourcerect="410,1,19,68" />
+    <Body radius="6" height="55" density="20" />
+    <Quality>
+      <QualityStat stattype="Condition" value="0.1"/>
+    </Quality>
+    <!-- Allow rod to be used with fission accelerator -->
+    <ItemContainer hideitems="true" capacity="1" itemrotation="90" drawinventory="false" canbeselected="false" SpawnWithId="nucleargunbolt" removecontaineditemsondeconstruct="true" showcontainedstateindicator="false">
+      <Containable items="nucleargunbolt" />
+      <StatusEffect type="OnUse" target="This" condition="-10" disabledeltatime="true">
+        <SpawnItem identifiers="nucleargunbolt" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <!-- Standard stuff above This -->
+
+    <!-- Cheaper Recipe, No Recycling (for now) -->
+    <Fabricate suitablefabricators="fabricator" requiredtime="15">
+      <RequiredSkill identifier="mechanical" level="25" />
+      <RequiredItem identifier="iron" />
+      <RequiredItem identifier="copper" />
       <RequiredItem identifier="uranium" />
-      <RequiredItem identifier="fuelrod" mincondition="0.0" usecondition="false"/>
-    </Fabricate> -->
-    
-    
-      <!-- Texture and light -->
-    
-    
-      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,64,64,64" origin="0.5,0.5" />
-      <Sprite texture="Content/Items/Tools/tools.png" depth="0.55" sourcerect="410,1,19,68" />
-      <Body radius="6" height="55" density="20" />
-      <LightComponent range="350.0" lightcolor="40,180,40,255" powerconsumption="3" MinVoltage="0.99" IsOn="true" castshadows="true" allowingameediting="false">
-        <Sprite texture="Content/Items/Tools/tools.png" sourcerect="410,1,19,68" depth="0.56" />
-          <Conditional IsFullCondition="false" />
-      </LightComponent>
-    
+    </Fabricate>
+    <!-- Slow Decon Time, create contamination hazard, gives lead if empty -->
+    <Deconstruct time="45">
+      <Item identifier="iron" />
+      <Item identifier="lead" maxcondition="0.10" />
+      <Item identifier="uranium" mincondition="0.95" />
+      <Item identifier="deconcontaminationemitter" />
+    </Deconstruct>
+
+    <!-- Holding/Throwing & Status Effect -->
+    <Throwable characterusable="false" slots="RightHand,LeftHand" throwforce="4.0" holdpos="0,0" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnDamaged" target="This">
+        <!-- Maybe Move this to Lua for Removal then Spawn (with same condition) -->
+        <SpawnItem identifier="fuelrod_active" spawnposition="SameInventory" rotation="Target" spawnifinventoryfull="True">
+        <Remove />
+      </StatusEffect>
+    </Throwable>
+
+  <Item name="" hideinmenus="true" identifier="fuelrod_active" Tags="reactorfuel" maxstacksize="1" scale="0.5" health="90" impactsoundtag="impact_metal_light" description="">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" depth="0.55" sourcerect="410,1,19,68" />
+    <Body radius="6" height="55" density="20" />
+    <Quality>
+      <QualityStat stattype="Condition" value="0.1"/>
+    </Quality>
+    <!-- Allow rod to be used with fission accelerator -->
+    <ItemContainer hideitems="true" capacity="1" itemrotation="90" drawinventory="false" canbeselected="false" SpawnWithId="nucleargunbolt" removecontaineditemsondeconstruct="true" showcontainedstateindicator="false">
+      <Containable items="nucleargunbolt" />
+      <StatusEffect type="OnUse" target="This" condition="-10" disabledeltatime="true">
+        <SpawnItem identifiers="nucleargunbolt" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+
+    <!-- Slow Decon Time, create contamination hazard, gives lead if empty -->
+    <Deconstruct time="45">
+      <Item identifier="iron" />
+      <Item identifier="lead" maxcondition="0.10" />
+      <Item identifier="uranium" mincondition="0.95" />
+      <Item identifier="deconcontaminationemitter" />
+    </Deconstruct>
+
+    <LightComponent range="350.0" lightcolor="40,180,40,255" powerconsumption="3" MinVoltage="0.99" IsOn="true" castshadows="true" allowingameediting="false">
+      <Sprite texture="Content/Items/Tools/tools.png" sourcerect="410,1,19,68" depth="0.56" />
+        <Conditional IsFullCondition="false" />
+    </LightComponent>
+
+    <!-- Holding/Throwing & Status Effect -->
+    <Throwable characterusable="false" slots="RightHand,LeftHand" throwforce="4.0" holdpos="0,0" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <!-- TURNS ON THE RADIATION -->
+      <StatusEffect type="OnNotContained" target="This" IsOn="true"/>
+
+      <StatusEffect type="OnContained" target="This" IsOn="true">
+        <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
+      </StatusEffect>
+
+      <!-- TURNS OFF THE RADIATION -->
+      <StatusEffect type="OnContained" target="This" IsOn="false">
+        <Conditional hastag="eq hazardcontainement" targetcontainer="true" />
+      </StatusEffect>
+
+      <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="0.5" stackable="false">
+        <Conditional IsFullCondition="false" />
+        <Affliction identifier="burningrod" strength="100" />
+      </StatusEffect>
+
+    <!-- LETHAL LIGHT -->
+    <LightComponent lightcolor="0,0,0,0" range="0" ison="true" drawbehindsubs="true" castshadows="false">
+      <StatusEffect type="OnActive" target="This" interval="1">
+        <Conditional InWater="false" />
+      </StatusEffect>
+
+    </LightComponent>
+
+
+
+    <!-- burning rod to whoever holds us -->
+    <!-- lights up when active -->
+
+
+    <!-- gives off radiation -->
+    <!-- special effect in water -->
+    <!-- more radiation when out of water -->
+    <!-- super radiation when not in container -->
+    <!-- spawn fire! after 4s (badly written) -->
+    <!-- reduce condition when not contained -->  
+    </Throwable>
+
     
       <!-- Active effect and other SE -->
     
+    <!-- lights up when active -->
     
       <Holdable handle1="0,0" slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect">
         <StatusEffect type="Always" target="This" stackable="false" voltage="2">
           <Conditional IsFullCondition="false" />
         </StatusEffect>
     
+    <!-- gives off radiation -->
         <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="1" stackable="false">
           <Conditional IsFullCondition="false" />
             <Affliction identifier="radiationsickness" strength="4" />
             <Affliction identifier="radiationgeiger" strength="4" />
         </StatusEffect>
     
+    <!-- burning rod to whoever holds us -->
         <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="0.5" stackable="false">
           <Conditional IsFullCondition="false" />
           <Affliction identifier="burningrod" strength="100" />
         </StatusEffect>
-    
+
+    <!-- special effect in water -->
         <StatusEffect type="InWater" target="This" comparison="And" CheckConditionalAlways="true" >
           <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="1" scalemax="1" />
           <ParticleEmitter particle="extinguisher" anglemin="0" anglemax="360" velocitymin="5.0" velocitymax="50.0" particlespersecond="40" />
           <Conditional IsFullCondition="false" />
         </StatusEffect>
-    
+
+    <!-- more radiation when out of water -->
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="And">
           <Conditional IsFullCondition="false" />
           <Conditional InWater="false" />
@@ -88,7 +177,8 @@
             <Affliction identifier="hazardexposure" strength="10" />
           </Explosion>
         </StatusEffect>
-    
+
+    <!-- super radiation when not in container -->
         <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="And">
           <Conditional IsFullCondition="false" />
           <Conditional InWater="false" />
@@ -99,12 +189,14 @@
             <Affliction identifier="hazardexposure" strength="10" />
           </Explosion>
         </StatusEffect>
-    
+
+    <!-- spawn fire! after 4s (badly written) -->
         <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="4">
           <Conditional IsFullCondition="false" />
           <Fire />
         </StatusEffect>
-    
+
+    <!-- reduce condition when not contained -->    
         <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true" delay="0.5" stackable="false" setvalue="true" condition="0.05">
           <Conditional condition="lte 0.01" />
         </StatusEffect>
@@ -126,8 +218,8 @@
       <QualityStat stattype="Condition" value="0.1"/>
     </Quality>
   
-    </Item>
-  </Override>
+  </Item>
+</Override>
   
   
   <Override>
