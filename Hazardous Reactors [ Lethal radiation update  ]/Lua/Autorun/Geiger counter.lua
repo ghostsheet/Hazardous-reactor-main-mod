@@ -12,7 +12,7 @@ Hook.Add("geigercount", "geigereffect", function (effect, deltaTime, item, targe
   end
 
   local deltaRads = math.max(rads - geigerRadsIndex[item], 0)
-  item.condition = 100 - (deltaRads * 5)
+  item.condition = 100 - (deltaRads * 10)
   geigerRadsIndex[item] = rads
 
 end)

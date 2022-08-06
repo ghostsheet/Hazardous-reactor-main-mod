@@ -48,7 +48,7 @@
         <sound file="%ModDir%/Content/Items/Misc/rock.ogg" range="600" volume="0.8" />
         <Explosion range="500" ignorecover="false" smoke="true" showeffects="false">
           <Affliction identifier="contamination" strength="10" />
-          <Affliction identifier="radiationgeiger" strength="0.5" />
+          <Affliction identifier="radiationgeiger" strength="2" />
           <Affliction identifier="burn" strength="0.1" />
         </Explosion>
       </StatusEffect>
@@ -99,7 +99,7 @@
         <Affliction identifier="radiationsickness" strength="0.1" />
         <Affliction identifier="radiationgeiger" strength="0.1" />
       </StatusEffect>
-      <StatusEffect type="OnActive" target="NearbyCharacters" range="450" interval="1" disabledeltatime="true">
+      <StatusEffect type="OnActive" target="NearbyCharacters" range="350" interval="1" disabledeltatime="true">
         <Affliction identifier="radiationsickness" strength="0.002" />
         <Affliction identifier="radiationgeiger" strength="0.002" />
       </StatusEffect>
@@ -140,7 +140,7 @@
 
     <!-- LETHAL LIGHT -->
     <LightComponent lightcolor="0,0,0,0" range="0" ison="true" drawbehindsubs="true" castshadows="false">
-      <StatusEffect type="OnActive" target="NearbyCharacters" range="120" interval="1" disabledeltatime="true">
+      <StatusEffect type="OnActive" target="NearbyCharacters" range="160" interval="1" disabledeltatime="true">
         <Affliction identifier="radiationsickness" strength="0.05" />
         <Affliction identifier="radiationgeiger" strength="0.05" />
       </StatusEffect>

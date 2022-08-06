@@ -55,6 +55,7 @@
         </Explosion>
         <Explosion range="2000" structuredamage="0" force="10" flames="false" sparks="false" shockwave="false" camerashake="0" smoke="false" flashrange="0" flashduration="0" ignorecover="true" empstrength="2">
           <Affliction identifier="radiationsickness" strength="50" />
+          <Affliction identifier="radiationgeiger" strength="50" />
           <Affliction identifier="contamination" strength="50" />
           <Affliction identifier="stun" strength="10" />
         </Explosion>
@@ -87,6 +88,7 @@
         <Conditional InWater="false" />
         <Explosion range="3000" structuredamage="0" force="10" flames="false" sparks="false" shockwave="false" camerashake="0" smoke="false" flashrange="0" flashduration="0" ignorecover="true">
           <Affliction identifier="radiationsickness" strength="400" />
+          <Affliction identifier="radiationgeiger" strength="400" />
           <Affliction identifier="contamination" strength="200" />
         </Explosion>
         <Explosion range="1000" structuredamage="0" force="10" flames="false" sparks="false" shockwave="false" camerashake="0" smoke="false" flashrange="0" flashduration="0" ignorecover="true">
@@ -172,7 +174,7 @@
         <Conditional targetitemcomponent="Reactor" temperature="gt 2" />
         <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" delay="1" stackable="false">
           <Affliction identifier="radiationsickness" strength="1" />
-          <Affliction identifier="radiationgeiger" strength="1.5" />
+          <Affliction identifier="radiationgeiger" strength="1" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="Always" target="This" delay="0.5" disabledeltatime="true" stackable="false" comparison="And">
@@ -180,9 +182,9 @@
         <Conditional condition="gte 25" />
         <Conditional targetitemcomponent="Reactor" temperature="gt 2" />
         <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" delay="1" stackable="false">
-          <Affliction identifier="radiationsickness" strength="2.0" />
+          <Affliction identifier="radiationsickness" strength="2" />
+          <Affliction identifier="radiationgeiger" strength="2" />
           <Affliction identifier="contamination" strength="2" />
-           <Affliction identifier="radiationgeiger" strength="3" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="Always" target="This" delay="1" disabledeltatime="true" stackable="false" comparison="And">
@@ -190,8 +192,8 @@
         <Conditional condition="gt 0" />
         <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false">
           <Affliction identifier="radiationsickness" strength="5" />
+          <Affliction identifier="radiationgeiger" strength="5" />
           <Affliction identifier="contamination" strength="4" />
-          <Affliction identifier="radiationgeiger" strength="8" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="Always" target="This" disabledeltatime="true" stackable="false" comparison="And">
@@ -211,8 +213,8 @@
         <Conditional condition="e 0" />
         <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false">
           <Affliction identifier="radiationsickness" strength="20" />
+          <Affliction identifier="radiationgeiger" strength="20" />
           <Affliction identifier="contamination" strength="10" />
-          <Affliction identifier="radiationgeiger" strength="10" />
         </Explosion>
       </StatusEffect>
       <!-- CRITICAL INTEGRITY EFFECTS AND ALARMS-->
@@ -360,6 +362,7 @@
         <RequiredItem items="fuelrod,thoriumfuelrod" type="Contained" />
         <Explosion range="1000" structuredamage="0" force="10" flames="false" sparks="true" shockwave="true" camerashake="0" ignorecover="false" smoke="false" flashrange="200" flashduration="2">
           <Affliction identifier="radiationsickness" strength="80" />
+          <Affliction identifier="radiationgeiger" strength="80" />
         </Explosion>
       </StatusEffect>
       <!-- WITH VOLATILE FULGURIUM ROD CONTAINED -->
