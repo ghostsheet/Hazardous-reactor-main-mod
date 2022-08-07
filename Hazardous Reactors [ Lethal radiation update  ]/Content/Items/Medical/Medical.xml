@@ -32,7 +32,7 @@
     <Sprite texture="%ModDir%/Content/Items/Medical/radmedicines.png" sourcerect="0,0,24,47" origin="0.5,0.5" depth="0.6" />
     <InventoryIcon texture="%ModDir%/Content/Items/Medical/radmedicinesiconatlas.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
     <Body width="35" height="65" density="20" />
-    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="-5,0" holdangle="0" reload="1.0" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnFailure" target="This" Condition="-50.0" disabledeltatime="true" />
       <StatusEffect type="OnUse" target="This" Condition="-50.0" disabledeltatime="true" />
       <RequiredSkill identifier="medical" level="35" />
@@ -64,7 +64,7 @@
       <StatusEffect type="OnBroken" target="This">
         <Remove />
       </StatusEffect>
-    </MeleeWeapon>
+    </Holdable>
   </DTPA>
   <!-- Name: Potassium iodide -->
   <!-- Prevent radio element to fix themselves inside the body. -->
@@ -95,7 +95,7 @@
       <Item identifier="potassium" copycondition="true" mincondition="0.1" />
       <Item identifier="iodine" copycondition="true" mincondition="0.1" />
     </Deconstruct>
-    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="-5,0" holdangle="0" reload="1.0" msg="ItemMsgPickUpSelect">
       <RequiredSkill identifier="medical" level="15" />
       <StatusEffect type="OnFailure" target="This" Condition="-20.0" disabledeltatime="true" />
       <StatusEffect type="OnUse" target="This" Condition="-20.0" disabledeltatime="true" />
@@ -111,7 +111,7 @@
       <StatusEffect type="OnBroken" target="This">
         <Remove />
       </StatusEffect>
-    </MeleeWeapon>
+    </Holdable>
   </Potassiumiodide>
   <!-- Name: DNA stabiliser -->
   <!-- Description: Complex compound able to stabilise and restore damaged DNA strands -->
@@ -145,7 +145,7 @@
     <Sprite texture="%ModDir%/Content/Items/Medical/radmedicines.png" sourcerect="56,0,39,69" origin="0.5,0.5" depth="0.6" />
     <InventoryIcon texture="%ModDir%/Content/Items/Medical/radmedicinesiconatlas.png" sourcerect="0,64,64,64" origin="0.5,0.5" />
     <Body width="35" height="65" density="20" />
-    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand"  aimpos="40,5" handle1="-4,0" holdangle="180" reload="1.0" msg="ItemMsgPickUpSelect">
       <RequiredSkill identifier="medical" level="70" />
       <StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true" />
       <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
@@ -200,7 +200,7 @@
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="128,640,64,64" origin="0.5,0.5" />
       <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,69,37,69" depth="0.6" origin="0.5,0.5" />
       <Body width="35" height="65" density="20" />
-      <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+      <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-4,0" holdangle="180" reload="1.0" msg="ItemMsgPickUpSelect">
         <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
         <StatusEffect tags="poison" type="OnUse" target="Character" duration="5">
           <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
@@ -258,7 +258,7 @@
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="128,704,64,64" origin="0.5,0.5" />
       <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="149,142,37,67" depth="0.6" origin="0.5,0.5" />
       <Body width="35" height="70" density="20" />
-      <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+      <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-4,0" holdangle="180" reload="1.0" msg="ItemMsgPickUpSelect">
         <StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true" />
         <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
         <RequiredSkill identifier="medical" level="5"/>

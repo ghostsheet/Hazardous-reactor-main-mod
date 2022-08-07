@@ -217,6 +217,29 @@
           <Affliction identifier="contamination" strength="10" />
         </Explosion>
       </StatusEffect>
+      <!-- GEIGER COUNTER SOUND EFFECT -->
+      <StatusEffect type="OnActive" target="This" delay="0" disabledeltatime="true" stackable="false" comparison="And">
+        <Conditional condition="lte 90" />
+        <Conditional condition="gte 75" />
+        <Conditional targetitemcomponent="Reactor" temperature="gt 2" />
+        <sound file="%ModDir%/Content/Items/Reactor/lowradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" delay="0" disabledeltatime="true" stackable="false" comparison="And">
+        <Conditional condition="lte 75" />
+        <Conditional condition="gte 50" />
+        <Conditional targetitemcomponent="Reactor" temperature="gt 2" />
+        <sound file="%ModDir%/Content/Items/Reactor/mediumradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" delay="0" disabledeltatime="true" stackable="false" comparison="And">
+        <Conditional condition="lte 50" />
+        <Conditional condition="gt 25" />
+        <sound file="%ModDir%/Content/Items/Reactor/highradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" delay="0" disabledeltatime="true" stackable="false" comparison="And">
+        <Conditional condition="lte 25" />
+        <Conditional condition="0" />
+        <sound file="%ModDir%/Content/Items/Reactor/extremeradiation.ogg" type="OnUse" range="500.0" loop="true" volume="0.5" />
+      </StatusEffect>
       <!-- CRITICAL INTEGRITY EFFECTS AND ALARMS-->
       <StatusEffect type="Always" target="This" comparison="And" condition="-0.4">
         <ParticleEmitter particle="smoke" particleburstamount="6" particleburstinterval="0.5" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" underwaterbubble="false" />
