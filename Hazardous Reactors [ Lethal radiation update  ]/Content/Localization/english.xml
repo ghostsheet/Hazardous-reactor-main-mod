@@ -40,7 +40,7 @@
 <entitydescription.DTPA>A more accessible but much slower acting alternative to anti-rad, useless against acute radiation syndrome.</entitydescription.DTPA>
 
 <entityname.Potassiumiodide>Potassium iodide</entityname.Potassiumiodide>
-<entitydescription.Potassiumiodide>Protects against radiation and radioactive contamination. Must be taken regulary in order to keep its full protective effects.</entitydescription.Potassiumiodide>
+<entitydescription.Potassiumiodide>Protects against radiation and radioactive contamination. Must be taken regulary in order to keep its full protective effects. Doesn't protect from lethal radiation sources.</entitydescription.Potassiumiodide>
 
 <entityname.DNAstabiliser>DNA stabiliser</entityname.DNAstabiliser>
 <entitydescription.DNAstabiliser>Rare and complex compound able to slowly restore damaged DNA over a long period of time, dangerous if injected by untrained personel.</entitydescription.DNAstabiliser>
@@ -308,7 +308,7 @@ While antirad quickly cure both, its avaiability and price make it more of an em
 
 DTPA is cheaper and easier to get by albeit is much slower on its active effect.
 
-Radioprotectant, also called Potassium Iodide, helps to prevent both irradiation and radioactive contamination but has no curing effects, it also doesn't protect against lethal radiation sources.
+Radioprotectant, also called Potassium Iodide, helps to prevent both irradiation and radioactive contamination but has no curing effects neither does it protect against lethal radiation sources.
 
 In order to limit radiation induced death all submarine comes equiped with one Geiger counter in their reactor cab, carrying it will automaticaly pick up radiations and display via visual and audio cues their intensities. 
 

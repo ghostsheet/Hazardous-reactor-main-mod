@@ -40,7 +40,7 @@
 <entitydescription.DTPA>Une alternative a l'anti-rad qui est beaucoup plus accessible mais aussi beaucoup plus lent à agir, inutile contre le syndrome d'irradiation aiguë.</entitydescription.DTPA>
 
 <entityname.Potassiumiodide>Iode de potassium</entityname.Potassiumiodide>
-<entitydescription.Potassiumiodide>Protège contre la contamination et les radiations. Doit être pris régulièrement pour maintenir ses effets protecteurs.</entitydescription.Potassiumiodide>
+<entitydescription.Potassiumiodide>Protège contre la contamination et les radiations. Doit être pris régulièrement pour maintenir ses effets protecteurs. Ne protège pas contre les sources de radiation létale.</entitydescription.Potassiumiodide>
 
 <entityname.DNAstabiliser>Stabilisateur d'ADN</entityname.DNAstabiliser>
 <entitydescription.DNAstabiliser>Un composé rare et complexe capable de restaurer lentement l'ADN endommagé sur une longue durée, dangereux si injecté pour du personnel sans aptitude médicale.</entitydescription.DNAstabiliser>
