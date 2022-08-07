@@ -5,6 +5,15 @@
     <Body width="27" height="60" density="12" />
       <PreferredContainer primary="reactorcab" minamount="2" maxamount="2" spawnprobability="1" />
     <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="0,-15" msg="ItemMsgPickUpSelect">
+      <Deconstruct time="20">
+        <Item identifier="plastic" />
+        <Item identifier="fpgacircuit" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="30">
+        <RequiredSkill identifier="electrical" level="20" />
+        <RequiredItem identifier="plastic" />
+        <RequiredItem identifier="fpgacircuit" />
+      </Fabricate>
       <!-- LUA Geiger Counter-->
       <StatusEffect type="Always" target="Character" interval="1">
         <LuaHook name="geigercount" />

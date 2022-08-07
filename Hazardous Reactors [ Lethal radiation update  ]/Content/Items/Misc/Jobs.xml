@@ -29,6 +29,7 @@
       <Item identifier="wrench"/>
       <Item identifier="screwdriver"/>
       <Item identifier="Potassiumiodide"/>
+      <Item identifier="geigercounter"/>
       <Item identifier="DTPA" />
       <PreviewSprites dims="120,109">
         <sprite texture="Content/Items/Jobgear/Engineer/engineer_torso_[GENDER]_1.png" sourcerect="2,38,120,109" offset="0,0" />
