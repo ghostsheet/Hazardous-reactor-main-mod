@@ -21,13 +21,13 @@
     <LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
       <LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
     </LightComponent>
-  <ContainedSprite texture="%ModDir%/Content/Items/Misc/IodineEnvironment.png" usewhenattached="true" decorativespritebehavior="HideWhenNotVisible" depth="0.55" sourcerect="86,0,83,99" origin="0.5,0.5" />
-  <Sprite texture="%ModDir%/Content/Items/Misc/IodineCrystal.png" depth="0.3" sourcerect="0,0,64,64" origin="0.5,0.5" />
-  <DecorativeSprite texture="%ModDir%/Content/Items/Misc/IodineEnvironment.png" depth="0.49" sourcerect="0,0,82,99" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
-  <DecorativeSprite texture="%ModDir%/Content/Items/Misc/IodineEnvironment.png" depth="0.48" sourcerect="171,0,82,99" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
-  <DecorativeSprite texture="%ModDir%/Content/Items/Misc/IodineEnvironment.png" depth="0.51" sourcerect="0,0,82,99" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
-  <DecorativeSprite texture="%ModDir%/Content/Items/Misc/IodineEnvironment.png" depth="0.52" sourcerect="171,0,82,99" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
-  <DecorativeSprite texture="%ModDir%/Content/Items/Misc/IodineCrystal.png" depth="0.4" sourcerect="0,0,64,64" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
+    <ContainedSprite texture="%ModDir%/Content/Items/Misc/IodineEnvironment.png" usewhenattached="true" decorativespritebehavior="HideWhenNotVisible" depth="0.55" sourcerect="86,0,83,99" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/Misc/IodineCrystal.png" depth="0.3" sourcerect="0,0,64,64" origin="0.5,0.5" />
+    <DecorativeSprite texture="%ModDir%/Content/Items/Misc/IodineEnvironment.png" depth="0.49" sourcerect="0,0,82,99" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
+    <DecorativeSprite texture="%ModDir%/Content/Items/Misc/IodineEnvironment.png" depth="0.48" sourcerect="171,0,82,99" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
+    <DecorativeSprite texture="%ModDir%/Content/Items/Misc/IodineEnvironment.png" depth="0.51" sourcerect="0,0,82,99" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
+    <DecorativeSprite texture="%ModDir%/Content/Items/Misc/IodineEnvironment.png" depth="0.52" sourcerect="171,0,82,99" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
+    <DecorativeSprite texture="%ModDir%/Content/Items/Misc/IodineCrystal.png" depth="0.4" sourcerect="0,0,64,64" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
     <Body radius="40" width="20" density="50" />
     <LevelResource deattachduration="8" randomoffsetfromwall="80">
       <Commonness commonness="0.65" />
@@ -42,14 +42,15 @@
 
   <Item identifier="deconcontaminationemitter" hideinmenus="true">
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <Body radius="1" width="1" density="10" />
     <ItemComponent>
       <!-- Contamination on Deconstruction-->
-      <StatusEffect type="OnSpawn" target="This" delay="0.1">
+      <StatusEffect type="OnSpawn" target="This" delay="0.1" checkconditionalalways="true">
+        <Conditional InWater="false" />
         <sound file="%ModDir%/Content/Items/Misc/rock.ogg" range="600" volume="0.8" />
-        <Explosion range="500" ignorecover="false" smoke="true" showeffects="false">
+        <Explosion range="500" force="0.001" ignorecover="false" showeffects="false" smoke="true">
           <Affliction identifier="contamination" strength="10" />
-          <Affliction identifier="radiationgeiger" strength="2" />
-          <Affliction identifier="burn" strength="0.1" />
+          <Affliction identifier="radiationgeiger" strength="3" />
         </Explosion>
       </StatusEffect>
       <!-- delete after explosion-->
