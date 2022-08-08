@@ -190,7 +190,7 @@
     </Item>
   </Override>
   <Override>
-    <Item name="" identifier="nucleargun" category="Equipment" cargocontaineridentifier="metalcrate" tags="mediumitem,mobilebattery,electrical,weapon,gun" Scale="0.5" impactsoundtag="impact_metal_heavy">
+    <Item name="" identifier="nucleargun" category="Equipment" cargocontaineridentifier="metalcrate" tags="mediumitem,mobilebattery,electrical,weapon,gun,fuel_switcheroo" Scale="0.5" impactsoundtag="impact_metal_heavy">
       <PreferredContainer primary="secarmcab,weaponholder" />
       <Price baseprice="675" soldeverywhere="false">
         <Price locationtype="outpost" multiplier="1.5" sold="false" />
@@ -242,6 +242,15 @@
       </RangedWeapon>
       <ItemContainer itemrotation="90" capacity="1" maxstacksize="1" hideitems="false" itempos="10,-5" containedspritedepth="0.56" containedstateindicatorstyle="tank">
         <Containable items="reactorfuel" />
+        <!--test-->
+        <Containable items="fuelrod">
+          <StatusEffect type="OnContaining" target="Contained">
+            <Remove />
+          </StatusEffect>
+          <StatusEffect type="OnContaining" target="This" delay="0.1">
+            <SpawnItem identifiers="fuelrod_active" spawnposition="ThisInventory" spawnifinventoryfull="true"/>
+          </StatusEffect>
+        </Containable>
       </ItemContainer>
       <aitarget sightrange="3000" soundrange="5000" fadeouttime="5" />
       <Quality>
