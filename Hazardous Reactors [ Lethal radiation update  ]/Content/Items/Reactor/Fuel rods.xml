@@ -61,14 +61,10 @@
 
     <!-- Holding/Throwing & Status Effect -->
     <Throwable characterusable="false" slots="RightHand,LeftHand" throwforce="4.0" holdpos="0,0" handle1="0,0" msg="ItemMsgPickUpSelect">
-      <StatusEffect type="OnDamaged" target="This">
-        <!-- Maybe Move this to Lua for Removal then Spawn (with same condition) -->
-        <SpawnItem identifier="fuelrod_active" spawnposition="SameInventory" rotation="Target" spawnifinventoryfull="True">
-        <Remove />
-      </StatusEffect>
     </Throwable>
+  </Item>
 
-  <Item name="" hideinmenus="true" identifier="fuelrod_active" Tags="reactorfuel" maxstacksize="1" scale="0.5" health="90" impactsoundtag="impact_metal_light" description="">
+  <Item name="fuelrod_active" hideinmenus="true" identifier="fuelrod_active" Tags="reactorfuel" maxstacksize="1" scale="0.5" health="90" impactsoundtag="impact_metal_light" description="">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,64,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" depth="0.55" sourcerect="410,1,19,68" />
     <Body radius="6" height="55" density="20" />
@@ -91,11 +87,6 @@
       <Item identifier="deconcontaminationemitter" />
     </Deconstruct>
 
-    <LightComponent range="350.0" lightcolor="40,180,40,255" powerconsumption="3" MinVoltage="0.99" IsOn="true" castshadows="true" allowingameediting="false">
-      <Sprite texture="Content/Items/Tools/tools.png" sourcerect="410,1,19,68" depth="0.56" />
-        <Conditional IsFullCondition="false" />
-    </LightComponent>
-
     <!-- Holding/Throwing & Status Effect -->
     <Throwable characterusable="false" slots="RightHand,LeftHand" throwforce="4.0" holdpos="0,0" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- TURNS ON THE RADIATION -->
@@ -110,117 +101,74 @@
         <Conditional hastag="eq hazardcontainement" targetcontainer="true" />
       </StatusEffect>
 
-      <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="0.5" stackable="false">
-        <Conditional IsFullCondition="false" />
-        <Affliction identifier="burningrod" strength="100" />
+      <!-- Burns whoever holds it -->
+      <StatusEffect type="OnContained" targettype="This,Character">
+        <Conditional IsOn="true" />
+        <Affliction identifier="burningrod" strength="300" />
+        <Affliction identifier="radiationsickness" strength="4" />
+        <Affliction identifier="radiationgeiger" strength="4" />
       </StatusEffect>
 
-    <!-- LETHAL LIGHT -->
-    <LightComponent lightcolor="0,0,0,0" range="0" ison="true" drawbehindsubs="true" castshadows="false">
-      <StatusEffect type="OnActive" target="This" interval="1">
-        <Conditional InWater="false" />
-      </StatusEffect>
-
-    </LightComponent>
-
-
-
-    <!-- burning rod to whoever holds us -->
-    <!-- lights up when active -->
-
-
-    <!-- gives off radiation -->
-    <!-- special effect in water -->
-    <!-- more radiation when out of water -->
-    <!-- super radiation when not in container -->
-    <!-- spawn fire! after 4s (badly written) -->
-    <!-- reduce condition when not contained -->  
     </Throwable>
 
-    
-      <!-- Active effect and other SE -->
-    
-    <!-- lights up when active -->
-    
-      <Holdable handle1="0,0" slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="Always" target="This" stackable="false" voltage="2">
-          <Conditional IsFullCondition="false" />
-        </StatusEffect>
-    
-    <!-- gives off radiation -->
-        <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="1" stackable="false">
-          <Conditional IsFullCondition="false" />
-            <Affliction identifier="radiationsickness" strength="4" />
-            <Affliction identifier="radiationgeiger" strength="4" />
-        </StatusEffect>
-    
-    <!-- burning rod to whoever holds us -->
-        <StatusEffect type="OnContained" targettype="This,Character" targetlimbs="LeftHand,RightHand" disabledeltatime="true" delay="0.5" stackable="false">
-          <Conditional IsFullCondition="false" />
-          <Affliction identifier="burningrod" strength="100" />
-        </StatusEffect>
+    <!-- LETHAL LIGHT, ONLY ACTIVE WHEN NOT SAFELY CONTAINED-->
+    <LightComponent lightcolor="0,200,0,180" range="160" ison="true" castshadows="false">
 
-    <!-- special effect in water -->
-        <StatusEffect type="InWater" target="This" comparison="And" CheckConditionalAlways="true" >
-          <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="1" scalemax="1" />
-          <ParticleEmitter particle="extinguisher" anglemin="0" anglemax="360" velocitymin="5.0" velocitymax="50.0" particlespersecond="40" />
-          <Conditional IsFullCondition="false" />
-        </StatusEffect>
+      <!-- Radiation Hazard! (When not in water) -->
+      <StatusEffect type="OnActive" target="This" interval="1">
+        <Conditional InWater="false" />
+        <Explosion range="1000" force="0.001" ignorecover="false" showeffects="false" >
+          <Affliction identifier="radiationsickness" strength="2.5" />
+          <Affliction identifier="radiationgeiger" strength="2.5" />
+          <Affliction identifier="hazardexposure" strength="10" />
+        </Explosion>
+      </StatusEffect>
 
-    <!-- more radiation when out of water -->
-        <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="And">
-          <Conditional IsFullCondition="false" />
-          <Conditional InWater="false" />
-          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
-            <Affliction identifier="radiationsickness" strength="2.5" />
-            <Affliction identifier="radiationgeiger" strength="2.5" />
-            <Affliction identifier="hazardexposure" strength="10" />
-          </Explosion>
-        </StatusEffect>
+      <!-- Radiation Hazard InWater! Range halved -->
+      <StatusEffect type="OnActive" target="This" interval="1">
+        <Conditional InWater="true" />
+        <Explosion range="500" force="0.001" ignorecover="false" showeffects="false" >
+          <Affliction identifier="radiationsickness" strength="2.5" />
+          <Affliction identifier="radiationgeiger" strength="2.5" />
+          <Affliction identifier="hazardexposure" strength="10" />
+        </Explosion>
+      </StatusEffect>
 
-    <!-- super radiation when not in container -->
-        <StatusEffect type="OnContained" target="This" disabledeltatime="true" stackable="false" delay="1" comparison="And">
-          <Conditional IsFullCondition="false" />
-          <Conditional InWater="false" />
-          <Conditional hastag="neq hazardcontainement" targetcontainer="true" />
-          <Explosion range="1000" stun="0" force="0.001" smoke="false" flames="false" shockwave="false" sparks="false" underwaterbubble="false" camerashake="0.0" flash="false" flashRange="0" ignorecover="false">
-            <Affliction identifier="radiationsickness" strength="0.625" />
-            <Affliction identifier="radiationgeiger" strength="0.625" />
-            <Affliction identifier="hazardexposure" strength="10" />
-          </Explosion>
-        </StatusEffect>
+      <!-- Spawn fire! After 10s of not contained or in water -->
+      <StatusEffect type="OnActive" target="This" comparison="And" delay="10" stackable="false" checkconditionalalways="true">
+        <Conditional InWater="false" />
+        <Conditional IsOn="true" />
+        <Fire size="1.0"/>
+      </StatusEffect>
 
-    <!-- spawn fire! after 4s (badly written) -->
-        <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" stackable="false" delay="4">
-          <Conditional IsFullCondition="false" />
-          <Fire />
-        </StatusEffect>
+      <!-- SFX InWater, Bubbles and Steam-->
+      <StatusEffect type="OnActive" target="This">
+        <Conditional InWater="true" />
+        <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" emitinterval="0.07" particleamount="1" velocitymin="0" velocitymax="50" scalemin="1" scalemax="1" />
+        <ParticleEmitter particle="extinguisher" anglemin="0" anglemax="360" emitinterval="0.07" velocitymin="5.0" velocitymax="50.0" particlespersecond="40" />
+      </StatusEffect>
 
-    <!-- reduce condition when not contained -->    
-        <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true" delay="0.5" stackable="false" setvalue="true" condition="0.05">
-          <Conditional condition="lte 0.01" />
-        </StatusEffect>
-      </Holdable>
-    
-    
-      <!-- Allow rod to be used with fission accelerator -->
-    
-    
-      <ItemContainer hideitems="true" capacity="1" itemrotation="90" drawinventory="false" canbeselected="false" SpawnWithId="nucleargunbolt" removecontaineditemsondeconstruct="true" showcontainedstateindicator="false">
-        <Containable items="nucleargunbolt" />
-        <StatusEffect type="OnUse" target="This" condition="-10" disabledeltatime="true">
-          <SpawnItem identifiers="nucleargunbolt" spawnposition="ThisInventory" />
-        </StatusEffect>
-      </ItemContainer>
-      <Throwable characterusable="false" slots="Any,RightHand,LeftHand" throwforce="4.0" holdpos="0,0" handle1="0,0" msg="ItemMsgPickUpSelect" />
-  
-    <Quality>
-      <QualityStat stattype="Condition" value="0.1"/>
-    </Quality>
-  
+      <!-- SFX NotInWater, Smoke -->
+      <StatusEffect type="OnActive" target="This">
+        <Conditional InWater="false" />
+        <ParticleEmitter particle="smoke" particleburstamount="3" particleburstinterval="0.5" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50" />
+        <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5" scalemax="5.0" mincondition="0.0" maxcondition="15.0" />
+      </StatusEffect>
+    </LightComponent>
+
   </Item>
 </Override>
-  
+
+
+    <!-- burning rod to whoever holds us -->
+    <!-- lights up when active -->
+    <!-- special effect in water -->
+    <!-- spawn fire! after 4s (badly written) -->
+
+
+    <!-- gives off radiation -->
+    <!-- more radiation when out of water -->
+    <!-- reduce condition when not contained -->  
   
   <Override>
     <Item name="" category="fuel" identifier="thoriumfuelrod" Tags="reactorfuel" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" health="300" impactsoundtag="impact_metal_light" description="">

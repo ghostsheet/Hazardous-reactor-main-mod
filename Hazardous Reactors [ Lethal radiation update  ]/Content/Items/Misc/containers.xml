@@ -33,7 +33,7 @@
     </Wearable>
     <!-- Only accept fuel rods -->
     <ItemContainer autofill="False" hideitems="true" drawinventory="true" capacity="1" slotsperrow="1" maxstacksize="1" canbeselected="true" msg="ItemMsgInteractSelect" keepopenwhenequipped="false" movableframe="false">
-      <Containable items="fuelrod,thoriumfuelrod,fulguriumfuelrod,fulguriumfuelrodvolatile,ekutility_incendiumfuelrod,depletedfuel" />
+      <Containable items="fuelrod,thoriumfuelrod,fulguriumfuelrod,fulguriumfuelrodvolatile,ekutility_incendiumfuelrod,depletedfuel,fuelrod_active" />
     </ItemContainer>
   </Item>
 
@@ -61,11 +61,11 @@
     <Sprite texture="%ModDir%/Content/Items/Misc/Rod carrier.png" depth="0.54" sourcerect="1,2,149,86" origin="0.5,0.5" />
     <Body width="150" height="85" density="50" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect">
-      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.75" setvalue="true" />
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.7" setvalue="true" />
     </Holdable>
     <!-- Only accept fuel rods -->
     <ItemContainer autofill="False" capacity="4" slotsperrow="2" canbeselected="true" msg="ItemMsgInteractSelect" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="fuelrod,thoriumfuelrod,fulguriumfuelrod,fulguriumfuelrodvolatile,ekutility_incendiumfuelrod,depletedfuel,uranium,thorium" />
+      <Containable items="fuelrod,thoriumfuelrod,fulguriumfuelrod,fulguriumfuelrodvolatile,ekutility_incendiumfuelrod,depletedfuel,uranium,thorium,fuelrod_active" />
     </ItemContainer>
   </Item>
 
@@ -93,11 +93,11 @@
     <Sprite texture="%ModDir%/Content/Items/Misc/ekutility_containers.png" depth="0.54" sourcerect="0,624,160,224" origin="0.5,0.5" />
     <Body width="136" height="208" density="25" />
     <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="52,-82" holdangle="25" handle1="-54,86" handle2="-54,86" aimable="false" msg="ItemMsgPickUpSelect">
-      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.6" setvalue="true" />
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.5" setvalue="true" />
     </Holdable>
     <!-- Only accept fuel rods -->
     <ItemContainer autofill="False" capacity="12" slotsperrow="3" canbeselected="true" msg="ItemMsgInteractSelect" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="fuelrod,thoriumfuelrod,fulguriumfuelrod,fulguriumfuelrodvolatile,ekutility_incendiumfuelrod,depletedfuel,uranium,thorium" />
+      <Containable items="fuelrod,thoriumfuelrod,fulguriumfuelrod,fulguriumfuelrodvolatile,ekutility_incendiumfuelrod,depletedfuel,uranium,thorium,fuelrod_active" />
     </ItemContainer>
   </Item>
 </Override>
