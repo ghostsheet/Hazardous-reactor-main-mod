@@ -6,7 +6,7 @@
       <Price storeidentifier="merchantcity" minavailable="1" />
       <Price storeidentifier="merchantresearch" sold="false" multiplier="1.25" />
       <Price storeidentifier="merchantmilitary" sold="false" multiplier="1.25" />
-      <Price storeidentifier="merchantmine"  multiplier="1.25" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
       <Price storeidentifier="merchantengineering" multiplier="1.4" minavailable="2" />
     </Price>
     <Deconstruct time="10">
@@ -39,7 +39,7 @@
       <Price storeidentifier="merchantcity" minavailable="1" />
       <Price storeidentifier="merchantresearch" sold="false" multiplier="1.25" />
       <Price storeidentifier="merchantmilitary" sold="false" multiplier="1.25" />
-      <Price storeidentifier="merchantmine"  multiplier="1.25" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
       <Price storeidentifier="merchantengineering" multiplier="1.4" minavailable="2" />
     </Price>
     <Deconstruct time="10">
@@ -53,8 +53,8 @@
       <RequiredItem identifier="lead" />
       <RequiredItem identifier="rubber" />
     </Fabricate>
-	<Sprite texture="%ModDir%/Content/Items/Misc/RodCylinderSpritesheet.png" depth="0.55" sourcerect="0,32,116,32" origin="0.5,0.5" />
-	<InventoryIcon texture="%ModDir%/Content/Items/Misc/RodCylinderInvSpritesheet.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/Misc/RodCylinderSpritesheet.png" depth="0.55" sourcerect="0,32,116,32" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Content/Items/Misc/RodCylinderInvSpritesheet.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
     <Body width="215" height="30" density="30" />
     <Holdable slots="RightHand,LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use">
       <StatusEffect type="OnContained" target="Character" SpeedMultiplier="0.95" setvalue="true" />
@@ -196,13 +196,13 @@
   <Override>
     <Item name="" identifier="ekutility_handtruck_reactorfuel" category="Equipment" Tags="ekutility_compatiblefuelstorage,hazardcontainement" pickdistance="75" scale="0.6" description="">
       <Price baseprice="300">
-      <Price storeidentifier="merchantoutpost" sold="false" />
-      <Price storeidentifier="merchantcity" minavailable="1" />
-      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.25" />
-      <Price storeidentifier="merchantmilitary" sold="false" multiplier="1.25" />
-      <Price storeidentifier="merchantmine"  multiplier="1.25" />
-      <Price storeidentifier="merchantengineering" multiplier="1.4" minavailable="2" />
-    </Price>
+        <Price storeidentifier="merchantoutpost" sold="false" />
+        <Price storeidentifier="merchantcity" minavailable="1" />
+        <Price storeidentifier="merchantresearch" sold="false" multiplier="1.25" />
+        <Price storeidentifier="merchantmilitary" sold="false" multiplier="1.25" />
+        <Price storeidentifier="merchantmine" multiplier="1.25" />
+        <Price storeidentifier="merchantengineering" multiplier="1.4" minavailable="2" />
+      </Price>
       <Deconstruct time="10">
         <Item identifier="aluminium" />
         <!--42-->

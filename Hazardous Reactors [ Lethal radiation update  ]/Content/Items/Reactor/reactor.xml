@@ -181,7 +181,7 @@
         <Conditional targetitemcomponent="Reactor" temperature="gt 2" />
         <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" delay="1" stackable="false">
           <Affliction identifier="radiationsickness" strength="2" />
-           <Affliction identifier="radiationgeiger" strength="2" />
+          <Affliction identifier="radiationgeiger" strength="2" />
           <Affliction identifier="contamination" strength="2" />
         </Explosion>
       </StatusEffect>
@@ -190,7 +190,7 @@
         <Conditional condition="gt 0" />
         <Explosion range="500" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false">
           <Affliction identifier="radiationsickness" strength="5" />
-           <Affliction identifier="radiationgeiger" strength="5" />
+          <Affliction identifier="radiationgeiger" strength="5" />
           <Affliction identifier="contamination" strength="4" />
         </Explosion>
       </StatusEffect>

@@ -11,8 +11,8 @@
       <Price locationtype="military" multiplier="1.1" sold="false" />
       <Price locationtype="mine" multiplier="0.8" sold="true" minavailable="20" />
     </Price>
-  <InventoryIcon texture="%ModDir%/Content/Items/Misc/IodineMatIcon.png" sourcerect="0,0,64,64" />
-  <Sprite texture="%ModDir%/Content/Items/Misc/Iodine material.png" depth="0.55" sourcerect="0,0,45,37" origin="0.5,0.5" /> 
+    <InventoryIcon texture="%ModDir%/Content/Items/Misc/IodineMatIcon.png" sourcerect="0,0,64,64" />
+    <Sprite texture="%ModDir%/Content/Items/Misc/Iodine material.png" depth="0.55" sourcerect="0,0,45,37" origin="0.5,0.5" />
     <Body width="45" height="30" density="25" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
@@ -199,10 +199,10 @@
       <RequiredItem identifier="du_p_alloy" />
       <RequiredItem identifier="du_p_alloy" />
     </Fabricate>
-  <Sprite texture="%ModDir%/Content/Items/Misc/RodCylinderSpritesheet.png" depth="0.55" sourcerect="0,32,116,32" origin="0.5,0.5" />
-  <InventoryIcon texture="%ModDir%/Content/Items/Misc/RodCylinderInvSpritesheet.png" sourcerect="0,0,64,64" origin="0.5,0.5" /> 
+    <Sprite texture="%ModDir%/Content/Items/Misc/RodCylinderSpritesheet.png" depth="0.55" sourcerect="0,32,116,32" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Content/Items/Misc/RodCylinderInvSpritesheet.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
     <Body width="215" height="30" density="30" />
-    <Holdable slots="RightHand,LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use"/>
+    <Holdable slots="RightHand,LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" />
     <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Rod storage worn" texture="%ModDir%/Content/Items/Misc/RodCylinderSpritesheet.png" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" sourcerect="0,32,116,32" origin="0.5,2" limb="Torso" ignorelimbscale="true" scale="0.5" />
     </Wearable>

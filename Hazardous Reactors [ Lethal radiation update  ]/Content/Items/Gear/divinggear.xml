@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Override>
-
   <Item name="" identifier="divingsuit" category="Diving,Equipment" tags="diving,deepdiving,provocative" scale="0.5" fireproof="true" description="" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy">
     <Price baseprice="250">
       <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="2" />
@@ -9,8 +8,8 @@
       <Price storeidentifier="merchantmilitary" minavailable="3" />
       <Price storeidentifier="merchantmine" multiplier="1.25" minavailable="5" />
     </Price>
-    <PreferredContainer primary="divingsuitcontainer" spawnprobability="1"/>
-    <PreferredContainer primary="wreckdivingsuitcontainer" spawnprobability="0.1"/>
+    <PreferredContainer primary="divingsuitcontainer" spawnprobability="1" />
+    <PreferredContainer primary="wreckdivingsuitcontainer" spawnprobability="0.1" />
     <Deconstruct time="30">
       <Item identifier="titaniumaluminiumalloy" />
       <Item identifier="rubber" />
@@ -56,8 +55,8 @@
       <sprite name="Regular Diving Suit Right Shoe" texture="Content/Items/Diving/reg_DivingSuit.png" limb="RightFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <StatusEffect type="OnWearing" target="Character" OxygenAvailable="-100.0" UseHullOxygen="false" />
       <StatusEffect type="OnWearing" target="Character" HideFace="true" ObstructVision="true" PressureProtection="4000.0" SpeedMultiplier="0.8" LowPassMultiplier="0.2" setvalue="true" disabledeltatime="true">
-        <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true"/>
-        <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true"/>
+        <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true" />
+        <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true" />
       </StatusEffect>
       <!-- Refill oxygen when the suit is contained. -->
       <StatusEffect type="OnContained" target="Contained" Condition="1.0" interval="1" disabledeltatime="true">
@@ -87,9 +86,9 @@
       </StatusEffect>
       <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,bitewounds,lacerations,bleeding" damagemultiplier="0.65" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier armorsector="0.0,360.0" afflictiontypes="burn" damagemultiplier="0.75" damagesound="" deflectprojectiles="true" />
-      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="radiationsickness" damagemultiplier="0.75" damagesound="LimbArmor"/>
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="radiationsickness" damagemultiplier="0.75" damagesound="LimbArmor" />
       <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="contamination" damagemultiplier="0.0" damagesound="LimbArmor" />
-      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="huskinfection" damagemultiplier="0.5" probabilitymultiplier="0.5" damagesound="LimbArmor"/>
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="huskinfection" damagemultiplier="0.5" probabilitymultiplier="0.5" damagesound="LimbArmor" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="0,-50" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use">
       <Upgrade gameversion="0.1401.0.0" msg="ItemMsgPickUpUse" />
@@ -99,17 +98,16 @@
       <StatusEffect type="OnWearing" target="Contained">
         <RequiredItem items="oxygensource" type="Contained" />
         <Conditional condition="lt 5.0" />
-        <Sound file="Content/Items/WarningBeepSlow.ogg" range="500" loop="true"/>
+        <Sound file="Content/Items/WarningBeepSlow.ogg" range="500" loop="true" />
       </StatusEffect>
       <StatusEffect type="OnWearing" target="Contained" playsoundonrequireditemfailure="true">
         <RequiredItem items="oxygensource" type="Contained" matchonempty="true" />
         <Conditional condition="lte 0.0" />
-        <Sound file="Content/Items/WarningBeep.ogg" range="500" loop="true"/>
+        <Sound file="Content/Items/WarningBeep.ogg" range="500" loop="true" />
       </StatusEffect>
     </ItemContainer>
-    <aitarget maxsightrange="1500" />  
+    <aitarget maxsightrange="1500" />
   </Item>
-
   <Item name="" identifier="abyssdivingsuit" category="Diving,Equipment" tags="diving,deepdiving,provocative" scale="0.5" fireproof="true" description="" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy">
     <Price baseprice="550" minleveldifficulty="35">
       <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="1" />
@@ -118,8 +116,8 @@
       <Price storeidentifier="merchantmilitary" minavailable="2" />
       <Price storeidentifier="merchantmine" multiplier="1.25" minavailable="2" />
     </Price>
-    <PreferredContainer primary="divingsuitcontainer"/>
-    <PreferredContainer primary="wreckdivingsuitcontainer" spawnprobability="0.05"/>
+    <PreferredContainer primary="divingsuitcontainer" />
+    <PreferredContainer primary="wreckdivingsuitcontainer" spawnprobability="0.05" />
     <Deconstruct time="30">
       <Item identifier="titaniumaluminiumalloy" />
       <Item identifier="titaniumaluminiumalloy" />
@@ -128,7 +126,7 @@
       <Item identifier="rubber" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="45">
-      <RequiredSkill identifier="mechanical" level="60" />        
+      <RequiredSkill identifier="mechanical" level="60" />
       <RequiredItem identifier="divingsuit" />
       <RequiredItem identifier="titaniumaluminiumalloy" />
       <RequiredItem identifier="titaniumaluminiumalloy" />
@@ -165,8 +163,8 @@
       <sprite name="Abyss Diving Suit Right Shoe" texture="Content/Items/Diving/Abyss_DivingSuit.png" limb="RightFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <StatusEffect type="OnWearing" target="Character" OxygenAvailable="-100.0" UseHullOxygen="false" />
       <StatusEffect type="OnWearing" target="Character" HideFace="true" ObstructVision="true" PressureProtection="10000.0" SpeedMultiplier="0.7" PropulsionSpeedMultiplier="0.5" LowPassMultiplier="0.2" setvalue="true" disabledeltatime="true">
-        <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true"/>
-        <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true"/>
+        <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true" />
+        <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true" />
       </StatusEffect>
       <!-- Refill oxygen when the suit is contained. -->
       <StatusEffect type="OnContained" target="Contained" Condition="1.0" interval="1" disabledeltatime="true">
@@ -206,28 +204,27 @@
       <StatusEffect type="OnWearing" target="Contained">
         <RequiredItem items="oxygensource" type="Contained" />
         <Conditional condition="lt 5.0" />
-        <Sound file="Content/Items/WarningBeepSlow.ogg" range="500" loop="true"/>
+        <Sound file="Content/Items/WarningBeepSlow.ogg" range="500" loop="true" />
       </StatusEffect>
       <StatusEffect type="OnWearing" target="Contained" playsoundonrequireditemfailure="true">
         <RequiredItem items="oxygensource" type="Contained" matchonempty="true" />
         <Conditional condition="lte 0.0" />
-        <Sound file="Content/Items/WarningBeep.ogg" range="500" loop="true"/>
+        <Sound file="Content/Items/WarningBeep.ogg" range="500" loop="true" />
       </StatusEffect>
     </ItemContainer>
     <aitarget maxsightrange="1500" />
   </Item>
-
   <Item name="" identifier="combatdivingsuit" category="Diving,Equipment" tags="diving,deepdiving,provocative" scale="0.5" fireproof="true" description="" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy">
     <Price baseprice="560" minleveldifficulty="35">
       <Price storeidentifier="merchantoutpost" sold="false" multiplier="0.9" />
-      <Price storeidentifier="merchantcity" multiplier="0.85" minavailable="2" sold="false"/>
+      <Price storeidentifier="merchantcity" multiplier="0.85" minavailable="2" sold="false" />
       <Price storeidentifier="merchantresearch" sold="false" />
-      <Price storeidentifier="merchantmilitary" minavailable="3"/>
+      <Price storeidentifier="merchantmilitary" minavailable="3" />
       <Price storeidentifier="merchantmine" sold="false" multiplier="1.25" />
-      <Price storeidentifier="merchantarmory" multiplier="0.85" minavailable="3"/>
+      <Price storeidentifier="merchantarmory" multiplier="0.85" minavailable="3" />
     </Price>
-    <PreferredContainer primary="divingsuitcontainer"/>
-    <PreferredContainer primary="wreckdivingsuitcontainer" spawnprobability="0.05"/>
+    <PreferredContainer primary="divingsuitcontainer" />
+    <PreferredContainer primary="wreckdivingsuitcontainer" spawnprobability="0.05" />
     <Deconstruct time="30">
       <Item identifier="ballisticfiber" />
       <Item identifier="titaniumaluminiumalloy" />
@@ -276,8 +273,8 @@
       <sprite name="Combat Diving Suit Right Shoe" texture="Content/Items/Diving/combat_DivingSuit.png" limb="RightFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <StatusEffect type="OnWearing" target="Character" OxygenAvailable="-100.0" UseHullOxygen="false" />
       <StatusEffect type="OnWearing" target="Character" HideFace="true" ObstructVision="true" PressureProtection="6000.0" SpeedMultiplier="0.95" PropulsionSpeedMultiplier="1.4" LowPassMultiplier="0.2" setvalue="true" disabledeltatime="true">
-        <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true"/>
-        <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true"/>
+        <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true" />
+        <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true" />
       </StatusEffect>
       <!-- Refill oxygen when the suit is contained. -->
       <StatusEffect type="OnContained" target="Contained" Condition="1.0" interval="1" disabledeltatime="true">
@@ -317,12 +314,12 @@
       <StatusEffect type="OnWearing" target="Contained">
         <RequiredItem items="oxygensource" type="Contained" />
         <Conditional condition="lt 5.0" />
-        <Sound file="Content/Items/WarningBeepSlow.ogg" range="500" loop="true"/>
+        <Sound file="Content/Items/WarningBeepSlow.ogg" range="500" loop="true" />
       </StatusEffect>
       <StatusEffect type="OnWearing" target="Contained" playsoundonrequireditemfailure="true">
         <RequiredItem items="oxygensource" type="Contained" matchonempty="true" />
         <Conditional condition="lte 0.0" />
-        <Sound file="Content/Items/WarningBeep.ogg" range="500" loop="true"/>
+        <Sound file="Content/Items/WarningBeep.ogg" range="500" loop="true" />
       </StatusEffect>
     </ItemContainer>
     <aitarget maxsightrange="1500" />
