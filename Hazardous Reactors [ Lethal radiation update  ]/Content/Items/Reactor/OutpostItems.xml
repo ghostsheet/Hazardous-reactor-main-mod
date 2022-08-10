@@ -71,7 +71,7 @@
       </StatusEffect>
       <!-- REACTOR "DRY" EXPLOSION WITH ANY FUEL CONTAINED -->
       <StatusEffect type="OnBroken" target="This" FissionRate="0.0" disabledeltatime="true" stackable="false">
-        <RequiredItem items="fuelrod,fulguriumfuelrod,thoriumfuelrod,ekutility_incendiumfuelrod,fulguriumfuelrodvolatile" type="Contained" />
+        <RequiredItem items="fuelrod_active,fulguriumfuelrod,thoriumfuelrod_active,ekutility_incendiumfuelrod,fulguriumfuelrodvolatile" type="Contained" />
         <Conditional InWater="false" />
         <Explosion range="1000" structuredamage="100" force="10.0" camerashake="300" flashrange="10000" flashduration="5" screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="3.0">
           <Affliction identifier="burn" strength="200" />
@@ -84,7 +84,7 @@
       </StatusEffect>
       <!-- URANIUM/THORIUM MELTDOWN EFFECT -->
       <StatusEffect type="OnBroken" target="This" FissionRate="0.0" disabledeltatime="true" stackable="false">
-        <RequiredItem items="fuelrod,thoriumfuelrod" type="Contained" />
+        <RequiredItem items="fuelrod_active,thoriumfuelrod_active" type="Contained" />
         <Conditional InWater="false" />
         <Explosion range="3000" structuredamage="0" force="10" flames="false" sparks="false" shockwave="false" camerashake="0" smoke="false" flashrange="0" flashduration="0" ignorecover="true">
           <Affliction identifier="radiationsickness" strength="400" />
@@ -154,7 +154,7 @@
       </StatusEffect>
       <!-- MOLTEN RODS SPAWN EFFECT -->
       <StatusEffect type="OnBroken" target="this" delay="1" comparison="And">
-        <RequiredItem items="fuelrod,thoriumfuelrod" type="Contained" />
+        <RequiredItem items="fuelrod_active,thoriumfuelrod_active" type="Contained" />
         <Conditional InWater="false" />
         <SpawnItem identifier="molten_rods" spawnposition="ThisInventory" />
       </StatusEffect>
@@ -247,7 +247,7 @@
         <sound file="Content/Items/Reactor/ReactorOverheatAlarm.ogg" type="OnUse" range="10000.0" loop="true" volume="1.0" />
         <Conditional condition="lte 25" />
         <Conditional condition="gt 15" />
-        <RequiredItem items="fuelrod,fulguriumfuelrod,thoriumfuelrod,ekutility_incendiumfuelrod,fulguriumfuelrodvolatile" type="Contained" />
+        <RequiredItem items="fuelrod_active,fulguriumfuelrod,thoriumfuelrod_active,ekutility_incendiumfuelrod,fulguriumfuelrodvolatile" type="Contained" />
       </StatusEffect>
       <StatusEffect type="Always" target="This" comparison="And" condition="-0.6">
         <ParticleEmitter particle="smoke" particleburstamount="6" particleburstinterval="0.5" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" underwaterbubble="false" />
@@ -256,7 +256,7 @@
         <Conditional condition="lte 15" />
         <Conditional condition="gt 0" />
         <Fire size="1" />
-        <RequiredItem items="fuelrod,fulguriumfuelrod,thoriumfuelrod,ekutility_incendiumfuelrod,fulguriumfuelrodvolatile" type="Contained" />
+        <RequiredItem items="fuelrod_active,fulguriumfuelrod,thoriumfuelrod_active,ekutility_incendiumfuelrod,fulguriumfuelrodvolatile" type="Contained" />
       </StatusEffect>
       <!-- STEAM VISUAL + SOUND EFFECTS -->
       <StatusEffect type="Always" target="This" comparison="And">
@@ -319,14 +319,35 @@
     </ConnectionPanel>
     <!-- FUEL HEAT PRODUCTION -->
     <ItemContainer capacity="4" maxstacksize="1" canbeselected="true" hudpos="0.5,0.15" slotsperrow="1" uilabel="FuelRods">
+
+      <!--Uranium Fuel Rod Switch-->
       <Containable items="fuelrod">
+        <StatusEffect type="OnContaining" target="Contained">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnContaining" target="This" delay="0.1" stackable="false">
+          <SpawnItem identifiers="fuelrod_active" spawnposition="ThisInventory" spawnifinventoryfull="true"/>
+        </StatusEffect>
+      </Containable>
+
+      <!--Thorium Fuel Rod Switch-->
+      <Containable items="thoriumfuelrod">
+        <StatusEffect type="OnContaining" target="Contained">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnContaining" target="This" delay="0.1" stackable="false">
+          <SpawnItem identifiers="thoriumfuelrod_active" spawnposition="ThisInventory" spawnifinventoryfull="true"/>
+        </StatusEffect>
+      </Containable>
+
+      <Containable items="fuelrod_active">
         <StatusEffect type="OnContaining" target="This" AvailableFuel="80" disabledeltatime="true" />
+      </Containable>
+      <Containable items="thoriumfuelrod_active">
+        <StatusEffect type="OnContaining" target="This" AvailableFuel="100.0" disabledeltatime="true" />
       </Containable>
       <Containable items="fulguriumfuelrod">
         <StatusEffect type="OnContaining" target="This" AvailableFuel="70.0" disabledeltatime="true" />
-      </Containable>
-      <Containable items="thoriumfuelrod">
-        <StatusEffect type="OnContaining" target="This" AvailableFuel="100.0" disabledeltatime="true" />
       </Containable>
       <Containable items="ekutility_incendiumfuelrod">
         <StatusEffect type="OnContaining" target="This" AvailableFuel="200.0" disabledeltatime="true" />
@@ -353,7 +374,7 @@
       <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5" scalemax="5.0" mincondition="0.0" maxcondition="15.0" />
       <!-- WITH NON FULG ROD CONTAINED -->
       <StatusEffect type="OnFailure" target="this" Condition="-5">
-        <RequiredItem items="fuelrod,thoriumfuelrod,ekutility_incendiumfuelrod" type="Contained" />
+        <RequiredItem items="fuelrod_active,thoriumfuelrod_active,ekutility_incendiumfuelrod" type="Contained" />
         <Sound file="Content/Items/Weapons/IncendiumGrenade.ogg" range="1000" />
         <Explosion range="250" structuredamage="0" force="10" flames="false" sparks="true" shockwave="true" camerashake="0" ignorecover="false" smoke="true" flashrange="200" flashduration="2">
           <Affliction identifier="internaldamage" strength="10" />
@@ -382,7 +403,7 @@
       </StatusEffect>
       <!-- WITH URANIUM/THORIUM ROD CONTAINED -->
       <StatusEffect type="OnFailure" target="this">
-        <RequiredItem items="fuelrod,thoriumfuelrod" type="Contained" />
+        <RequiredItem items="fuelrod_active,thoriumfuelrod_active" type="Contained" />
         <Explosion range="1000" structuredamage="0" force="10" flames="false" sparks="true" shockwave="true" camerashake="0" ignorecover="false" smoke="false" flashrange="200" flashduration="2">
           <Affliction identifier="radiationsickness" strength="80" />
           <Affliction identifier="radiationgeiger" strength="80" />
