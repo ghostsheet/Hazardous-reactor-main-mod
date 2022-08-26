@@ -51,7 +51,7 @@
 
     <!-- Cheaper Recipe, No Recycling (for now) -->
     <Fabricate suitablefabricators="fabricator" requiredtime="15">
-      <RequiredSkill identifier="mechanical" level="25" />
+      <RequiredSkill identifier="electrical" level="25" />
       <RequiredItem identifier="iron" />
       <RequiredItem identifier="copper" />
       <RequiredItem identifier="uranium" />
@@ -202,7 +202,7 @@
 
     <!-- Cheaper Recipe, No Recycling (for now) -->
     <Fabricate suitablefabricators="fabricator" requiredtime="15">
-      <RequiredSkill identifier="mechanical" level="35" />
+      <RequiredSkill identifier="electrical" level="35" />
       <RequiredItem identifier="steel" />
       <RequiredItem identifier="copper" />
       <RequiredItem identifier="thorium" />
@@ -461,7 +461,7 @@
 
     <!-- Cheaper Recipe, No Recycling (for now) -->
     <Fabricate suitablefabricators="fabricator" requiredtime="15">
-      <RequiredSkill identifier="mechanical" level="45" />
+      <RequiredSkill identifier="electrical" level="45" />
       <RequiredItem identifier="titaniumaluminiumalloy" amount="2"/>
       <RequiredItem identifier="lead" />
       <RequiredItem identifier="fulgurium" />
@@ -838,7 +838,7 @@
         <Item identifier="incendium" copycondition="true" />
       </Deconstruct>
       <Fabricate suitablefabricators="fabricator" requiredtime="15">
-        <RequiredSkill identifier="mechanical" level="25" />
+        <RequiredSkill identifier="electrical" level="25" />
         <RequiredItem identifier="incendium" />
         <RequiredItem identifier="titaniumaluminiumalloy" />
         <RequiredItem identifier="titaniumaluminiumalloy" />
