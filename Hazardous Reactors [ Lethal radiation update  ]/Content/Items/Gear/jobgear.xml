@@ -8,22 +8,22 @@
     <ItemComponent>
       <StatusEffect type="Always" target="This" condition="-25" />
       <StatusEffect type="Always" target="NearbyCharacters" range="1600">
-        <Affliction identifier="radiationsickness" strength="6" />
-        <Affliction identifier="contamination" strength="6" />
-        <Affliction identifier="lethalradiation" strength="15" />
-        <Affliction identifier="radiationgeiger" strength="0.002" />
+        <Affliction identifier="radiationsickness" strength="15" />
+        <Affliction identifier="radiationgeiger" strength="15" />
+        <Affliction identifier="contamination" strength="15" />
+        <Affliction identifier="lethalradiation" strength="6" />
       </StatusEffect>
       <StatusEffect type="Always" target="NearbyCharacters" range="1200">
-        <Affliction identifier="radiationsickness" strength="16" />
-        <Affliction identifier="contamination" strength="16" />
-        <Affliction identifier="lethalradiation" strength="21" />
-        <Affliction identifier="radiationgeiger" strength="0.002" />
+        <Affliction identifier="radiationsickness" strength="21" />
+        <Affliction identifier="radiationgeiger" strength="21" />
+        <Affliction identifier="contamination" strength="21" />
+        <Affliction identifier="lethalradiation" strength="12" />
       </StatusEffect>
       <StatusEffect type="Always" target="NearbyCharacters" range="800">
         <Affliction identifier="radiationsickness" strength="24" />
+        <Affliction identifier="radiationgeiger" strength="24" />
         <Affliction identifier="contamination" strength="24" />
-        <Affliction identifier="lethalradiation" strength="24" />
-        <Affliction identifier="radiationgeiger" strength="0.002" />
+        <Affliction identifier="lethalradiation" strength="18" />
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
         <Remove />
@@ -42,12 +42,12 @@
     </Price>
     <Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="true">
       <RequiredSkill identifier="electrical" level="35" />
-      <RequiredItem identifier="fuelrod" mincondition="0.0" maxcondition="0.1" usecondition="false" />
+      <RequiredItem identifier="fuelrod_active" mincondition="0.0" maxcondition="0.1" usecondition="false" />
       <RequiredItem identifier="steel" />
     </Fabricate>
     <Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="true">
       <RequiredSkill identifier="electrical" level="35" />
-      <RequiredItem identifier="thoriumfuelrod" mincondition="0.0" maxcondition="0.1" usecondition="false" />
+      <RequiredItem identifier="thoriumfuelrod_active" mincondition="0.0" maxcondition="0.1" usecondition="false" />
       <RequiredItem identifier="steel" />
     </Fabricate>
     <Fabricate suitablefabricators="fabricator" requiredtime="25" requiresrecipe="true" amount="2">

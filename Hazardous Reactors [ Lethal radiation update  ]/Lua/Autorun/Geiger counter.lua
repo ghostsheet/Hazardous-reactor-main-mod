@@ -1,7 +1,7 @@
 local geigerRadsIndex = {}
 
 Hook.Add("geigercount", "geigereffect", function (effect, deltaTime, item, targets, worldPosition)
-  if targets[1] == nil then return end
+  if targets[1] == nil then item.condition = 100 return end
   if geigerRadsIndex[item] == nil then geigerRadsIndex[item] = 0 end
 
   local c = targets[1]

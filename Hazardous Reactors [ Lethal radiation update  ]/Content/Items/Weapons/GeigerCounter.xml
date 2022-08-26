@@ -3,17 +3,17 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,320,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="473,1,29,65" depth="0.55" origin="0.5,0.5" />
     <Body width="27" height="60" density="12" />
-      <PreferredContainer primary="reactorcab" minamount="2" maxamount="2" spawnprobability="1" />
+    <PreferredContainer primary="reactorcab" minamount="2" maxamount="2" spawnprobability="1" />
+    <Deconstruct time="20">
+      <Item identifier="fpgacircuit" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredSkill identifier="electrical" level="20" />
+      <RequiredItem identifier="plastic" />
+      <RequiredItem identifier="fpgacircuit" />
+    </Fabricate>
+
     <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="0,-15" msg="ItemMsgPickUpSelect">
-      <Deconstruct time="20">
-        <Item identifier="plastic" />
-        <Item identifier="fpgacircuit" />
-      </Deconstruct>
-      <Fabricate suitablefabricators="fabricator" requiredtime="30">
-        <RequiredSkill identifier="electrical" level="20" />
-        <RequiredItem identifier="plastic" />
-        <RequiredItem identifier="fpgacircuit" />
-      </Fabricate>
       <!-- LUA Geiger Counter-->
       <StatusEffect type="Always" target="Character" interval="1">
         <LuaHook name="geigercount" />
@@ -43,7 +43,6 @@
         <Conditional Condition="lt 20" />
         <sound file="%ModDir%/Content/Items/Reactor/extremeradiation.ogg" range="500.0" loop="true" volume="0.5" dontmuffle="true" />
       </StatusEffect>
-
     </Holdable>
   </Item>
 </Items>

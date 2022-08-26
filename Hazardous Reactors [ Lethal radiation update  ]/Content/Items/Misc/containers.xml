@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
 
-  <Item name="" identifier="fueltransportcylinder" tags="mediumitem,mobilecontainer,tool,hazardcontainement" description="" scale="0.5" linkable="true" pickdistance="150" impactsoundtag="impact_metal_heavy">
+  <Item name="" identifier="fueltransportcylinder" tags="mediumitem,mobilecontainer,tool,hazardcontainement" description="" scale="0.5" linkable="true" pickdistance="150" impactsoundtag="impact_metal_heavy" waterproof="true" fireproof="true">
     <PreferredContainer primary="reactorcab" minamount="1" maxamount="1" spawnprobability="1" />
     <Price baseprice="150">
       <Price storeidentifier="merchantoutpost" sold="false" />
@@ -37,7 +37,7 @@
     </ItemContainer>
   </Item>
 
-  <Item name="" identifier="fuelcrate" tags="crate,rodstorage,hazardcontainement" description="" scale="0.5" linkable="true" pickdistance="150" impactsoundtag="impact_metal_heavy">
+  <Item name="" identifier="fuelcrate" tags="crate,rodstorage,hazardcontainement" description="" scale="0.5" linkable="true" pickdistance="150" impactsoundtag="impact_metal_heavy" waterproof="true" fireproof="true">
     <Price baseprice="400" displaynonempty="true">
       <Price storeidentifier="merchantoutpost" sold="false" />
       <Price storeidentifier="merchantcity" minavailable="1" />
@@ -71,7 +71,7 @@
 
 <Override>
   <!-- End Game item, a large movable storage for Fuel Rods or material -->
-  <Item name="" identifier="ekutility_handtruck_reactorfuel" category="Equipment" Tags="ekutility_compatiblefuelstorage,hazardcontainement" pickdistance="75" scale="0.6" description="">
+  <Item name="" identifier="ekutility_handtruck_reactorfuel" category="Equipment" Tags="ekutility_compatiblefuelstorage,hazardcontainement" pickdistance="75" scale="0.6" description="" waterproof="true" fireproof="true">
     <Price baseprice="500" buyingpricemultiplier="7" minleveldifficulty="65" soldbydefault="false" soldeverywhere="false" minavailable="0" maxavailable="1">
       <Price storeidentifier="merchantmine" sold="true" minavailable="1" />
       <Price storeidentifier="merchantengineering" sold="true" multiplier="2.5" />

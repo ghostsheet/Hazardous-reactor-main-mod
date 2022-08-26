@@ -330,9 +330,13 @@
           <SpawnItem identifiers="fuelrod_active" spawnposition="ThisInventory" spawnifinventoryfull="true"/>
         </StatusEffect>
       </Containable>
+      <Containable items="fuelrod_active">
+        <StatusEffect type="OnContaining" target="This" AvailableFuel="80" disabledeltatime="true" />
+      </Containable>
 
       <!--Thorium Fuel Rod Switch-->
       <Containable items="thoriumfuelrod">
+        <!--CURSED AS SHIT MOVE THIS TO LUA-->
         <StatusEffect type="OnContaining" target="Contained">
           <Remove />
         </StatusEffect>
@@ -340,16 +344,21 @@
           <SpawnItem identifiers="thoriumfuelrod_active" spawnposition="ThisInventory" spawnifinventoryfull="true"/>
         </StatusEffect>
       </Containable>
-
-      <Containable items="fuelrod_active">
-        <StatusEffect type="OnContaining" target="This" AvailableFuel="80" disabledeltatime="true" />
-      </Containable>
       <Containable items="thoriumfuelrod_active">
         <StatusEffect type="OnContaining" target="This" AvailableFuel="100.0" disabledeltatime="true" />
       </Containable>
+
+      <!--FULGURIUM HEAT BULLSHIT-->
       <Containable items="fulguriumfuelrod">
-        <StatusEffect type="OnContaining" target="This" AvailableFuel="70.0" disabledeltatime="true" />
+        <!--CURSED AS SHIT MOVE THIS TO LUA-->
+        <StatusEffect type="OnContaining" target="Contained" Range="-1" tags="fulguriumactive" duration="1" stackable="false">
+          <Conditional Range="gt 1" TargetItemComponentName="LightComponent"/>
+        </StatusEffect>
+        <StatusEffect type="OnContaining" target="This" AvailableFuel="70.0" disabledeltatime="true">
+          <Conditional HasStatusTag="eq fulguriumactive" targetcontaineditem="true"/>
+        </StatusEffect>
       </Containable>
+
       <Containable items="ekutility_incendiumfuelrod">
         <StatusEffect type="OnContaining" target="This" AvailableFuel="200.0" disabledeltatime="true" />
       </Containable>
