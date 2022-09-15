@@ -164,7 +164,7 @@
         <Affliction identifier="radiationsickness" strength="25" />
         <Affliction identifier="radiationgeiger" strength="25" />
         <Affliction identifier="lethalradiation" strength="10" />
-        <Affliction identifier="stun" strength="1.5" />
+        <Affliction identifier="stun" strength="2.5" />
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
         <ParticleEmitter particle="muzzleflashnucleargun" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" scalemultiplier="0.75,0.75" />
@@ -183,7 +183,7 @@
           <Affliction identifier="radiationsickness" strength="65" />
           <Affliction identifier="radiationgeiger" strength="65" />
           <Affliction identifier="lethalradiation" strength="30" />
-          <Affliction identifier="stun" strength="3" />
+          <Affliction identifier="stun" strength="1.5" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="OnNotContained" target="This">
@@ -250,21 +250,15 @@
 
       <!--Uranium Fuel Rod Switch-->
       <Containable items="fuelrod">
-        <StatusEffect type="OnContaining" target="Contained">
-          <Remove />
-        </StatusEffect>
-        <StatusEffect type="OnContaining" target="This" delay="0.1" stackable="false">
-          <SpawnItem identifiers="fuelrod_active" spawnposition="ThisInventory" spawnifinventoryfull="true"/>
+        <StatusEffect type="OnContaining" target="Contained" duration="1" stackable="false">
+          <LuaHook name="fuelrodswap" />
         </StatusEffect>
       </Containable>
 
       <!--Thorium Fuel Rod Switch-->
       <Containable items="thoriumfuelrod">
-        <StatusEffect type="OnContaining" target="Contained">
-          <Remove />
-        </StatusEffect>
-        <StatusEffect type="OnContaining" target="This" delay="0.1" stackable="false">
-          <SpawnItem identifiers="thoriumfuelrod_active" spawnposition="ThisInventory" spawnifinventoryfull="true"/>
+        <StatusEffect type="OnContaining" target="Contained" duration="1" stackable="false">
+          <LuaHook name="fuelrodswap" />
         </StatusEffect>
       </Containable>
 
@@ -285,7 +279,7 @@
       <Attack structuredamage="20" targetforce="5" itemdamage="100" severlimbsprobability="0.5">
         <!-- Lower Burns, Extra Stuns -->
         <Affliction identifier="burn" strength="35" />
-        <Affliction identifier="stun" strength="3" />
+        <Affliction identifier="stun" strength="7" />
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
         <ParticleEmitter particle="muzzleflashnucleargun" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" scalemultiplier="0.75,0.75" />
@@ -301,7 +295,7 @@
         <!-- Lower Burns, Extra Stuns -->
         <Explosion range="125.0" structuredamage="20" itemdamage="30" force="10.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" flashcolor="255,0,0,255">
           <Affliction identifier="burn" strength="35" />
-          <Affliction identifier="stun" strength="6" />
+          <Affliction identifier="stun" strength="3" />
         </Explosion>
         <!-- EXTRA EMP -->
         <Explosion range="250.0" empstrength="1.5" force="0.0" ignorecover="true" showeffects="false" />
@@ -320,11 +314,14 @@
       <ParticleEmitter particle="FlareBubbles" emitacrossrayinterval="50" />
       <Attack structuredamage="20" targetforce="5" itemdamage="100" severlimbsprobability="0.5">
         <Affliction identifier="burn" strength="100" />
+        <Affliction identifier="stun" strength="2" />
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
         <ParticleEmitter particle="muzzleflashnucleargun" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" scalemultiplier="0.75,0.75" />
         <ParticleEmitter particle="weldspark" particleamount="5" anglemin="0" anglemax="360" velocitymin="300" velocitymax="350" scalemin="1.5" scalemax="1.9" drawontop="true" colormultiplier="150,255,195,180" />
         <ParticleEmitter particle="FlareBubbles" particleamount="3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="50" />
+        <!-- Extra Fires -->
+        <fire size="5.0" />
       </StatusEffect>
       <StatusEffect type="OnImpact" target="UseTarget">
         <Conditional entitytype="eq Structure" />
@@ -334,7 +331,7 @@
       <StatusEffect type="OnUse" target="This" disabledeltatime="true">
         <Explosion range="125.0" structuredamage="15" itemdamage="20" force="10.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" flashcolor="255,0,0,255">
           <Affliction identifier="burn" strength="50" />
-          <Affliction identifier="stun" strength="10" />
+          <Affliction identifier="stun" strength="1" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="OnNotContained" target="This">

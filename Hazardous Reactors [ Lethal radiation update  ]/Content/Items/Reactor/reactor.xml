@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Override>
-  <Item name="" identifier="reactor1" tags="reactor,hazardcontainement" type="Reactor" scale="0.5" linkable="true" category="Machine" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+  <Item name="" identifier="reactor1" tags="reactor,hazardcontainement" type="Reactor" scale="0.5" linkable="true" category="Machine" damagedbyexplosions="true" explosiondamagemultiplier="0.2" fireproof="false" waterproof="false">
     <Upgrade gameversion="0.10.0.0" scale="*0.5" />
     <trigger />
     <Sprite texture="Content/Items/Reactor/reactor.png" sourcerect="0,16,528,336" origin="0.5,0.45" depth="0.8" />
@@ -119,24 +119,6 @@
           <Affliction identifier="burn" strength="400" />
           <Affliction identifier="explosiondamage" strength="100" />
         </Explosion>
-      </StatusEffect>
-      <!-- INCENDIUM LOW FISSION EXPLOIT MITIGATION -->
-      <StatusEffect type="Always" target="This" delay="1" disabledeltatime="true" stackable="false" comparison="And">
-        <RequiredItem items="ekutility_incendiumfuelrod" type="Contained" />
-        <Conditional targetitemcomponent="Reactor" temperature="gt 2" />
-        <Explosion range="250" structuredamage="0" force="0.001" flames="false" sparks="false" shockwave="false" camerashake="0" ignorecover="false" smoke="false" flashrange="0" underwaterbubble="false" delay="1" stackable="false">
-          <Affliction identifier="burn_emitter_rod" strength="100" />
-        </Explosion>
-      </StatusEffect>
-      <StatusEffect type="Always" target="This" disabledeltatime="true" stackable="false" comparison="And">
-        <RequiredItem items="ekutility_incendiumfuelrod" type="Contained" />
-        <Conditional targetitemcomponent="Reactor" temperature="gt 2" />
-        <Sound file="Content/Items/Tools/FlareLoop.ogg" range="350" volume="1.0" loop="true" />
-      </StatusEffect>
-      <StatusEffect type="Always" target="This" disabledeltatime="true" delay="0.5" stackable="false" condition="-0.2" comparison="And">
-        <RequiredItem items="ekutility_incendiumfuelrod" type="Contained" />
-        <Conditional targetitemcomponent="Reactor" temperature="gt 2" />
-        <Conditional condition="gt 27" />
       </StatusEffect>
       <!-- INCENDIUM CRISIS ROD SPAWN EFFECT -->
       <StatusEffect type="OnBroken" target="this" delay="1" comparison="And">
@@ -318,55 +300,76 @@
       <output name="condition_out" displayname="connection.conditionout" />
       <output name="fuel_percentage_left" displayname="connection.fuelpercentageout" />
     </ConnectionPanel>
+
+
     <!-- FUEL HEAT PRODUCTION -->
     <ItemContainer capacity="4" maxstacksize="1" canbeselected="true" hudpos="0.5,0.15" slotsperrow="1" uilabel="FuelRods">
 
       <!--Uranium Fuel Rod Switch-->
       <Containable items="fuelrod">
-        <StatusEffect type="OnContaining" target="Contained">
-          <Remove />
-        </StatusEffect>
-        <StatusEffect type="OnContaining" target="This" delay="0.1" stackable="false">
-          <SpawnItem identifiers="fuelrod_active" spawnposition="ThisInventory" spawnifinventoryfull="true"/>
+        <StatusEffect type="OnContaining" target="Contained" duration="1" stackable="false">
+          <LuaHook name="fuelrodswap" />
         </StatusEffect>
       </Containable>
+      <!--Uranium Fuel Rod Actual -->
       <Containable items="fuelrod_active">
         <StatusEffect type="OnContaining" target="This" AvailableFuel="80" disabledeltatime="true" />
       </Containable>
 
       <!--Thorium Fuel Rod Switch-->
       <Containable items="thoriumfuelrod">
-        <!--CURSED AS SHIT MOVE THIS TO LUA-->
-        <StatusEffect type="OnContaining" target="Contained">
-          <Remove />
-        </StatusEffect>
-        <StatusEffect type="OnContaining" target="This" delay="0.1" stackable="false">
-          <SpawnItem identifiers="thoriumfuelrod_active" spawnposition="ThisInventory" spawnifinventoryfull="true"/>
+        <StatusEffect type="OnContaining" target="Contained" duration="1" stackable="false">
+          <LuaHook name="fuelrodswap" />
         </StatusEffect>
       </Containable>
+      <!--Thorium Fuel Rod Actual -->
       <Containable items="thoriumfuelrod_active">
         <StatusEffect type="OnContaining" target="This" AvailableFuel="100.0" disabledeltatime="true" />
       </Containable>
 
-      <!--FULGURIUM HEAT BULLSHIT-->
+      <!--Fulgurium Fuel Rod HEAT system-->
       <Containable items="fulguriumfuelrod">
-        <!--CURSED AS SHIT MOVE THIS TO LUA-->
-        <StatusEffect type="OnContaining" target="Contained" Range="-1" tags="fulguriumactive" duration="1" stackable="false">
-          <Conditional Range="gt 1" TargetItemComponentName="LightComponent"/>
+        <!-- Slowly Lose heat in Reactor & Give AvailableFuel using lua (Bothside)-->
+        <StatusEffect type="OnContaining" target="Contained">
+          <LuaHook name="fulguriumavailablefuel" />
         </StatusEffect>
-        <StatusEffect type="OnContaining" target="This" AvailableFuel="70.0" disabledeltatime="true">
-          <Conditional HasStatusTag="eq fulguriumactive" targetcontaineditem="true"/>
+        <!-- Corrects the Turbine Output!-->
+        <StatusEffect type="OnContaining" target="Contained" Range="-0.5" interval="1" disabledeltatime="true">
+          <LuaHook name="fulguriumrodspecial" />
+        </StatusEffect>
+        <!-- Increase Heat if HOT REACTOR, More if NEAR MELTDOWN-->
+        <StatusEffect type="OnContaining" target="Contained" Range="20" comparison="And">
+          <Conditional Temperature="gt 75" targetitemcomponent="Reactor" targetcontainer="true"/>
+        </StatusEffect>
+        <StatusEffect type="OnContaining" target="Contained" Range="40" comparison="And">
+          <Conditional Temperature="gt 90" targetitemcomponent="Reactor" targetcontainer="true"/>
         </StatusEffect>
       </Containable>
 
+      <!--Incendium Fuel Rod HEAT system-->
       <Containable items="ekutility_incendiumfuelrod">
-        <StatusEffect type="OnContaining" target="This" AvailableFuel="200.0" disabledeltatime="true" />
+        <!--Give extra Fuel dependin on heat level lua (Bothside)-->
+        <StatusEffect type="OnContaining" target="Contained">
+          <LuaHook name="incendiumavailablefuel" />
+        </StatusEffect>
+        <!-- Slowly Gain Heat + Melty Effect -->
+        <StatusEffect type="OnContaining" target="Contained" Range="1" interval="2" disabledeltatime="true">
+          <LuaHook name="incendiumrodspecial" />
+        </StatusEffect>
+        <!-- Increase Heat if HOT REACTOR, More if NEAR MELTDOWN-->
+        <StatusEffect type="OnContaining" target="Contained" Range="5" comparison="And">
+          <Conditional Temperature="gt 75" targetitemcomponent="Reactor" targetcontainer="true"/>
+        </StatusEffect>
+        <StatusEffect type="OnContaining" target="Contained" Range="10" comparison="And">
+          <Conditional Temperature="gt 90" targetitemcomponent="Reactor" targetcontainer="true"/>
+        </StatusEffect>
+      </Containable>
+
+      <Containable items="fulguriumfuelrodvolatile">
+        <StatusEffect type="OnContaining" target="This" AvailableFuel="120.0" disabledeltatime="true" />
       </Containable>
       <Containable items="supercritical_incendium">
         <StatusEffect type="OnContaining" target="This" AvailableFuel="2000.0" disabledeltatime="true" />
-      </Containable>
-      <Containable items="fulguriumfuelrodvolatile">
-        <StatusEffect type="OnContaining" target="This" AvailableFuel="120.0" disabledeltatime="true" />
       </Containable>
       <Containable items="supercritical_fulgurium">
         <StatusEffect type="OnContaining" target="This" AvailableFuel="1000.0" disabledeltatime="true" />

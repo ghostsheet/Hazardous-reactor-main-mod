@@ -96,11 +96,13 @@
 
     <!-- LETHAL LIGHT -->
     <LightComponent lightcolor="0,0,0,0" range="0" ison="true" drawbehindsubs="true" castshadows="false">
-      <StatusEffect type="OnActive" target="NearbyCharacters" range="160" interval="1" disabledeltatime="true">
-        <Affliction identifier="radiationsickness" strength="0.1" />
-        <Affliction identifier="radiationgeiger" strength="0.1" />
+      <StatusEffect type="OnActive" target="NearbyCharacters" range="180" interval="1" disabledeltatime="true">
+        <Conditional InWater="false" />
+        <Affliction identifier="radiationsickness" strength="0.05" />
+        <Affliction identifier="radiationgeiger" strength="0.05" />
       </StatusEffect>
       <StatusEffect type="OnActive" target="NearbyCharacters" range="350" interval="1" disabledeltatime="true">
+        <Conditional InWater="false" />
         <Affliction identifier="radiationsickness" strength="0.002" />
         <Affliction identifier="radiationgeiger" strength="0.002" />
       </StatusEffect>
@@ -141,11 +143,13 @@
 
     <!-- LETHAL LIGHT -->
     <LightComponent lightcolor="0,0,0,0" range="0" ison="true" drawbehindsubs="true" castshadows="false">
-      <StatusEffect type="OnActive" target="NearbyCharacters" range="160" interval="1" disabledeltatime="true">
-        <Affliction identifier="radiationsickness" strength="0.05" />
-        <Affliction identifier="radiationgeiger" strength="0.05" />
+      <StatusEffect type="OnActive" target="NearbyCharacters" range="180" interval="1" disabledeltatime="true">
+        <Conditional InWater="false" />
+        <Affliction identifier="radiationsickness" strength="0.025" />
+        <Affliction identifier="radiationgeiger" strength="0.025" />
       </StatusEffect>
       <StatusEffect type="OnActive" target="NearbyCharacters" range="350" interval="1" disabledeltatime="true">
+        <Conditional InWater="false" />
         <Affliction identifier="radiationsickness" strength="0.001" />
         <Affliction identifier="radiationgeiger" strength="0.001" />
       </StatusEffect>
