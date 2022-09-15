@@ -783,11 +783,10 @@
 
   <!-- Incendium ROD REACTOR HAZARD --> 
   <Item identifier="heatspikeemitter" hideinmenus="true">
-    <Sprite texture="Content/Items/Weapons/TurretsAndDepthCharges.png" sourcerect="0,0,130,89" depth="0.1" origin="0.5,0.5" />
-    <!--Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" /-->
+    <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
     <ItemComponent>
       <!-- SFX  -->
-      <!-- Sound file="Content/Items/Tools/FlareLoop.ogg" range="350" volume="1.0" loop="true" /-->
+      <!--Sound file="Content/Items/Tools/FlareLoop.ogg" type="Always" range="350" volume="1.0" loop="true" /-->
       <!-- Adds Temp to reactor, damages it, adds Burn emitter, Damages local structure -->
       <StatusEffect type="Always" target="NearbyItems" range="200.0" targettags="reactor1" interval="0.5" Temperature="20" Condition="-2" disabledeltatime="true">
         <Explosion range="250" structureDamage="10.0" force="0.001" ignorecover="false" showeffects="false" sparks="true">
